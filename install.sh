@@ -1,60 +1,71 @@
 #!/bin/bash
 
 
-echo -e "-- Welcome to dotfiles setup script by Pavle M --\n\n"
+echo -e "---# Welcome to dotfiles setup script by Pavle M #---"
+echo -e "_____________________________________________________\n"
 
-echo "Insert your distro [arch, debian]:"
-read distro
 
-echo -e "\n"
+### UPDATE AND INSTALL PACKAGES ###
+packets_to_install="git neovim zsh lsd tree redshift"
 
-# Define distro specific commands
-if [ $distro = arch ]; then
+echo -e "\nDo you want to install essential packets? ($packets_to_install) [Y/n]: \c"
+read -r yn
 
-    update_system_cmd='sudo pacman -Syu' 
-    package_install_cmd='sudo pacman -S --needed' 
-
-elif [ $distro = debian ]; then
-
-    update_system_cmd='sudo apt update && sudo apt upgrade' 
-    package_install_cmd='sudo apt install' 
-
+[[ $yn = "Y" || $yn = "y" ]] &&
+if [ -f /usr/bin/pacman ]; then
+    echo -e "/nInstalling packets with pacman/n"
+    sudo pacman -Syu
+    sudo pacman -S --needed $packets_to_install
+elif [ -f /usr/bin/apt ]; then
+    echo -e "/nInstalling packets with apt/n"
+    sudo apt update && sudo apt upgrade
+    sudo apt install $packets_to_install
 else 
-    echo "Wrong distro"
-    exit 0
+    echo "Packet manager not supported"
 fi
 
 
-# Update system
-echo -e "\nUpdating system...\n"
-#$update_system_cmd
-
-# Install essential packages
-echo -e "\nInstalling packages...\n"
-#$package_install_cmd git neovim zsh lsd tree redshift
 
 
 
-# Link dotfiles
-echo -e "\nLinking dotfiles...\n"
+### LINK DOTFILES ###
+echo -e "\nDo you want to link dotfiles? [Y/n]: \c"
+read -r yn
 
-dir=$(pwd)
+if [[ $yn = "Y" || $yn = "y" ]]; then 
+    echo -e "\nLinking dotfiles...\n"
 
-ln -s $dir/.config/nvim $HOME/.config/nvim
-ln -s $dir/.zshrc $HOME/.zshrc
-ln -s $dir/.xinit $HOME/.xinit
-ln -s $dir/.xprofile $HOME/.xprofile
+    dir=$(pwd)
 
+    # Link in home dir
+    for file in $dir/{.,}*; do
+        if [[ ! $file =~ (\.config|install\.sh|\.$|\.git) ]]; then # RegEx expression
+            ln -sv $file $HOME
+        fi
+    done
 
-
-# Install zsh plugins
-echo -e "\nInstalling zsh plugins...\n"
-#git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
-#git clone https://github.com/jeffreytse/zsh-vi-mode $HOME/.zsh/zsh-vi-mode
-#git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
-#git clone https://github.com/romkatv/powerlevel10k $HOME/.zsh/powerlevel10k
+    # Link in .config dir
+    for file in $dir/.config/{.,}*; do
+        if [[ ! $file =~ \.$ ]]; then # RegEx expression
+            ln -sv $file $HOME/.config
+        fi
+    done
+fi
 
 
 
 
 
+
+### INSTALL ZSH PLUGINS ###
+
+echo -e "\nDo you want to download zsh plugins? [Y/n]: \c"
+read -r yn
+
+if [[ $yn = "Y" || $yn = "y" ]]; then 
+    echo -e "\nInstalling zsh plugins...\n"
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
+    git clone https://github.com/jeffreytse/zsh-vi-mode $HOME/.zsh/zsh-vi-mode
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+    git clone https://github.com/romkatv/powerlevel10k $HOME/.zsh/powerlevel10k
+fi
