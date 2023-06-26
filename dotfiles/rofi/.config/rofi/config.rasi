@@ -1,0 +1,21 @@
+configuration {
+	modes: "window,drun,run";
+	font: "JetBrains Mono Nerd Font Medium 16";
+	show-icons: true;
+    display-drun: "Apps";
+    display-run: "Run";
+    drun-display-format: "{icon} {name}";
+    icon-theme: "Papirus";
+
+	kb-remove-char-back: "BackSpace,Shift+BackSpace";
+	kb-remove-to-eol: "";
+	kb-accept-entry: "Control+l,Return,KP_Enter";
+	kb-mode-complete: "";
+	kb-row-up: "Up,Control+k";
+	kb-row-down: "Down,Control+j";
+	kb-cancel: "Escape,Control+h,Super+a,Super+A";
+
+}
+
+@theme "Monokai"
+
