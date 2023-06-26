@@ -87,8 +87,10 @@ fi
 echo -e "\nDo you want to link dotfiles? [Y/n]: \c"
 read -r yn
 
-[[ $yn = "Y" || $yn = "y" ]] &&
+if [[ $yn = "Y" || $yn = "y" ]]; then
     (cd ./dotfiles/ && stow * -t $HOME)
+    fc-cache -f -v
+fi
 
 
 ### INSTALL ZSH PLUGINS ###
