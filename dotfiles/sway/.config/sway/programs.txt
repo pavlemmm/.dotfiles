@@ -1,9 +1,0 @@
-sway
-swayidle
-swaylock
-swayimg
-swaybg
-waybar
-wofi
-alacritty
-gammastep
