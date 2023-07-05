@@ -1,20 +1,111 @@
 configuration {
-	modes: "window,drun,run";
-	font: "JetBrains Mono Nerd Font Medium 16";
+	/*---------- General setting ----------*/
+	modi: "drun,run,filebrowser,window";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
 	show-icons: true;
-    display-drun: "Apps";
-    display-run: "Run";
-    drun-display-format: "{icon} {name}";
+	icon-theme: "Papirus";
+	steal-focus: false;
 
-	kb-remove-char-back: "BackSpace,Shift+BackSpace";
-	kb-remove-to-eol: "";
-	kb-accept-entry: "Control+l,Return,KP_Enter";
-	kb-mode-complete: "";
-	kb-row-up: "Up,Control+k";
-	kb-row-down: "Down,Control+j";
-	kb-cancel: "Escape,Control+h,Super+a,Super+A";
+	/*---------- Matching setting ----------*/
+	matching: "normal";
+	tokenize: true;
+
+	/*---------- SSH settings ----------*/
+	ssh-client: "ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+	parse-hosts: true;
+	parse-known-hosts: true;
+
+	/*---------- Drun settings ----------*/
+	drun-categories: "";
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun {
+		/** Parse user desktop files. */
+		parse-user:   true;
+		/** Parse system desktop files. */
+		parse-system: true;
+    }
+
+	/*---------- Run settings ----------*/
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} -e {cmd}";
+
+	/*---------- Fallback Icon ----------*/
+	run,drun {
+		fallback-icon: "application-x-addon";
+	}
+
+	/*---------- Window switcher settings ----------*/
+	window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: false;
+
+	/*---------- Combi settings ----------*/
+/*	combi-modi: "window,run";*/
+/*	combi-hide-mode-prefix: false;*/
+/*	combi-display-format: "{mode} {text}";*/
+
+	/*---------- History and Sorting ----------*/
+	disable-history: false;
+	sorting-method: "normal";
+	max-history-size: 25;
+
+	/*---------- Display setting ----------*/
+	display-run: "Run";
+	display-drun: "Apps";
+	display-filebrowser: "Files";
+	display-window: "Windows";
+	display-windowcd: "Window CD";
+	display-ssh: "SSH";
+	display-combi: "Combi";
+	display-keys: "Keys";
+
+	/*---------- Misc setting ----------*/
+	terminal: "rofi-sensible-terminal";
+	font: "JetBrainsMono 12";
+	sort: false;
+	threads: 0;
+	click-to-exit: true;
+
+	/*---------- File browser settings ----------*/
+    filebrowser {
+/*	  directory: "/home";*/
+      directories-first: true;
+      sorting-method:    "name";
+    }
+
+	/*---------- Other settings ----------*/
+    timeout {
+      action: "kb-cancel";
+      delay:  0;
+    }
+
+	/*---------- Keybindings ----------*/
+
+    /* Remove conflicting keybinds */
+    kb-mode-complete: "";
+    kb-remove-char-back: "BackSpace";
+    kb-remove-to-eol: "";
+    kb-move-char-back: "";
+    kb-move-char-forward: "";
+
+    /* Custom keybinds */
+	kb-accept-entry: "Return,KP_Enter";
+	kb-cancel: "Escape";
+	kb-mode-next: "Right,Ctrl+l";
+	kb-mode-previous: "Left,Control+h";
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
 
 }
-
-@theme "Monokai"
-

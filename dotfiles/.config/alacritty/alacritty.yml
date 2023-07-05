@@ -308,7 +308,7 @@ schemes:
     # Default colors
     primary:
       # hard contrast: background = '0x1d2021'
-      background: '#282828'
+      background: '#000000'
       # soft contrast: background = '0x32302f'
       foreground: '#ebdbb2'
 
@@ -655,7 +655,7 @@ schemes:
 # *TomorrowNight
 # *Catppuccin
 
-colors: *Dracula
+colors: *GruvboxDark
 
 
 # Visual Bell
@@ -943,7 +943,7 @@ key_bindings:
   # - { key: Copy,      mods: None,          action: Copy                        }
   # - { key: L,         mods: Control,       action: ClearLogNotice              }
   # - { key: L,         mods: Control,       chars: "\x0c"                       }
-  # - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
-  # - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
-  # - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
-  # - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
+  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
+  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
+  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
+  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }

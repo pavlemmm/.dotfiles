@@ -1,23 +1,19 @@
-from libqtile import layout, widget
+from libqtile import layout
 from libqtile.bar import Gap
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
-# from libqtile.utils import guess_terminal
-from libqtile import hook
-from libqtile.log_utils import logger
-import os
+# from libqtile.log_utils import logger
+from os.path import expanduser
+from settings import *
+from custom_functions import *
 
-from colorschemes import colors
-from bar_transparent import bar
-
-
-mod = "mod4"
+from bar_transparent import bar as bar_transparent
+from bar_solid import bar as bar_solid
 
 
-# terminal = guess_terminal()
-terminal = "alacritty"
 
+ROFI_PATH = expanduser("~/.config/rofi/scripts/")
 
 # KEYBINDINGS
 keys = [
@@ -29,8 +25,6 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     Key([mod], "f", lazy.window.toggle_floating()),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
     Key(
         [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
@@ -42,46 +36,58 @@ keys = [
     ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key(
         [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
     ),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "b", lazy.hide_show_bar(), desc="Hides the bar"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
+    Key([mod], "b", lazy.hide_show_bar("top"), desc="Hides the bar"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key(
         [mod],
         "space",
         lazy.layout.toggle_split(),
         desc="Toggle split",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key(
         [mod],
         "c",
         lazy.widget["keyboardlayout"].next_keyboard(),
         desc="Next keyboard layout",
     ),
-    Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
-    Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Launch rofi run mode"),
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
+    # Launchers
+    Key([mod], "a", lazy.spawn(ROFI_PATH + "launcher.sh"), desc="Launch rofi launcher"),
+    Key(
+        [mod, "shift"],
+        "a",
+        lazy.spawn(ROFI_PATH + "allapps.sh"),
+        desc="Launch rofi all apps",
+    ),
+    Key([mod], "o", lazy.spawn(ROFI_PATH + "window.sh"), desc="Launch rofi window"),
+    Key(
+        [mod],
+        "q",
+        executeShellCmd(ROFI_PATH + "shortcuts.sh"),
+        desc="Launch rofi shortcuts",
+    ),
+    Key(
+        [],
+        "Print",
+        executeShellCmd(ROFI_PATH + "screenshot.sh"),
+        desc="Launch rofi printscreen menu",
+    ),
     Key(
         [mod, "shift"],
         "w",
-        lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/shutdown-menu.sh")),
-        desc="Shutdown Menu",
+        executeShellCmd(ROFI_PATH + "powermenu.sh"),
+        desc="Launch rofi power menu",
     ),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
+    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
 # GROUPS
@@ -125,9 +131,6 @@ for i in groups:
 
 # LAYOUTS
 
-margin = 4
-margin_on_single = 4
-
 layouts = [
     layout.Columns(
         border_focus=colors["primary"],
@@ -136,9 +139,9 @@ layouts = [
         border_normal_stack=colors["unfocused-secondary"],
         border_width=2,
         margin=margin,
-        margin_on_single=margin_on_single,
+        margin_on_single=margin,
     ),
-    layout.Max(margin=margin_on_single),
+    layout.Max(margin=margin),
     # layout.Floating(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -163,10 +166,10 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar,
-        bottom=Gap(4),
-        left=Gap(4),
-        right=Gap(4),
+        top=bar_transparent if bar_type == "transparent" else bar_solid,
+        bottom=Gap(margin),
+        left=Gap(margin),
+        right=Gap(margin),
         wallpaper="~/Pictures/mountains.jpg",
         wallpaper_mode="stretch",
     ),
@@ -203,33 +206,6 @@ floating_layout = layout.Floating(
     ]
 )
 
-
-# AUTOSTART
-@hook.subscribe.startup_once
-def on_startup():
-    os.system(os.path.expanduser("~/.config/qtile/scripts/autostart.sh"))
-
-
-# WINDOWS TO GROUPS
-windows_to_groups = {
-    # window class   allowed groups   fallback group
-    "firefox": (["WWW"], "1"),
-    "Alacritty": (["TERM", "DEV", "NOTE"], "2"),
-    "Pcmanfm": (["FILE"], "8"),
-    "discord": (["UTIL"], "9"),
-}
-
-
-@hook.subscribe.client_new
-def new_clients(c):
-    window_class = c.get_wm_class()[1]
-    current_group = c.qtile.current_group.label
-    if window_class not in windows_to_groups:
-        return
-
-    allowed_groups, fallback = windows_to_groups[window_class]
-    if current_group not in allowed_groups:
-        c.togroup(fallback)
 
 
 # SETTINGS

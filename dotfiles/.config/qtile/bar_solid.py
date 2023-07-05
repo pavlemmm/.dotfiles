@@ -1,4 +1,5 @@
 from libqtile.bar import Bar
+from libqtile.lazy import lazy
 from libqtile.widget import (
     GroupBox,
     Spacer,
@@ -11,10 +12,21 @@ from libqtile.widget import (
     Clock,
     # WindowTabs,
 )
-from colorschemes import colors
-from libqtile.lazy import lazy
-from unicodes import *
-import os
+from settings import colors
+from custom_functions import executeShellCmd
+
+
+def left_arrow(bg_color, fg_color):
+    return TextBox(
+        text="\uE0B2", padding=0, fontsize=25, background=bg_color, foreground=fg_color
+    )
+
+
+def right_arrow(bg_color, fg_color):
+    return TextBox(
+        text="\uE0B0", padding=0, fontsize=35, background=bg_color, foreground=fg_color
+    )
+
 
 bar = Bar(
     [
@@ -24,6 +36,7 @@ bar = Bar(
             disable_drag=True,
             use_mouse_wheel=True,
             highlight_method="line",
+            # inactive='#505050',
             borderwidth=2,
         ),
         Spacer(length=15),
@@ -33,57 +46,57 @@ bar = Bar(
             font="JetBrainsMono Nerd Font",
             # foreground = colors[],
             # background = colors["unfocused"],
-            borderwidth=2,
+            borderwidth=1,
             margin=0,
-            border='#202020',
-            padding=4,
+            border="#909090",
+            padding=2.7,
             highlight_method="border",
             title_width_method="uniform",
             urgent_alert_method="border",
             # urgent_border = colors[0],
             rounded=True,
-            txt_floating="🗗 ",
-            txt_maximized="🗖 ",
-            txt_minimized="🗕 ",
+            # txt_floating="🗗 ",
+            # txt_maximized="🗖 ",
+            # txt_minimized="🗕 ",
         ),
-        Spacer(length=10),
-        left_arrow('#000000', '#202020'),
-        Spacer(length=5, background='#202020'),
-        Systray(background='#202020'),
-        Spacer(length=8, background='#202020'),
-        left_arrow('#202020', '#303030'),
-        Spacer(length=5, background='#303030'),
-        KeyboardLayout(configured_keyboards=["us", "rs -variant latin"], background='#303030'),
-        Spacer(length=5, background='#303030'),
-        left_arrow('#303030', '#404040'),
-        Spacer(length=5, background='#404040'),
-        CurrentLayout(fmt="󰕰 {}", background='#404040'),
-        Spacer(length=5, background='#404040'),
-        left_arrow('#404040', '#505050'),
-        Spacer(length=5, background='#505050'),
+        Spacer(length=15),
+        left_arrow("#000000", "#202020"),
+        Spacer(length=5, background="#202020"),
+        Systray(background="#202020"),
+        Spacer(length=8, background="#202020"),
+        left_arrow("#202020", "#282828"),
+        Spacer(length=5, background="#282828"),
+        KeyboardLayout(
+            configured_keyboards=["us", "rs -variant latin"], background="#282828"
+        ),
+        Spacer(length=5, background="#282828"),
+        left_arrow("#282828", "#303030"),
+        Spacer(length=5, background="#303030"),
+        CurrentLayout(fmt="󰕰 {}", background="#303030"),
+        Spacer(length=5, background="#303030"),
+        left_arrow("#303030", "#383838"),
+        Spacer(length=5, background="#383838"),
         TextBox(
             text="",
             mouse_callbacks={"Button1": lazy.spawn("pavucontrol")},
-            background='#505050'
+            background="#383838",
         ),
-        PulseVolume(background='#505050'),
-        Spacer(length=5, background='#505050'),
-        left_arrow('#505050', '#5e5e5e'),
-        Spacer(length=5, background='#5e5e5e'),
-        Clock(format="%d.%m.%Y  %a %I:%M %p", background='#5e5e5e'),
-        Spacer(length=5, background='#5e5e5e'),
-        left_arrow('#5e5e5e', '#6d6d6d'),
-        Spacer(length=2, background="#6d6d6d"),
+        PulseVolume(background="#383838"),
+        Spacer(length=5, background="#383838"),
+        left_arrow("#383838", "#404040"),
+        Spacer(length=5, background="#404040"),
+        Clock(format="%d.%m.%Y  %a %I:%M %p", background="#404040"),
+        Spacer(length=5, background="#404040"),
+        left_arrow("#404040", "#484848"),
+        Spacer(length=2, background="#484848"),
         TextBox(
             text="󰤄",
-            background="#6d6d6d",
+            background="#484848",
             mouse_callbacks={
-                "Button1": lazy.spawn(
-                    os.path.expanduser("~/.config/qtile/scripts/shutdown-menu.sh")
-                )
+                "Button1": executeShellCmd("~/.config/rofi/scripts/powermenu.sh")
             },
         ),
-        Spacer(length=8, background="#6d6d6d"),
+        Spacer(length=8, background="#484848"),
     ],
     margin=0,
     # background="#00000000",

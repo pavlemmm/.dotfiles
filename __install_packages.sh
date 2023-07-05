@@ -11,8 +11,8 @@ install_packages () {
 
     select c in Xorg Wayland None; do
         case $c in
-            Xorg)
-                packages_to_install+=" redshift xf86-video-amdgpu mesa"
+            Xorg)                      #drivers                        #screenshot
+                packages_to_install+=" redshift xf86-video-amdgpu mesa xclip maim"
 
                 echo -e "\nWhat WM/DE are you using?\n"
                 select d in Qtile i3 None; do

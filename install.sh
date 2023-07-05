@@ -45,9 +45,13 @@ read -r yn
 
 if [[ $yn = "Y" || $yn = "y" ]]; then
     stow dotfiles -t $HOME
-    fc-cache -f
 fi
 
+### CACHE FONTS ###
+echo -e "\nDo you want to cache fonts? [Y/n]: \c"
+read -r yn
+
+[[ $yn = "Y" || $yn = "y" ]] && fc-cache -f
 
 ### INSTALL ZSH PLUGINS ###
 echo -e "\nDo you want to download zsh plugins? [Y/n]: \c"

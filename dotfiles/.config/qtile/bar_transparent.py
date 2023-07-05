@@ -10,20 +10,19 @@ from libqtile.widget import (
     Systray,
     Clock,
 )
-from colorschemes import colors
 from libqtile.lazy import lazy
-from unicodes import *
-import os
+from settings import margin as m, colors
+from custom_functions import executeShellCmd
 
 bar = Bar(
     [
         Spacer(length=15),
         GroupBox(
             this_current_screen_border=colors["primary"],
-            highlight_color='#00000033',
+            highlight_color="#00000033",
             disable_drag=True,
             use_mouse_wheel=True,
-            inactive='#808080',
+            inactive="#808080",
             highlight_method="line",
             borderwidth=2,
         ),
@@ -37,7 +36,7 @@ bar = Bar(
             # background = colors["unfocused"],
             borderwidth=0,
             margin=0,
-            border='#10101077',
+            border="#10101077",
             padding=4,
             highlight_method="block",
             title_width_method="uniform",
@@ -66,14 +65,12 @@ bar = Bar(
         TextBox(
             text="󰤄",
             mouse_callbacks={
-                "Button1": lazy.spawn(
-                    os.path.expanduser("~/.config/qtile/scripts/shutdown-menu.sh")
-                )
+                "Button1": executeShellCmd("~/.config/rofi/scripts/powermenu.sh")
             },
         ),
         Spacer(length=15),
     ],
-    margin=[4,0,4,0],
+    margin=[m, 0, m, 0],
     background="#00000000",
     border_width=0,
     size=24,
