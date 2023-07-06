@@ -13,7 +13,7 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>n", ":nohl<CR>")
 
 -- delete characters without copying into register
-keymap.set("n", "x", '"_x')
+-- keymap.set("n", "x", '"_x')
 
 -- Copy, paste, cut on clipboard
 keymap.set({ "n", "x" }, "<leader>p", '"+p')

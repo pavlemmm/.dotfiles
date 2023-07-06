@@ -68,7 +68,7 @@ keys = [
     Key([mod], "o", lazy.spawn(ROFI_PATH + "window.sh"), desc="Launch rofi window"),
     Key(
         [mod],
-        "q",
+        "s",
         executeShellCmd(ROFI_PATH + "shortcuts.sh"),
         desc="Launch rofi shortcuts",
     ),

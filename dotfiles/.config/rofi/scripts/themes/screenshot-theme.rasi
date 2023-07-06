@@ -2,7 +2,7 @@
 configuration {
     show-icons:                 false;
 
-	kb-cancel: "Escape,Print,Super+w";
+	kb-cancel: "Escape,Print,Super+w,Control+h,Left";
 }
 
 /*****----- Global Properties -----*****/
@@ -54,21 +54,30 @@ inputbar {
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "entry"];
+    children:                    ["textbox-1", "entry" , "textbox-prompt-colon"];
+}
+
+textbox-1 {
+    enabled:                     true;
+    padding:                     10px 0px;
+    expand:                      false;
+    str:                         "";
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "󰹑 Screenshot";
-    padding:                     10px 14px;
-    border-radius:               10px;
-    background-color:            @urgent;
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            @selected;
     text-color:                  @background;
 }
 entry {
     enabled:                     true;
-    padding:                     10px 4px;
+    padding:                     10px 0;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;

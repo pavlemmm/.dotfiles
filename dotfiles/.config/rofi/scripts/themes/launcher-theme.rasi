@@ -8,7 +8,14 @@ configuration {
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 
-	kb-cancel: "Escape,Super+a,Super+w";
+
+	kb-cancel: "Escape,Super+a,Super+w,Control+h,Left";
+
+    kb-element-next: "";
+    kb-element-prev: "";
+
+	kb-mode-next: "Tab";
+	kb-mode-previous: "ISO_Left_Tab";
 }
 
 /*****----- Global Properties -----*****/
@@ -253,7 +260,7 @@ mode-switcher{
     text-color:                  @foreground-colour;
 }
 button {
-    padding:                     12px;
+    padding:                     10px;
     border:                      0px solid;
     border-radius:               8px;
     border-color:                @border-colour;

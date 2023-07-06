@@ -6,13 +6,14 @@ configuration {
 
 
 	/*---------- Keybindings ----------*/
+	kb-cancel: "Escape,Super+A,Super+w";
+	kb-accept-entry: "Return,KP_Enter";
+
 	kb-mode-next: "";
 	kb-mode-previous: "";
+
     kb-row-left: "Left,Control+h";
     kb-row-right: "Right,Control+l";
-
-	kb-cancel: "Escape,Super+A,Super+w";
-
 }
 
 /*****----- Global Properties -----*****/
@@ -142,7 +143,7 @@ element normal.normal {
 }
 element selected.normal {
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  @selected;
 }
 element-icon {
     padding:                     0px 0px 0px 0px;

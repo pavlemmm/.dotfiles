@@ -2,7 +2,7 @@
 configuration {
     show-icons:                 false;
 
-	kb-cancel: "Escape,Super+W,Super+w";
+	kb-cancel: "Escape,Super+W,Super+w,Control+h,Left";
 }
 
 /*****----- Global Properties -----*****/
@@ -54,21 +54,29 @@ inputbar {
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "entry"];
+    children:                    ["textbox-1", "entry" , "textbox-prompt-colon"];
+}
+textbox-1 {
+    enabled:                     true;
+    padding:                     10px 0px;
+    expand:                      false;
+    str:                         "";
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         " Power Menu";
-    padding:                     10px 14px;
-    border-radius:               10px;
+    padding:                     10px;
+    border-radius:               8px;
     background-color:            @urgent;
     text-color:                  @background;
 }
 entry {
     enabled:                     true;
-    padding:                     10px 4px;
+    padding:                     10px 0;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
@@ -82,10 +90,10 @@ message {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               8px;
     border-color:                @selected;
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  #606060;
 }
 textbox {
     background-color:            inherit;

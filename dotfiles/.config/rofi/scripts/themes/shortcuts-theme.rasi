@@ -2,7 +2,7 @@
 configuration {
     show-icons:                 false;
 
-	kb-cancel: "Escape,Super+q,Super+w";
+	kb-cancel: "Escape,Super+s,Super+w,Control+h,Left";
 }
 
 /*****----- Global Properties -----*****/
@@ -54,29 +54,36 @@ inputbar {
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "prompt" , "entry"];
+    children:                    ["textbox-1", "entry" , "prompt"];
 }
 
+textbox-1 {
+    enabled:                     true;
+    padding:                     10px 0px;
+    expand:                      false;
+    str:                         "";
+    background-color:            inherit;
+    text-color:                  inherit;
+}
 
 prompt {
     enabled:                     true;
     expand:                      false;
-    padding:                     10px 14px;
-    border-radius:               10px;
-    background-color:            @urgent;
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            @selected;
     text-color:                  @background;
 }
 
 entry {
     enabled:                     true;
-    padding:                     10px 4px;
+    padding:                     10px 0;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "";
     placeholder-color:           inherit;
 }
-
 /*****----- Message -----*****/
 message {
     enabled:                     true;

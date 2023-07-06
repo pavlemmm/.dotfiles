@@ -5,11 +5,11 @@ TERMINAL=alacritty
 TERMINAL_EXEC_CMD="$TERMINAL -e $SHELL -c "
 
 
-option_1="1)  Open Dev Environment"
+option_1="1) 󰅩 Open Dev Environment"
 option_2="2)  Edit config files"
 option_3="3)  Open github.com/pavlemmm"
 
-options=$(printf "$option_1\n$option_2\n$option_3" | rofi -p " Links" -theme $THEME -dmenu -i)
+options=$(printf "$option_1\n$option_2\n$option_3" | rofi -p " Quick Menu" -theme $THEME -dmenu -i)
 
 case $options in
     $option_1)
@@ -37,13 +37,15 @@ case $options in
         option_1="1)  Open NeoVim config"
         option_2="2)  Open Qtile config"
         option_3="3)  Open i3 config"
+        option_4="4)  Open Rofi config"
 
-        options=$(printf "$option_1\n$option_2\n$option_3" | rofi -p " Configs" -theme $THEME -dmenu -i)
+        options=$(printf "$option_1\n$option_2\n$option_3\n$option_4" | rofi -p " Configs" -theme $THEME -dmenu -i)
 
         case $options in
             $option_1) $TERMINAL_EXEC_CMD "nvim ~/.config/nvim/" & ;;
-            $option_2) $TERMINAL_EXEC_CMD "nvim ~/.config/qtile/config.py" & ;;
-            $option_3) $TERMINAL_EXEC_CMD "nvim ~/.config/i3/config" & ;;
+            $option_2) $TERMINAL_EXEC_CMD "cd ~/.config/qtile/ && nvim config.py" & ;;
+            $option_3) $TERMINAL_EXEC_CMD "cd ~/.config/i3/ && nvim config" & ;;
+            $option_4) $TERMINAL_EXEC_CMD "nvim ~/.config/rofi" & ;;
 	        *) ~/.config/rofi/scripts/shortcuts.sh & exit 1 ;;
         esac
         ;;

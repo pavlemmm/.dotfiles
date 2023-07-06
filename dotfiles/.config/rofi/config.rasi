@@ -101,10 +101,8 @@ configuration {
     kb-move-char-forward: "";
 
     /* Custom keybinds */
-	kb-accept-entry: "Return,KP_Enter";
-	kb-cancel: "Escape";
-	kb-mode-next: "Right,Ctrl+l";
-	kb-mode-previous: "Left,Control+h";
+	kb-accept-entry: "Return,KP_Enter,Control+l,Right";
+	kb-cancel: "Escape,Super+w,Control+h,Left";
     kb-row-up: "Up,Control+k";
     kb-row-down: "Down,Control+j";
 
