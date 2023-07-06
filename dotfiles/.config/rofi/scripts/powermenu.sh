@@ -1,13 +1,13 @@
-# Options
+THEME="$HOME/.config/rofi/scripts/themes/powermenu-theme.rasi"
+
 option_1='1)  Shutdown'
 option_2='2)  Reboot'
 option_3='3)  Suspend'
 option_4='4)  Logout'
 
 uptime=`uptime -p | sed -e 's/up //g'`
-theme="$HOME/.config/rofi/scripts/themes/powermenu-theme.rasi"
 
-options=$(printf "$option_1\n$option_2\n$option_3\n$option_4" | rofi -dmenu -theme $theme -i -mesg "Uptime: $uptime" )
+options=$(printf "$option_1\n$option_2\n$option_3\n$option_4" | rofi -dmenu -theme $THEME -i -mesg "Uptime: $uptime" )
 
 case $options in
 	$option_1) systemctl poweroff ;;

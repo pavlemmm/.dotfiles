@@ -15,7 +15,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       360px;
+    width:                       420px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -60,7 +60,7 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰹑";
+    str:                         "󰹑 Screenshot";
     padding:                     10px 14px;
     border-radius:               10px;
     background-color:            @urgent;

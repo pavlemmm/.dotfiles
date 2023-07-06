@@ -54,19 +54,19 @@ inputbar {
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "entry"];
+    children:                    [ "prompt" , "entry"];
 }
 
 
-textbox-prompt-colon {
+prompt {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰌹";
     padding:                     10px 14px;
     border-radius:               10px;
     background-color:            @urgent;
     text-color:                  @background;
 }
+
 entry {
     enabled:                     true;
     padding:                     10px 4px;
@@ -106,11 +106,12 @@ error-message {
     text-color:                  @foreground;
 }
 
+
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       3;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
