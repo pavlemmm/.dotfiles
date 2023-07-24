@@ -1,8 +1,4 @@
--- import nvim-treesitter plugin safely
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-  return
-end
+local treesitter = require("nvim-treesitter.configs")
 
 -- configure treesitter
 treesitter.setup({

@@ -41,9 +41,9 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
-opt.iskeyword:append("-") -- consider string-string as whole word
+-- opt.iskeyword:append("-") -- consider string-string as whole word
 
-opt.timeoutlen = 400
+opt.timeoutlen = 600 -- wait beetween key combinations, default 1000
 opt.updatetime = 50
 
 opt.undofile = true

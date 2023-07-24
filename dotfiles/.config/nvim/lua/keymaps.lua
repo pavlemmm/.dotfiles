@@ -3,8 +3,8 @@
 local keymap = vim.keymap -- for conciseness
 
 keymap.set({"n", "v"}, "<Space>", "<Nop>")
-vim.g.mapleader = " "
 
+vim.g.mapleader = " "
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
@@ -16,14 +16,14 @@ keymap.set("n", "<leader>n", ":nohl<CR>")
 -- keymap.set("n", "x", '"_x')
 
 -- Copy, paste, cut on clipboard
-keymap.set({ "n", "x" }, "<leader>p", '"+p')
-keymap.set({ "n", "x" }, "<leader>P", '"+P')
-keymap.set({ "n", "x" }, "<leader>y", '"+y')
-keymap.set({ "n", "x" }, "<leader>Y", '"+Y')
-keymap.set({ "n", "x" }, "<leader>d", '"+d')
-keymap.set({ "n", "x" }, "<leader>D", '"+D')
-keymap.set({ "n", "x" }, "<leader>c", '"+c')
-keymap.set({ "n", "x" }, "<leader>C", '"+C')
+keymap.set({ "n", "v" }, "<leader>p", '"+p')
+keymap.set({ "n", "v" }, "<leader>P", '"+P')
+keymap.set({ "n", "v" }, "<leader>y", '"+y')
+keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
+keymap.set({ "n", "v" }, "<leader>d", '"+d')
+keymap.set({ "n", "v" }, "<leader>D", '"+D')
+keymap.set({ "n", "v" }, "<leader>c", '"+c')
+keymap.set({ "n", "v" }, "<leader>C", '"+C')
 
 -- keymap.set("x", "<leader>p", '"_dp')
 -- keymap.set("n", "<leader>d", '"_d')
@@ -33,10 +33,17 @@ keymap.set({ "n", "x" }, "<leader>C", '"+C')
 
 -- Motion remaps
 keymap.set({ "n", "v" }, "-", "_")
+keymap.set({ "n", "v" }, "_", "-")
+
+keymap.set({ "n", "v" }, ":", ",")
+keymap.set({ "n", "v" }, ",", ":")
 
 
 keymap.set({ "n", "v" }, "<C-j>", "10j")
 keymap.set({ "n", "v" }, "<C-k>", "10k")
+
+keymap.set({ "n", "v" }, "<C-p>", '"0p')
+keymap.set({ "n", "v" }, "<C-P>", '"0P')
 
 -- keymap.set("n", "<C-j>", "<C-d>zz")
 -- keymap.set("n", "<C-k>", "<C-u>zz")
@@ -69,7 +76,8 @@ keymap.set("n", "<leader>j", "<C-w>j")
 keymap.set("n", "<leader>k", "<C-w>k")
 
 -- Tabs
-keymap.set("n", "<leader>t", ":tabnew<CR>")   -- open new tab
+-- keymap.set("n", "<leader>t", ":tabnew %<CR>")   -- open new tab that is duplicate
+keymap.set("n", "<leader>t", ":tab split<CR>")   -- open new tab that is duplicate
 keymap.set("n", "<leader>w", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<TAB>", ":tabn<CR>")         --  go to next tab
 keymap.set("n", "<S-TAB>", ":tabp<CR>")       --  go to previous tab

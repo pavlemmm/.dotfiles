@@ -6,9 +6,9 @@ lsp.on_attach(function(client, bufnr)
 
     -- Custom LSP keymaps
     vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
-    vim.keymap.set({ "n", "x" }, "<leader>f", function()
-        vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-    end, opts)
+    -- vim.keymap.set({ "n", "x" }, "<leader>f", function()
+    --     vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+    -- end, opts)
 end)
 
 -- lsp.setup_servers({'tsserver', 'eslint'})
@@ -65,8 +65,8 @@ require("luasnip.loaders.from_vscode").lazy_load()
 --     Unit = "",
 --     Value = "",
 --     Enum = "",
---     -- Keyword = "",
---     Keyword = "K",
+--     Keyword = "",
+--     -- Keyword = "K",
 --     Snippet = "",
 --     Color = "",
 --     File = "",

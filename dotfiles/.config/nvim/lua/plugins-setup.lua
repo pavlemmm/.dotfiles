@@ -31,12 +31,11 @@ return packer.startup(function(use)
     -- packer can manage itself
     use("wbthomason/packer.nvim")
 
-    use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("loctvl842/monokai-pro.nvim")
 
-
+    use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+    use("tpope/vim-repeat")      -- support for . motion with plugins
 
     -- essential plugins
     use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
@@ -55,7 +54,7 @@ return packer.startup(function(use)
 
     -- fuzzy finding w/ telescope
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })      -- fuzzy finder
+    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })        -- fuzzy finder
 
     -- LSP
     use({
@@ -64,7 +63,7 @@ return packer.startup(function(use)
         requires = {
             -- LSP Support
             { "neovim/nvim-lspconfig" }, -- Required
-            {                      -- Optional
+            {                            -- Optional
                 "williamboman/mason.nvim",
                 run = function()
                     pcall(vim.cmd, "MasonUpdate")
@@ -73,9 +72,9 @@ return packer.startup(function(use)
             { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/nvim-cmp" },     -- Required
             { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "L3MON4D3/LuaSnip" }, -- Required
+            { "L3MON4D3/LuaSnip" },     -- Required
         },
     })
 
@@ -92,15 +91,7 @@ return packer.startup(function(use)
     -- Null LS Formatting and Linting
     use("jose-elias-alvarez/null-ls.nvim")
 
-    use({
-        "Pocco81/auto-save.nvim",
-        config = function()
-            require("auto-save").setup({
-                -- your config goes here
-                -- or just leave it empty :)
-            })
-        end,
-    })
+    use("Pocco81/auto-save.nvim")
 
     -- treesitter configuration
     use({
@@ -112,27 +103,17 @@ return packer.startup(function(use)
     })
 
     use("p00f/nvim-ts-rainbow")
-    use "lukas-reineke/indent-blankline.nvim"
+    use("lukas-reineke/indent-blankline.nvim")
 
-    use({
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-    })
+    use("norcalli/nvim-colorizer.lua")
 
-    use({
-        "goolord/alpha-nvim",
-        config = function()
-            require("alpha").setup(require("alpha.themes.startify").config)
-        end,
-    })
-
-    -- use("mhinz/vim-startify")
+    use("goolord/alpha-nvim")
 
     -- auto closing
-    use("windwp/nvim-autopairs")                               -- autoclose parens, brackets, quotes, etc...
+    use("windwp/nvim-autopairs")                                 -- autoclose parens, brackets, quotes, etc...
     use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+
+    use("ggandor/leap.nvim")
 
     -- git integration
     use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
@@ -141,7 +122,7 @@ return packer.startup(function(use)
 
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
-    use('mfussenegger/nvim-dap-python')
+    use("mfussenegger/nvim-dap-python")
 
     if packer_bootstrap then
         require("packer").sync()

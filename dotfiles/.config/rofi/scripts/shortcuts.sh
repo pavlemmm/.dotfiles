@@ -1,8 +1,12 @@
 THEME=$HOME/.config/rofi/scripts/themes/shortcuts-theme.rasi
 
 PROJECTS_FOLDER=~/Documents
+
 TERMINAL=alacritty
-TERMINAL_EXEC_CMD="$TERMINAL -e $SHELL -c "
+
+execute_shell() {
+    $TERMINAL -e $SHELL -c "source ~/.zshrc && $1"
+}
 
 
 option_1="1) 󰅩 Open Dev Environment"
@@ -23,15 +27,17 @@ case $options in
 
         for d in $dirs; do
             if [[ $options == " $d" ]]; then
-                $TERMINAL_EXEC_CMD "nvim ~/Documents/$d" &
-                $TERMINAL --working-directory ~/Documents/$d &
+                $TERMINAL --working-directory $PROJECTS_FOLDER/$d &
+                # sleep 0.1
+                execute_shell "nvim $PROJECTS_FOLDER/$d" &
                 exit 1
             fi
         done
 
         mkdir $PROJECTS_FOLDER/$options
-        $TERMINAL_EXEC_CMD "nvim $PROJECTS_FOLDER/$options" &
-        $TERMINAL --working-directory ~/Documents/$options &
+        $TERMINAL --working-directory $PROJECTS_FOLDER/$options &
+        # sleep 0.1
+        execute_shell "nvim $PROJECTS_FOLDER/$options" &
         ;;
 	$option_2) 
         option_1="1)  Open NeoVim config"
@@ -42,10 +48,10 @@ case $options in
         options=$(printf "$option_1\n$option_2\n$option_3\n$option_4" | rofi -p " Configs" -theme $THEME -dmenu -i)
 
         case $options in
-            $option_1) $TERMINAL_EXEC_CMD "nvim ~/.config/nvim/" & ;;
-            $option_2) $TERMINAL_EXEC_CMD "cd ~/.config/qtile/ && nvim config.py" & ;;
-            $option_3) $TERMINAL_EXEC_CMD "cd ~/.config/i3/ && nvim config" & ;;
-            $option_4) $TERMINAL_EXEC_CMD "nvim ~/.config/rofi" & ;;
+            $option_1) execute_shell "nvim ~/.config/nvim/" & ;;
+            $option_2) execute_shell "cd ~/.config/qtile/ && nvim config.py" & ;;
+            $option_3) execute_shell "cd ~/.config/i3/ && nvim config" & ;;
+            $option_4) execute_shell "nvim ~/.config/rofi" & ;;
 	        *) ~/.config/rofi/scripts/shortcuts.sh & exit 1 ;;
         esac
         ;;

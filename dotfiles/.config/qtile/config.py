@@ -1,10 +1,8 @@
 from libqtile import layout
 from libqtile.bar import Gap
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, EzKey, Match, Screen
 from libqtile.lazy import lazy
 
-# from libqtile.log_utils import logger
-from os.path import expanduser
 from settings import *
 from custom_functions import *
 
@@ -12,82 +10,49 @@ from bar_transparent import bar as bar_transparent
 from bar_solid import bar as bar_solid
 
 
-
-ROFI_PATH = expanduser("~/.config/rofi/scripts/")
-
 # KEYBINDINGS
 keys = [
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    Key([mod], "f", lazy.window.toggle_floating()),
-    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
-    Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
-    ),
-    Key(
-        [mod, "shift"],
-        "l",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right",
-    ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
-    ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "b", lazy.hide_show_bar("top"), desc="Hides the bar"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key(
-        [mod],
-        "space",
-        lazy.layout.toggle_split(),
-        desc="Toggle split",
-    ),
-    Key(
-        [mod],
-        "c",
-        lazy.widget["keyboardlayout"].next_keyboard(),
-        desc="Next keyboard layout",
-    ),
+    EzKey("M-h", lazy.layout.left()),
+    EzKey("M-l", lazy.layout.right()),
+    EzKey("M-j", lazy.layout.down()),
+    EzKey("M-k", lazy.layout.up()),
+    EzKey("M-f", lazy.window.toggle_floating()),
+    EzKey("M-S-f", lazy.window.toggle_fullscreen()),
+    EzKey("M-S-h", lazy.layout.shuffle_left()),
+    EzKey("M-S-l", lazy.layout.shuffle_right()),
+    EzKey("M-S-j", lazy.layout.shuffle_down()),
+    EzKey("M-S-k", lazy.layout.shuffle_up()),
+    EzKey("M-C-h", lazy.layout.grow_left()),
+    EzKey("M-C-l", lazy.layout.grow_right()),
+    EzKey("M-C-j", lazy.layout.grow_down()),
+    EzKey("M-C-k", lazy.layout.grow_up()),
+    EzKey("M-n", lazy.layout.normalize()),
+    EzKey("M-b", lazy.hide_show_bar("top")),
+    EzKey("M-<Tab>", lazy.next_layout()),
+    EzKey("M-<space>", lazy.layout.toggle_split()),
+    EzKey("M-c", lazy.widget["keyboardlayout"].next_keyboard()),
+
+    EzKey("M-<equal>", lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%')),
+    EzKey("M-S-<equal>", executeShellCmd(scripts_path + 'toggle_app.sh pavucontrol')),
+    EzKey("M-<minus>", lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%')),
+    # EzKey("M-S-<minus>", lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle')), # Mute speaker
+    EzKey("M-S-<minus>", lazy.spawn('pactl set-source-mute @DEFAULT_SOURCE@ toggle')), # Mute microphone
+
     # Launchers
-    Key([mod], "a", lazy.spawn(ROFI_PATH + "launcher.sh"), desc="Launch rofi launcher"),
-    Key(
-        [mod, "shift"],
-        "a",
-        lazy.spawn(ROFI_PATH + "allapps.sh"),
-        desc="Launch rofi all apps",
-    ),
-    Key([mod], "o", lazy.spawn(ROFI_PATH + "window.sh"), desc="Launch rofi window"),
-    Key(
-        [mod],
-        "s",
-        executeShellCmd(ROFI_PATH + "shortcuts.sh"),
-        desc="Launch rofi shortcuts",
-    ),
-    Key(
-        [],
-        "Print",
-        executeShellCmd(ROFI_PATH + "screenshot.sh"),
-        desc="Launch rofi printscreen menu",
-    ),
-    Key(
-        [mod, "shift"],
-        "w",
-        executeShellCmd(ROFI_PATH + "powermenu.sh"),
-        desc="Launch rofi power menu",
-    ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
-    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    EzKey("M-a", lazy.spawn(rofi_path + "launcher.sh")),
+    EzKey("M-S-a", lazy.spawn(rofi_path + "allapps.sh")),
+    EzKey("M-o", lazy.spawn(rofi_path + "window.sh")),
+    EzKey("M-s", executeShellCmd(rofi_path + "shortcuts.sh")),
+    EzKey("<Print>", executeShellCmd(rofi_path + "screenshot.sh")),
+    EzKey("M-S-w", executeShellCmd(rofi_path + "powermenu.sh")),
+    EzKey("M-<Return>", lazy.spawn(terminal)),
+    EzKey("M-e", lazy.spawn(file_manager)),
+    EzKey("M-g", float_to_front()),
+    EzKey("M-q", lazy.spawn(browser)),
+    EzKey("M-w", lazy.window.kill()),
+    EzKey("M-S-c", lazy.reload_config()),
+    # EzKey("M-r", lazy.spawncmd()),
 ]
 
 # GROUPS
@@ -107,24 +72,8 @@ groups = [
 for i in groups:
     keys.extend(
         [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
+            EzKey(f"M-{i.name}", lazy.group[i.name].toscreen()),
+            EzKey(f"M-S-{i.name}", lazy.window.togroup(i.name, switch_group=True)),
         ]
     )
 
@@ -139,9 +88,9 @@ layouts = [
         border_normal_stack=colors["unfocused-secondary"],
         border_width=2,
         margin=margin,
-        margin_on_single=margin,
+        margin_on_single=margin_on_single,
     ),
-    layout.Max(margin=margin),
+    layout.Max(margin=margin_on_single),
     # layout.Floating(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -196,13 +145,16 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="pavucontrol"),
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+
+        # Custom
+        Match(wm_class="pavucontrol"),
+        Match(wm_class="kalk"),
     ]
 )
 
