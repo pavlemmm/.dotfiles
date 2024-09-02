@@ -1,7 +1,8 @@
 #!/bin/bash
 
 xinput set-prop 'LVT ENDGAME GEAR XM1' 'libinput Accel Profile Enabled' 0 1 & # Mouse sensitivity
-xrandr --rate 240 & # Refresh rate
+xrandr --output DisplayPort-2 --rate 240 &&
+xrandr --output HDMI-A-0 --left-of DisplayPort-2 --rate 60 &
 
 redshift -P -O 1300 & # Night light
 picom & # Compositor

@@ -6,8 +6,8 @@ from libqtile.lazy import lazy
 from settings import *
 from custom_functions import *
 
-from bar_transparent import bar as bar_transparent
-from bar_solid import bar as bar_solid
+from bar_transparent import create_bar_transparent
+from bar_solid import create_bar_solid, create_bar_solid_second
 
 
 # KEYBINDINGS
@@ -30,6 +30,7 @@ keys = [
     EzKey("M-n", lazy.layout.normalize()),
     EzKey("M-b", lazy.hide_show_bar("top")),
     EzKey("M-<Tab>", lazy.next_layout()),
+    EzKey("M-m", lazy.next_screen()),
     EzKey("M-<space>", lazy.layout.toggle_split()),
     EzKey("M-c", lazy.widget["keyboardlayout"].next_keyboard()),
 
@@ -115,7 +116,15 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar_transparent if bar_type == "transparent" else bar_solid,
+        top=create_bar_transparent() if bar_type == "transparent" else create_bar_solid(),
+        bottom=Gap(margin),
+        left=Gap(margin),
+        right=Gap(margin),
+        # wallpaper="~/Pictures/mountains.jpg",
+        wallpaper_mode="stretch",
+    ),
+    Screen(
+        top=create_bar_transparent() if bar_type == "transparent" else create_bar_solid_second(),
         bottom=Gap(margin),
         left=Gap(margin),
         right=Gap(margin),
@@ -165,7 +174,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True

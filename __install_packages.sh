@@ -7,7 +7,7 @@ install_packages () {
 
     echo -e "\nWhat display server are you using?\n"
 
-    packages_to_install="base-devel neovim zsh lsd tree stow zsh amd-ucode"
+    packages_to_install="base-devel neovim zsh lsd tree stow amd-ucode"
 
     select c in Xorg Wayland None; do
         case $c in
@@ -41,7 +41,7 @@ install_packages () {
                 select d in Sway None; do
                     case $d in
                         Sway)
-                            packages_to_install+=" sway swayidle swaylock swayimg swaybg waybar wofi alacritty gammastep libva-mesa-driver mesa"
+                            packages_to_install+=" sway swayidle swaylock swayimg swaybg foot wofi gammastep libva-mesa-driver mesa"
                             break
                             ;;
                         None)
