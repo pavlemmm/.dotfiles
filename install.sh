@@ -60,7 +60,7 @@ read -r yn
 if [[ $yn = "Y" || $yn = "y" ]]; then 
     echo -e "\nInstalling zsh plugins...\n"
     git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
-    git clone https://github.com/jeffreytse/zsh-vi-mode $HOME/.zsh/zsh-vi-mode
+    # git clone https://github.com/jeffreytse/zsh-vi-mode $HOME/.zsh/zsh-vi-mode
     git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
     git clone https://github.com/romkatv/powerlevel10k $HOME/.zsh/powerlevel10k
 fi

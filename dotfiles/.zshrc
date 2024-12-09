@@ -11,7 +11,7 @@ fi
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 #
 # Global variables
@@ -40,14 +40,14 @@ alias vcfg="nvim ~/.config/nvim"
 #
 # Keybindings
 #
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk # Custom keybinding to exit insert mode for zsh-vi-mode-plugin
+# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk # Custom keybinding to exit insert mode for zsh-vi-mode-plugin
 # bindkey -v # -e for Emacs, -v for Vim
 # bindkey -M viins 'jk' vi-cmd-mode
 
 #
 # Options
 #
-# setopt autocd # change dir without cd
+setopt autocd # change dir without cd
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

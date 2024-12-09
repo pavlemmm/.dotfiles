@@ -13,17 +13,17 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>n", ":nohl<CR>")
 
 -- delete characters without copying into register
--- keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x')
 
 -- Copy, paste, cut on clipboard
-keymap.set({ "n", "v" }, "<leader>p", '"+p')
-keymap.set({ "n", "v" }, "<leader>P", '"+P')
-keymap.set({ "n", "v" }, "<leader>y", '"+y')
-keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
-keymap.set({ "n", "v" }, "<leader>d", '"+d')
-keymap.set({ "n", "v" }, "<leader>D", '"+D')
-keymap.set({ "n", "v" }, "<leader>c", '"+c')
-keymap.set({ "n", "v" }, "<leader>C", '"+C')
+-- keymap.set({ "n", "v" }, "<leader>p", '"+p')
+-- keymap.set({ "n", "v" }, "<leader>P", '"+P')
+-- keymap.set({ "n", "v" }, "<leader>y", '"+y')
+-- keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
+-- keymap.set({ "n", "v" }, "<leader>d", '"+d')
+-- keymap.set({ "n", "v" }, "<leader>D", '"+D')
+-- keymap.set({ "n", "v" }, "<leader>c", '"+c')
+-- keymap.set({ "n", "v" }, "<leader>C", '"+C')
 
 -- keymap.set("x", "<leader>p", '"_dp')
 -- keymap.set("n", "<leader>d", '"_d')
@@ -32,11 +32,11 @@ keymap.set({ "n", "v" }, "<leader>C", '"+C')
 -- keymap.set("x", "<leader>c", '"_c')
 
 -- Motion remaps
-keymap.set({ "n", "v" }, "-", "_")
-keymap.set({ "n", "v" }, "_", "-")
-
-keymap.set({ "n", "v" }, ":", ",")
-keymap.set({ "n", "v" }, ",", ":")
+-- keymap.set({ "n", "v" }, "-", "_")
+-- keymap.set({ "n", "v" }, "_", "-")
+--
+-- keymap.set({ "n", "v" }, ":", ",")
+-- keymap.set({ "n", "v" }, ",", ":")
 
 
 keymap.set({ "n", "v" }, "<C-j>", "10j")
@@ -52,7 +52,7 @@ keymap.set({ "n", "v" }, "<C-P>", '"0P')
 
 
 -- Redo with Shift+u
-keymap.set("n", "<S-u>", "<C-r>")
+-- keymap.set("n", "<S-u>", "<C-r>")
 
 -- Indentation
 keymap.set("v", ">", ">gv")
