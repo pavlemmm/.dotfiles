@@ -107,9 +107,10 @@ input type:keyboard {
     bindsym $mod+w kill
 
     # Start your launcher
-    bindsym $mod+a exec ~/.config/sway/scripts/wofi.sh drun
-    bindsym $mod+Shift+a exec ~/.config/sway/scripts/wofi.sh run
-    bindsym $mod+Shift+w exec ~/.config/sway/scripts/shutdown-menu.sh
+    bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
+    bindsym $mod+Shift+a exec ~/.config/wofi/scripts/wofi.sh run
+    bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
+    bindsym $mod+Shift+q exec ~/.config/wofi/scripts/screenshot.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
