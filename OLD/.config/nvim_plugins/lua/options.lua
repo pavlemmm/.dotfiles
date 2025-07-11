@@ -54,4 +54,11 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.scrolloff = 8
 
 -- disable INSERT text
---opt.showmode = false
+opt.showmode = false
+
+-- Folding w treesitter
+vim.cmd[[
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable   
+]]

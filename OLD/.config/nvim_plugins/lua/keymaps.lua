@@ -84,6 +84,3 @@ keymap.set("n", "<S-TAB>", ":tabp<CR>")       --  go to previous tab
 
 -- Terminal
 keymap.set("t", "<Esc>", "<C-\\><C-n>")       --  escape terminal
-
--- Explore (File tree)
-keymap.set("n", "<leader>e", ":Explore<CR>") 

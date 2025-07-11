@@ -2,8 +2,7 @@ set $mod Mod4
 
 set $browser firefox
 set $file_manager pcmanfm
-# set $term alacritty
-set $term foot
+set $term alacritty
 
 set $left h
 set $down j
@@ -25,25 +24,17 @@ gaps inner 4px
 gaps outer 4px
 
 
-client.focused                  #82b500         #3e5700         #fffff0         #200000       #900000
-
-# class                         border          background      text            indicator       child_border
-# client.focused                  #ffff33         #000000         #fffff0         #900000       #000000
-# client.focused_inactive         #333333         #000000         #fffff0         #900000       #000000
-# client.unfocused                #333333         #000000         #888888         #900000       #000000
-# client.urgent                   #2f343a         #900000         #fffff0         #900000       #900000
-# client.placeholder              #000000         #000000         #fffff0         #900000       #0c0c0c
-
-
-
-
-
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
-output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
+#output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
+#output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
 
 output $mon1 resolution 1920x1080@240hz position 1920,0
 output $mon2 resolution 1920x1080@60hz position 0,0
+
+
+#exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+#exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'
+
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -108,7 +99,7 @@ input type:keyboard {
 
     # Start your launcher
     bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
-    bindsym $mod+Shift+a exec ~/.config/wofi/scripts/wofi.sh run
+    bindsym $mod+Shift+a exec ~/.config/wofi/scripts/launch.sh run
     bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
     bindsym $mod+Shift+q exec ~/.config/wofi/scripts/screenshot.sh
 
@@ -272,13 +263,6 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%H:%M:%S %d/%m/%Y'; do sleep 1; done
-
-    colors {
-        statusline #fffff0
-        # background #323232
-        background #000000
-        focused_workspace #82b500 #335700 #fffff0
-    }
 }
 
 include /etc/sway/config.d/*

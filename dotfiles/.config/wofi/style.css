@@ -4,7 +4,6 @@
 
 window {
     font-size: 20px;
-    font-family: Roboto Mono Medium;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 3px;
@@ -13,11 +12,11 @@ window {
 
 #entry:selected{
     background: linear-gradient(90deg, #444348, #1d1d1f);
-    --color: black;
 }
 
 #input {
     background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     padding: 8px 10px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
