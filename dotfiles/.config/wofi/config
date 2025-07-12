@@ -1,4 +1,4 @@
 width=600px
-key_up=Control_L-k
-key_down=Control_L-j
+key_up=Ctrl-k
+key_down=Ctrl-j
 insensitive=true

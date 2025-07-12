@@ -1,34 +1,36 @@
 #!/bin/bash
 
-### WAYLAND ###
-
-## SWAY ##
+###
+# SWAY
+# ----
 # sway swayidle swaylock swayimg swaybg
+###
 
-## WM UTILS ##
-# gammastep wofi alacritty
+###
+# WM UTILS
+# --------
+# gammastep wofi alacritty waybar pavucontrol wl-clipboard grimshot
+###
 
-## SCREENSHOT UTILS ##
-# maim wl-clipboard
-
-
-
-### MUST ###
-
+###
+# BASE
+# ----
 # base-devel
+###
 
-
-
-### DRIVERS ###
-
+###
+# DRIVERS
+# -------
 # libva-mesa-driver mesa amd-ucode
-
-## XORG DRIVERS ##
+#
+# [ XORG DRIVERS ]
 # xf86-video-amdgpu
+###
 
-
-
-### TERM COMMANDS ###
+###
+# TERM COMMANDS
+# -------------
 # neovim zsh lsd tree stow
+###
 
 packages_to_install = "neovim zsh lsd tree stow"

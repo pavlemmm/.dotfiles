@@ -3,7 +3,7 @@
 }
 
 window {
-    font-size: 20px;
+    font-size: 16px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 3px;
@@ -11,15 +11,17 @@ window {
 }
 
 #entry:selected{
-    background: linear-gradient(90deg, #444348, #1d1d1f);
+    --background: linear-gradient(90deg, #444348, #1d1d1f);
+    background-color: transparent;
 }
 
 #input {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 8px 10px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid #444348;
+    --border-top-right-radius: 5px;
+    --border-top-left-radius: 5px;
 }
 
 #entry {
@@ -27,5 +29,5 @@ window {
 }
 
 image {
-    margin: 0 15px;
+    margin: 0 10px;
 }

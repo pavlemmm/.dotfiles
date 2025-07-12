@@ -2,8 +2,8 @@
 
 source ./__install_utils.sh
 
-echo -e "---# Welcome to dotfiles setup script by Pavle M #---"
-echo -e "_____________________________________________________\n"
+echo -e "\n---# Welcome to dotfiles setup script by PavleM #---"
+echo -e "____________________________________________________\n"
 
 
 
@@ -11,7 +11,7 @@ echo -e "_____________________________________________________\n"
 echo -e "\nDo you want to install packages? [Y/n]: \c"
 read -r yn
 
-if is_yes "$yn" && install_packages
+is_yes "$yn" && install_packages
 
 
 
@@ -30,7 +30,7 @@ if [ -f /usr/bin/pacman ]; then
     echo -e "\nDo you want to install yay (AUR Helper) [Y/n]: \c"
     read -r yn
 
-    if is_yes "$yn" && install_yay
+    is_yes "$yn" && install_yay
 fi
 
 
@@ -39,7 +39,7 @@ fi
 echo -e "\nDo you want to link dotfiles? [Y/n]: \c"
 read -r yn
 
-if is_yes "$yn" && stow dotfiles -t $HOME
+is_yes "$yn" && stow dotfiles -t $HOME
 
 
 
@@ -55,9 +55,9 @@ is_yes "$yn" && fc-cache -f
 echo -e "\nDo you want to download zsh plugins? [Y/n]: \c"
 read -r yn
 
-if is_yes "$yn" && install_zsh_plugins
+is_yes "$yn" && install_zsh_plugins
 
 
 
-echo -e "\n\n_____________________________________________________"
-echo -e "------------------ Script finished ------------------\n"
+echo -e "\n\n____________________________________________________"
+echo -e "----------------- Script finished ------------------\n"

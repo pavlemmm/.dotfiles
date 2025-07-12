@@ -32,33 +32,13 @@ keymap.set("n", "x", '"_x')
 -- keymap.set("x", "<leader>c", '"_c')
 
 -- Motion remaps
--- keymap.set({ "n", "v" }, "-", "_")
--- keymap.set({ "n", "v" }, "_", "-")
---
--- keymap.set({ "n", "v" }, ":", ",")
--- keymap.set({ "n", "v" }, ",", ":")
-
-
 keymap.set({ "n", "v" }, "<C-j>", "10j")
 keymap.set({ "n", "v" }, "<C-k>", "10k")
 
-keymap.set({ "n", "v" }, "<C-p>", '"0p')
-keymap.set({ "n", "v" }, "<C-P>", '"0P')
-
--- keymap.set("n", "<C-j>", "<C-d>zz")
--- keymap.set("n", "<C-k>", "<C-u>zz")
--- keymap.set("n", "<C-j>", "<C-d>zb")
--- keymap.set("n", "<C-k>", "<C-u>zt")
-
-
--- Redo with Shift+u
--- keymap.set("n", "<S-u>", "<C-r>")
 
 -- Indentation
 keymap.set("v", ">", ">gv")
 keymap.set("v", "<", "<gv")
--- keymap.set("n", ">", ">>")
--- keymap.set("n", "<", "<<")
 
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v")     -- split window vertically
@@ -76,8 +56,8 @@ keymap.set("n", "<leader>j", "<C-w>j")
 keymap.set("n", "<leader>k", "<C-w>k")
 
 -- Tabs
--- keymap.set("n", "<leader>t", ":tabnew %<CR>")   -- open new tab that is duplicate
 keymap.set("n", "<leader>t", ":tab split<CR>")   -- open new tab that is duplicate
+-- keymap.set("n", "<leader>t", ":tabnew %<CR>")   -- open new tab that is duplicate
 keymap.set("n", "<leader>w", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<TAB>", ":tabn<CR>")         --  go to next tab
 keymap.set("n", "<S-TAB>", ":tabp<CR>")       --  go to previous tab
