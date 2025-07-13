@@ -1,7 +1,7 @@
 set $mod Mod4
 
-set $browser firefox
-set $file_manager pcmanfm
+set $browser brave-browser
+set $file_manager nautilus
 set $term alacritty
 
 set $left h
@@ -9,18 +9,17 @@ set $down j
 set $up k
 set $right l
 
+# FOR PC
 set $mon1 DP-3
 set $mon2 HDMI-A-1
 
-
-font pango:Sans 9
+font pango:JetBrainsMono NF 9
 
 default_border pixel 2
 
 smart_borders on
 smart_gaps on
 
-# Set default gaps
 gaps inner 10
 gaps outer 10
 
@@ -35,10 +34,6 @@ output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
 
 output $mon1 resolution 1920x1080@240hz position 1920,0
 output $mon2 resolution 1920x1080@60hz position 0,0
-
-
-#exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-#exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -110,6 +105,9 @@ input type:keyboard {
     bindsym $mod+Shift+$down move down 130px
     bindsym $mod+Shift+$up move up 130px
     bindsym $mod+Shift+$right move right 130px
+
+    bindsym $mod+b exec "pkill waybar || waybar"
+
 
 #
 # Workspaces:
@@ -234,10 +232,9 @@ bar {
     swaybar_command waybar
 }
 
-bindsym $mod+b exec "pkill waybar || waybar"
 
 # gammastep
-exec gammastep -P -O 1300
+exec wlsunset -t -1 -T 0
 
 include /etc/sway/config.d/*
 

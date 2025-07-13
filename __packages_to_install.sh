@@ -3,13 +3,16 @@
 ###
 # SWAY
 # ----
-# sway swayidle swaylock swayimg swaybg
+# sway swayidle
+# 
+# [ LESS IMPORTANT ]
+# swaylock swayimg swaybg
 ###
 
 ###
 # WM UTILS
 # --------
-# gammastep wofi alacritty waybar pavucontrol wl-clipboard grimshot
+# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils wl-clipboard grimshot nw-look
 ###
 
 ###
@@ -30,7 +33,7 @@
 ###
 # TERM COMMANDS
 # -------------
-# neovim zsh lsd tree stow
+# zsh neovim zsh lsd tree stow
 ###
 
-packages_to_install = "neovim zsh lsd tree stow"
+packages_to_install="zsh neovim zsh lsd tree stow"

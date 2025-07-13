@@ -2,22 +2,19 @@
     "layer": "top",
     "spacing": 0,
     "height": 0,
-
     "margin-top": 0,
     "margin-right": 0,
     "margin-bottom": 0,
     "margin-left": 0,
-
     "modules-left": [
         "sway/workspaces"
     ],
-
     "modules-center": [
         "sway/window"
     ],
-
     "modules-right": [
         "tray",
+        "sway/language",
         "cpu_text",
         "cpu",
         "memory",
@@ -26,41 +23,36 @@
         "pulseaudio",
         "clock"
     ],
-
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
         "tooltip": false
     },
-
+    "sway/language": {
+        "format": "{}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    },
     "tray": {
         "spacing": 10,
         "tooltip": false
     },
-
     "clock": {
         "format": "{:%a %d, %I:%M %p}",
         "tooltip": false
     },
-
     "cpu": {
         "format": "cpu {usage}%",
         "interval": 2,
-
         "states": {
             "critical": 90
         }
     },
-
     "memory": {
         "format": "mem {percentage}%",
         "interval": 2,
-
         "states": {
             "critical": 80
         }
     },
-
     "battery": {
         "format": "bat {capacity}%",
         "interval": 5,
@@ -70,14 +62,12 @@
         },
         "tooltip": false
     },
-
     "network": {
-        "format-wifi" : "wifi up",
+        "format-wifi": "wifi up",
         "format-ethernet": "enth up",
-        "format-disconnected" : "no network",
+        "format-disconnected": "no network",
         "tooltip": false
     },
-
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,

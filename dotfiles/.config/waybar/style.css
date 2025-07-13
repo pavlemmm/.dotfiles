@@ -2,9 +2,9 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "sans";
+    font-family: "Inter";
     font-weight: bold;
-    font-size: 10px;
+    font-size: 11px;
     padding: 0;
 }
 
@@ -23,6 +23,7 @@ tooltip {
     border: 1px solid #766451;
 }
 
+#language,
 #clock,
 #tray,
 #cpu,

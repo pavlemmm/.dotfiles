@@ -1,5 +1,6 @@
 [font]
-size = 13
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+size = 15
 
 [window]
 title = "term"
