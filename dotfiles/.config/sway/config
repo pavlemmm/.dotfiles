@@ -10,7 +10,7 @@ set $up k
 set $right l
 
 # FOR PC
-set $mon1 DP-3
+set $mon1 DP-1
 set $mon2 HDMI-A-1
 
 font pango:JetBrainsMono NF 9
@@ -30,10 +30,10 @@ gaps outer 10
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
 #output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
-output * bg /usr/share/backgrounds/Northan_lights_by_mizuno.webp fill
+output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
 
-#output $mon1 resolution 1920x1080@240hz position 1920,0
-#output $mon2 resolution 1920x1080@60hz position 0,0
+output $mon1 resolution 1920x1080@240hz position 1920,0
+output $mon2 resolution 1920x1080@60hz position 0,0
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -51,19 +51,18 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-# assign [class="firefox"] workspace number 1
+
 
 
 ### Input configuration
 #
-# Example configuration:
 #
-   input "10182:3395:DELL0C3E:00_27C6:0D43_Touchpad" {
-       dwt enabled
-       tap enabled
-       natural_scroll enabled
-       middle_emulation enabled
-   }
+input "10182:3395:DELL0C3E:00_27C6:0D43_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -112,43 +111,43 @@ input type:keyboard {
 #
 # Workspaces:
 #
+set $ws1 "www"
+set $ws2 "term"
+set $ws3 "main"
+set $ws4 "util"
+set $ws5 "file"
+set $ws6 "file 2"
+set $ws7 "util 2"
+set $ws8 "main 2"
+set $ws9 "term 2"
+set $ws0 "www 2"
 
-    set $ws1 1
-    set $ws2 2
-    set $ws3 3
-    set $ws4 4
-    set $ws5 5
-    set $ws6 6
-    set $ws7 7
-    set $ws8 8
-    set $ws9 9
-    set $ws0 0
 
-    # Switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws0
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
 
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 
 
 bindsym $mod+ctrl+$left resize shrink width 130 px 
@@ -158,16 +157,25 @@ bindsym $mod+ctrl+$right resize grow width 130 px
 
 bindsym $mod+g move down 130px move right 130px
 
-#workspace $ws1 output $mon1
-#workspace $ws2 output $mon1
-#workspace $ws3 output $mon1
-#workspace $ws4 output $mon1
-#workspace $ws5 output $mon1
-#workspace $ws6 output $mon2
-#workspace $ws7 output $mon2
-#workspace $ws8 output $mon2
-#workspace $ws9 output $mon2
-#workspace $ws0 output $mon2
+workspace $ws1 output $mon1
+workspace $ws2 output $mon1
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon1
+workspace $ws6 output $mon2
+workspace $ws7 output $mon2
+workspace $ws8 output $mon2
+workspace $ws9 output $mon2
+workspace $ws0 output $mon2
+
+
+
+#exec swaymsg workspace $ws1
+
+
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+
+#assign [class="Brave-browser"] workspace $ws1
 
 
 
@@ -240,5 +248,3 @@ exec wlsunset -t -1 -T 0
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*
-
-

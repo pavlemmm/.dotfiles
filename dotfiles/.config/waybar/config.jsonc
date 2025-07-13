@@ -18,6 +18,7 @@
         "cpu_text",
         "cpu",
         "memory",
+        "bluetooth",
         "battery",
         "network",
         "pulseaudio",
@@ -27,17 +28,16 @@
         "disable-scroll": true,
         "tooltip": false
     },
-    "sway/language": {
-        "format": "{}",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    "sway/window": {
+        "all-outputs": true
     },
     "tray": {
         "spacing": 10,
         "tooltip": false
     },
-    "clock": {
-        "format": "{:%a %d, %I:%M %p}",
-        "tooltip": false
+    "sway/language": {
+        "format": "{}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
     },
     "cpu": {
         "format": "cpu {usage}%",
@@ -52,6 +52,16 @@
         "states": {
             "critical": 80
         }
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-no-controller": "",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "battery": {
         "format": "bat {capacity}%",
@@ -75,6 +85,10 @@
         "format-bluetooth": "vol {volume}%",
         "nospacing": 1,
         "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d, %I:%M %p}",
         "tooltip": false
     }
 }
