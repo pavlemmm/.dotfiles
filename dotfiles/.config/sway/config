@@ -51,7 +51,7 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-# assign [class="firefox"] workspace number 1
+
 
 
 ### Input configuration
@@ -113,16 +113,16 @@ input type:keyboard {
 # Workspaces:
 #
 
-    set $ws1 1
-    set $ws2 2
-    set $ws3 3
-    set $ws4 4
-    set $ws5 5
-    set $ws6 6
-    set $ws7 7
-    set $ws8 8
-    set $ws9 9
-    set $ws0 0
+    set $ws1 "www"
+    set $ws2 "term"
+    set $ws3 "main"
+    set $ws4 "util"
+    set $ws5 "file"
+    set $ws6 "file 2"
+    set $ws7 "util 2"
+    set $ws8 "main 2"
+    set $ws9 "term 2"
+    set $ws0 "www 2"
 
     # Switch to workspace
     bindsym $mod+1 workspace $ws1
@@ -168,6 +168,12 @@ workspace $ws7 output $mon2
 workspace $ws8 output $mon2
 workspace $ws9 output $mon2
 workspace $ws0 output $mon2
+
+
+
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+
+#assign [class="Brave-browser"] workspace $ws1
 
 
 
