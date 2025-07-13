@@ -32,6 +32,7 @@ tooltip {
 }
 
 #language,
+#bluetooth,
 #clock,
 #tray,
 #cpu,
@@ -63,7 +64,7 @@ tooltip {
 }
 
 #workspaces button.urgent {
-    background-color: #e45b5b;
+    background-color: #f04141;;
     color: #1d2021;
 }
 
@@ -79,6 +80,7 @@ tooltip {
 #tray,
 #cpu,
 #memory,
+#bluetooth,
 #network,
 #pulseaudio {
     background-color: #1a1a1a;
@@ -86,17 +88,11 @@ tooltip {
     color: #ffffff;
 }
 
-#cpu.critical,
-#memory.critical {
-    background-color: #c9af82;
-    border: 1px solid #917a53;
-    color: #c14a4a;
-}
 
+#cpu.critical,
+#memory.critical
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    background-color: #c9af82;
-    border: 1px solid #917a53;
-    color: #ae6330;
+    color: #f04141;
 }
