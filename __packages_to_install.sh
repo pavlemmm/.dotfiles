@@ -12,7 +12,7 @@
 ###
 # WM UTILS
 # --------
-# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils wl-clipboard grimshot nw-look
+# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils wl-clipboard grimshot nw-look policykit-1-gnome
 ###
 
 ###

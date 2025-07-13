@@ -3,5 +3,5 @@ normal = { family = "JetBrainsMono NF", style = "Regular" }
 size = 15
 
 [window]
-title = "term"
+title = "Terminal"
 opacity = 0.9

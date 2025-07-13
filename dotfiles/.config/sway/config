@@ -30,10 +30,10 @@ gaps outer 10
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
 #output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
-output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
+output * bg /usr/share/backgrounds/Northan_lights_by_mizuno.webp fill
 
-output $mon1 resolution 1920x1080@240hz position 1920,0
-output $mon2 resolution 1920x1080@60hz position 0,0
+#output $mon1 resolution 1920x1080@240hz position 1920,0
+#output $mon2 resolution 1920x1080@60hz position 0,0
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -58,12 +58,12 @@ exec swayidle -w \
 #
 # Example configuration:
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+   input "10182:3395:DELL0C3E:00_27C6:0D43_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -158,16 +158,16 @@ bindsym $mod+ctrl+$right resize grow width 130 px
 
 bindsym $mod+g move down 130px move right 130px
 
-workspace $ws1 output $mon1
-workspace $ws2 output $mon1
-workspace $ws3 output $mon1
-workspace $ws4 output $mon1
-workspace $ws5 output $mon1
-workspace $ws6 output $mon2
-workspace $ws7 output $mon2
-workspace $ws8 output $mon2
-workspace $ws9 output $mon2
-workspace $ws0 output $mon2
+#workspace $ws1 output $mon1
+#workspace $ws2 output $mon1
+#workspace $ws3 output $mon1
+#workspace $ws4 output $mon1
+#workspace $ws5 output $mon1
+#workspace $ws6 output $mon2
+#workspace $ws7 output $mon2
+#workspace $ws8 output $mon2
+#workspace $ws9 output $mon2
+#workspace $ws0 output $mon2
 
 
 
@@ -235,6 +235,9 @@ bar {
 
 # gammastep
 exec wlsunset -t -1 -T 0
+
+# polkit
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*
 
