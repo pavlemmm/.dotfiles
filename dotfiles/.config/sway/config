@@ -10,8 +10,9 @@ set $up k
 set $right l
 
 # FOR PC
-set $mon1 DP-1
-set $mon2 HDMI-A-1
+#set $mon1 DP-1
+#set $mon2 HDMI-A-1
+
 
 font pango:JetBrainsMono NF 9
 
@@ -20,11 +21,11 @@ default_border pixel 2
 smart_borders on
 smart_gaps on
 
-gaps inner 10
-gaps outer 10
+gaps inner 8
+gaps outer 8
 
 # Override top gap to be smaller
-#gaps top 5
+gaps top 4
 
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -32,8 +33,8 @@ gaps outer 10
 #output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
 output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
 
-output $mon1 resolution 1920x1080@240hz position 1920,0
-output $mon2 resolution 1920x1080@60hz position 0,0
+#output $mon1 resolution 1920x1080@240hz position 1920,0
+#output $mon2 resolution 1920x1080@60hz position 0,0
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -157,20 +158,17 @@ bindsym $mod+ctrl+$right resize grow width 130 px
 
 bindsym $mod+g move down 130px move right 130px
 
-workspace $ws1 output $mon1
-workspace $ws2 output $mon1
-workspace $ws3 output $mon1
-workspace $ws4 output $mon1
-workspace $ws5 output $mon1
-workspace $ws6 output $mon2
-workspace $ws7 output $mon2
-workspace $ws8 output $mon2
-workspace $ws9 output $mon2
-workspace $ws0 output $mon2
+# workspace $ws1 output $mon1
+# workspace $ws2 output $mon1
+# workspace $ws3 output $mon1
+# workspace $ws4 output $mon1
+# workspace $ws5 output $mon1
+# workspace $ws6 output $mon2
+# workspace $ws7 output $mon2
+# workspace $ws8 output $mon2
+# workspace $ws9 output $mon2
+# workspace $ws0 output $mon2
 
-
-
-#exec swaymsg workspace $ws1
 
 
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
@@ -213,16 +211,14 @@ bindsym $mod+m focus child
 #
 # Utilities:
 #
-    # Special keys to adjust volume via PulseAudio
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
-
+# Special keys to adjust volume via PulseAudio
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 
 #
@@ -246,5 +242,7 @@ exec wlsunset -t -1 -T 0
 
 # polkit
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+
 
 include /etc/sway/config.d/*

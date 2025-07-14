@@ -16,8 +16,8 @@ keymap.set("n", "<leader>n", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
 -- enable commenting
-keymap.set("n", "gc", require("vim.comment").operator, { expr = true, desc = "Toggle comment" })
-keymap.set("x", "gc", require("vim.comment").operator, { expr = true, desc = "Toggle comment" })
+--keymap.set("n", "gc", require("vim.comment").operator, { expr = true, desc = "Toggle comment" })
+--keymap.set("x", "gc", require("vim.comment").operator, { expr = true, desc = "Toggle comment" })
 
 -- Copy, paste, cut on clipboard
 -- keymap.set({ "n", "v" }, "<leader>p", '"+p')

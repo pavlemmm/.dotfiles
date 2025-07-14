@@ -17,12 +17,13 @@
 }
 
 #window label{
-    font-size: 12px;
+    font-size: 13px;
 }
 
 window#waybar {
     /* background: transparent; */
-    background: #101010;
+    /* background: #101010; */
+    background: rgba(0, 0, 0, 0.4);
     /* border-bottom: 2px solid #4b4239; */
 }
 
@@ -31,6 +32,7 @@ tooltip {
     border: 1px solid #2c2c2c;
 }
 
+#window label,
 #language,
 #bluetooth,
 #clock,
@@ -40,13 +42,13 @@ tooltip {
 #battery,
 #network,
 #pulseaudio {
-    margin: 6px 6px 6px 0px;
+    /* margin: 6px 6px 6px 0px; */
     padding: 2px 8px;
 }
 
 #workspaces {
     background-color: #2e2e2e;
-    margin: 6px 0px 6px 6px;
+    /* margin: 6px 0px 6px 6px; */
     border: 1px solid #5c5c5c;
 }
 
