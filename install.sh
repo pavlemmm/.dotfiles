@@ -58,6 +58,13 @@ read -r yn
 is_yes "$yn" && install_zsh_plugins
 
 
+### SET ZSH AS SHELL ###
+echo -e "\nDo you want to set zsh as default shell? [Y/n]: \c"
+read -r yn
+
+is_yes "$yn" && chsh -s $(which zsh)
+
+
 
 echo -e "\n\n____________________________________________________"
 echo -e "----------------- Script finished ------------------\n"

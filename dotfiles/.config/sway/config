@@ -1,117 +1,26 @@
+#############
+#
+# CONSTANTS
+#
+
 set $mod Mod4
 
+# APPS
 set $browser brave-browser
 set $file_manager nautilus
 set $term alacritty
 
+# DOUBLE MONITOR SETUP
+set $mon1 DP-1
+set $mon2 HDMI-A-1
+
+# NAVIGATION
 set $left h
 set $down j
 set $up k
 set $right l
 
-# FOR PC
-#set $mon1 DP-1
-#set $mon2 HDMI-A-1
-
-
-font pango:JetBrainsMono NF 9
-
-default_border pixel 2
-
-smart_borders on
-smart_gaps on
-
-gaps inner 8
-gaps outer 8
-
-# Override top gap to be smaller
-gaps top 4
-
-
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
-#output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
-output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
-
-#output $mon1 resolution 1920x1080@240hz position 1920,0
-#output $mon2 resolution 1920x1080@60hz position 0,0
-
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-
-
-
-### Input configuration
-#
-#
-input "10182:3395:DELL0C3E:00_27C6:0D43_Touchpad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-}
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-input "type:pointer" accel_profile flat
-
-
-input type:keyboard {
-    xkb_layout us,rs(latinunicode)
-    xkb_options grp:alt_shift_toggle
-}
-
-### Key bindings
-#
-# Basics:
-#
-    floating_modifier $mod normal
-
-    bindsym $mod+Return exec $term
-    bindsym $mod+q exec $browser
-    bindsym $mod+e exec $file_manager
-
-    bindsym $mod+w kill
-
-    bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
-    bindsym $mod+Shift+a exec ~/.config/wofi/scripts/launch.sh run
-    bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
-    bindsym Print exec ~/.config/wofi/scripts/screenshot.sh
-
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left 130px
-    bindsym $mod+Shift+$down move down 130px
-    bindsym $mod+Shift+$up move up 130px
-    bindsym $mod+Shift+$right move right 130px
-
-    bindsym $mod+b exec "pkill waybar || waybar"
-
-
-#
-# Workspaces:
-#
+# WORKSPACES
 set $ws1 "www"
 set $ws2 "term"
 set $ws3 "main"
@@ -123,6 +32,122 @@ set $ws8 "main 2"
 set $ws9 "term 2"
 set $ws0 "www 2"
 
+#################
+#
+# FONT
+#
+font pango:JetBrainsMono NF 9
+
+#################
+#
+# BORDER AND GAPS
+#
+default_border pixel 1
+
+smart_borders on
+smart_gaps on
+
+gaps inner 8
+gaps outer 8
+
+gaps top 4
+
+# title_align center
+
+
+client.focused #ad5631 #ad5631 #ffffff #ad5631
+
+##################
+#
+# OUTPUTS SETUP
+#
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+#output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
+#output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
+output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
+
+output $mon1 resolution 1920x1080@240hz position 1920,0
+output $mon2 resolution 1920x1080@60hz position 0,0
+
+###############
+#
+# INPUTS
+#
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+
+# TRACKPAD SETUP
+#
+# input "10182:3395:DELL0C3E:00_27C6:0D43_Touchpad" {
+#     dwt enabled
+#     tap enabled
+#     natural_scroll enabled
+#     middle_emulation enabled
+# }
+
+input "type:pointer" accel_profile flat
+
+
+input type:keyboard {
+    xkb_layout us,rs(latinunicode)
+    xkb_options grp:alt_shift_toggle
+}
+
+################
+#
+# SWAY IDLE
+#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+################
+#
+# BINDS
+#
+
+# BASICS
+
+floating_modifier $mod normal
+
+bindsym $mod+Return exec $term
+bindsym $mod+q exec $browser
+bindsym $mod+e exec $file_manager
+
+bindsym $mod+w kill
+
+bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
+bindsym $mod+Shift+a exec ~/.config/wofi/scripts/launch.sh run
+bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
+bindsym $mod+period exec ~/.config/wofi/scripts/emoji.sh
+bindsym Print exec ~/.config/wofi/scripts/screenshot.sh
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left 130px
+bindsym $mod+Shift+$down move down 130px
+bindsym $mod+Shift+$up move up 130px
+bindsym $mod+Shift+$right move right 130px
+
+bindsym $mod+b exec "pkill waybar || waybar"
+
+
+# WORKSPACES
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -147,8 +172,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
 
 
 bindsym $mod+ctrl+$left resize shrink width 130 px 
@@ -158,31 +181,20 @@ bindsym $mod+ctrl+$right resize grow width 130 px
 
 bindsym $mod+g move down 130px move right 130px
 
-# workspace $ws1 output $mon1
-# workspace $ws2 output $mon1
-# workspace $ws3 output $mon1
-# workspace $ws4 output $mon1
-# workspace $ws5 output $mon1
-# workspace $ws6 output $mon2
-# workspace $ws7 output $mon2
-# workspace $ws8 output $mon2
-# workspace $ws9 output $mon2
-# workspace $ws0 output $mon2
+workspace $ws1 output $mon1
+workspace $ws2 output $mon1
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon1
+workspace $ws6 output $mon2
+workspace $ws7 output $mon2
+workspace $ws8 output $mon2
+workspace $ws9 output $mon2
+workspace $ws0 output $mon2
 
 
+# LAYOUT
 
-for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-
-#assign [class="Brave-browser"] workspace $ws1
-
-
-
-# title_align center
-
-
-#
-# Layout stuff:
-#
 # split in horizontal orientation
 bindsym $mod+v split h
 
@@ -208,9 +220,9 @@ bindsym $mod+n focus parent
 # focus the child container
 bindsym $mod+m focus child
 
-#
-# Utilities:
-#
+
+# UTILITIES
+
 # Special keys to adjust volume via PulseAudio
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
@@ -220,10 +232,7 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-
-#
-# Scratchpad:
-#
+# SCRATCHPAD
 
 # Move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -232,17 +241,38 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+
+
+#######################
+#
+# BAR
+#
+
 bar {
     swaybar_command waybar
 }
 
 
-# gammastep
+############
+#
+# WINDOW RULES
+#
+
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+
+# assign [class="Brave-browser"] workspace $ws1
+
+
+###########
+#
+# EXEC COMMANDS
+#
+
+# night light
 exec wlsunset -t -1 -T 0
 
 # polkit
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-
-
+# it was in default config too
 include /etc/sway/config.d/*

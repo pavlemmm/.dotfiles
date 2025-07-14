@@ -23,8 +23,7 @@
 window#waybar {
     /* background: transparent; */
     /* background: #101010; */
-    background: rgba(0, 0, 0, 0.4);
-    /* border-bottom: 2px solid #4b4239; */
+    background: rgba(0, 0, 0, 0.5);
 }
 
 tooltip {
@@ -65,17 +64,20 @@ tooltip {
     color: #ffffff;
 }
 
-#workspaces button.urgent {
-    background-color: #f04141;;
-    color: #1d2021;
-}
-
 #clock {
     background-color: #2e2e2e;
     border: 1px solid #5c5c5c;
     color: #ffffff;
 }
 
+#taskbar {
+    margin: 0 10px;
+    opacity: 0.8;
+}
+
+#taskbar button {
+    margin-left: 5px;
+}
 
 #battery,
 #language,
@@ -86,11 +88,12 @@ tooltip {
 #network,
 #pulseaudio {
     background-color: #1a1a1a;
-    border: 1px solid #3f3f3f;
+    border: solid #3f3f3f;
+    border-width: 1px 0px 1px 1px;
     color: #ffffff;
 }
 
-
+#workspaces button.urgent,
 #cpu.critical,
 #memory.critical
 #battery.warning,

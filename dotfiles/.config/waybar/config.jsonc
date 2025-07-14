@@ -7,7 +7,9 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "modules-left": [
-        "sway/workspaces"
+        "sway/workspaces",
+        "wlr/taskbar",
+        "privacy"
     ],
     "modules-center": [
         "sway/window"
@@ -28,8 +30,15 @@
         "disable-scroll": true,
         "tooltip": false
     },
-    "sway/window": {
-        "all-outputs": true
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 13
+        // "on-click": "activate",
+        // "on-click-middle": "close",
+
+        // "ignore-list": [
+        //     "Alacritty"
+        // ]
     },
     "tray": {
         "spacing": 10,
@@ -37,7 +46,7 @@
     },
     "sway/language": {
         "format": "{}",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
     "cpu": {
         "format": "cpu {usage}%",
