@@ -36,7 +36,7 @@ set $ws0 "www 2"
 #
 # FONT
 #
-font pango:JetBrainsMono NF 9
+font pango:UbuntuMono Nerd Font 8
 
 #################
 #
@@ -128,6 +128,8 @@ bindsym $mod+w kill
 bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
 bindsym $mod+Shift+a exec ~/.config/wofi/scripts/launch.sh run
 bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
+#bindsym $mod+Shift+w exec wlogout
+bindsym $mod+Shift+c exec swaymsg reload
 bindsym $mod+period exec ~/.config/wofi/scripts/emoji.sh
 bindsym Print exec ~/.config/wofi/scripts/screenshot.sh
 
@@ -136,15 +138,12 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left 130px
 bindsym $mod+Shift+$down move down 130px
 bindsym $mod+Shift+$up move up 130px
 bindsym $mod+Shift+$right move right 130px
-
-bindsym $mod+b exec "pkill waybar || waybar"
 
 
 # WORKSPACES
@@ -220,6 +219,9 @@ bindsym $mod+n focus parent
 # focus the child container
 bindsym $mod+m focus child
 
+# toggle waybar
+bindsym $mod+b exec "pkill waybar || waybar"
+
 
 # UTILITIES
 
@@ -273,6 +275,9 @@ exec wlsunset -t -1 -T 0
 
 # polkit
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# notifications deamon
+#exec mako
 
 # it was in default config too
 include /etc/sway/config.d/*

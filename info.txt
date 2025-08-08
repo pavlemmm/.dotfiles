@@ -1,0 +1,14 @@
+WM PACKAGES:
+
+wlsunset - night light, redshift alternative. can also use gammastep
+pulseaudio-utils, brightnessctl - used for keyboard audio/brightness control
+grimshot - screenshot util
+policykit-1-gnome - policy kit for auth
+nwg-look - set gtk theme
+mako - notifications deamon ( on ubuntu its mako-notifier )
+
+
+WM COMMANDS:
+
+use nmtui for network connection in tty
+use bluetoothctl for bluetooth connection in tty

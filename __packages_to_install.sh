@@ -3,26 +3,25 @@
 ###
 # SWAY
 # ----
-# sway swayidle
+# sway swayidle swaylock
 # 
 # [ LESS IMPORTANT ]
-# swaylock swayimg swaybg
+# swayimg swaybg
+###
+
+###
+# HYPRLAND
+# ----
+# hyprland
 ###
 
 ###
 # WM UTILS
 # --------
-# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils brightnessctl wl-clipboard grimshot nwg-look policykit-1-gnome
+# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils brightnessctl wl-clipboard grimshot nwg-look policykit-1-gnome mako
 #
 # [ LESS IMPORTANT ]
 # wlogout
-#
-## explanation ##
-# wlsunset - night light, redshift alternative. can also use gammastep
-# pulseaudio-utils, brightnessctl - used for keyboard audio/brightness control
-# grimshot - screenshot util
-# policykit-1-gnome - policy kit for auth
-# nwg-look - set gtk theme
 ###
 
 ###
