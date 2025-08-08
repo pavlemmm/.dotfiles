@@ -127,7 +127,7 @@ bindsym $mod+w kill
 
 bindsym $mod+a exec ~/.config/wofi/scripts/launch.sh drun
 bindsym $mod+Shift+a exec ~/.config/wofi/scripts/launch.sh run
-bindsym $mod+Shift+w exec ~/.config/wofi/scripts/shutdown-menu.sh
+bindsym $mod+Shift+w exec ~/.config/wofi/scripts/power-menu.sh
 #bindsym $mod+Shift+w exec wlogout
 bindsym $mod+Shift+c exec swaymsg reload
 bindsym $mod+period exec ~/.config/wofi/scripts/emoji.sh
