@@ -3,22 +3,28 @@
 ###
 # SWAY
 # ----
-# sway swayidle swaylock
+# sway swayidle swaylock 
 # 
 # [ LESS IMPORTANT ]
-# swayimg swaybg
+# swayimg swaybg wlsunset brightnessctl policykit-1-gnome
 ###
 
 ###
 # HYPRLAND
 # ----
-# hyprland
+# hyprland hypridle hyprlock hyprsunset xdg-desktop-portal-hyprland hyprpaper
+###
+
+###
+# AUDIO
+# --------
+# pipewire, wireplumber, pavucontrol
 ###
 
 ###
 # WM UTILS
 # --------
-# wlsunset wofi alacritty waybar pavucontrol pulseaudio-utils brightnessctl wl-clipboard grimshot nwg-look policykit-1-gnome mako
+# ly wofi alacritty waybar wl-clipboard cliphist grim slurp nwg-look mako libnotify playerctl
 #
 # [ LESS IMPORTANT ]
 # wlogout
@@ -40,9 +46,15 @@
 ###
 
 ###
-# TERM COMMANDS
+# TERM
 # -------------
-# zsh neovim zsh lsd tree stow
+# zsh neovim lsd tree stow man
 ###
 
-packages_to_install="zsh neovim zsh lsd tree stow"
+###
+# AUR PACKAGES
+# -------------
+# 
+###
+
+packages_to_install="zsh neovim lsd tree stow man"

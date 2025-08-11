@@ -36,7 +36,7 @@ alias vcfg="nvim ~/.config/nvim"
 #
 # Keybindings
 #
-#bindkey -v # -e for Emacs, -v for Vim
+bindkey -v # -e for Emacs, -v for Vim
 #bindkey -M viins 'jk' vi-cmd-mode
 
 #

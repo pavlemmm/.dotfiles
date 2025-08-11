@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ./__install_utils.sh
+source ./__packages_to_install.sh
 
 echo -e "\n---# Welcome to dotfiles setup script by PavleM #---"
 echo -e "____________________________________________________\n"
@@ -8,7 +9,7 @@ echo -e "____________________________________________________\n"
 
 
 ### UPDATE AND INSTALL PACKAGES ###
-echo -e "\nDo you want to install packages? [Y/n]: \c"
+echo -e "\nDo you want to install packages? ($packages_to_install) [Y/n]: \c"
 read -r yn
 
 is_yes "$yn" && install_packages

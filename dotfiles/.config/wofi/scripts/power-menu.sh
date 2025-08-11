@@ -9,18 +9,17 @@ fi
 compositor=$(echo $XDG_CURRENT_DESKTOP)
 
 case "$compositor" in
-    sway)
+    Sway)
         reload_cmd="swaymsg reload"
         logout_cmd="swaymsg exit"
         lock_cmd="swaylock"
         ;;
-    hyprland)
+    Hyprland)
         reload_cmd="hyprctl reload"
         logout_cmd="hyprctl dispatch exit"
         lock_cmd="hyprlock"
         ;;
     *)
-        notify-send "Unsupported session" "Unknown compositor: $compositor"
         exit 1
         ;;
 esac

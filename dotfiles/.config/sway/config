@@ -44,13 +44,13 @@ font pango:UbuntuMono Nerd Font 8
 #
 default_border pixel 1
 
-smart_borders on
-smart_gaps on
+#smart_borders on
+#smart_gaps on
 
-gaps inner 8
-gaps outer 8
+#gaps inner 8
+#gaps outer 8
 
-gaps top 4
+#gaps top 4
 
 # title_align center
 
@@ -67,7 +67,7 @@ client.focused #ad5631 #ad5631 #ffffff #ad5631
 
 #output $mon1 bg ~/Pictures/wallpaper_mac_2.png fill
 #output $mon2 bg ~/Pictures/wallpaper_mac_1.png fill
-output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
+#output * bg /usr/share/backgrounds/Northern_lights_by_matthieugo.png fill
 
 output $mon1 resolution 1920x1080@240hz position 1920,0
 output $mon2 resolution 1920x1080@60hz position 0,0
@@ -132,6 +132,9 @@ bindsym $mod+Shift+w exec ~/.config/wofi/scripts/power-menu.sh
 bindsym $mod+Shift+c exec swaymsg reload
 bindsym $mod+period exec ~/.config/wofi/scripts/emoji.sh
 bindsym Print exec ~/.config/wofi/scripts/screenshot.sh
+
+# toggle waybar
+bindsym $mod+b exec ~/.config/waybar/sway/toggle-waybar.sh
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -219,9 +222,6 @@ bindsym $mod+n focus parent
 # focus the child container
 bindsym $mod+m focus child
 
-# toggle waybar
-bindsym $mod+b exec "pkill waybar || waybar"
-
 
 # UTILITIES
 
@@ -251,7 +251,7 @@ bindsym $mod+minus scratchpad show
 #
 
 bar {
-    swaybar_command waybar
+    swaybar_command waybar -c ~/.config/waybar/sway.jsonc -s ~/.config/waybar/sway/style.css
 }
 
 

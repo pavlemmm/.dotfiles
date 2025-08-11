@@ -1,0 +1,6 @@
+font=UbuntuMono Nerd Font 10
+default-timeout=10000
+margin=40, 20, 0, 0
+width=300
+border-color=#ffffffaa
+border-size=2

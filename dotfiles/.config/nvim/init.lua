@@ -1,5 +1,5 @@
 require("options")
 require("keymaps")
+require("colors")
 
-vim.cmd("colorscheme habamax")
 

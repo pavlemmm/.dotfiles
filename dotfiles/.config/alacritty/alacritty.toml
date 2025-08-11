@@ -5,3 +5,7 @@ size = 15
 [window]
 title = "Terminal"
 opacity = 0.6
+
+[window.padding]
+x = 10
+y = 10
