@@ -22,6 +22,7 @@
 #workspaces,
 #window,
 #language,
+#battery,
 #clock {
     background-color: rgba(17, 17, 27, 0.7);
 }
@@ -29,6 +30,7 @@
 /* border */
 #window,
 #language,
+#battery,
 #clock {
     border: 2px solid rgba(90, 90, 90, 0.7);
 }
@@ -36,7 +38,7 @@
 /* secondary */
 #wireplumber,
 #network,
-#battery {
+#bluetooth {
     background-color: rgba(255, 255, 255, 0.15);
     border: 2px solid transparent;
 }
@@ -132,7 +134,7 @@ window#waybar.empty #window {
 /*CLOCK*/
 
 #clock {
-    margin: 0 5px;
+    margin-left: 5px;
     border-radius: 16px;
     padding: 0 10px;
 }
@@ -145,9 +147,13 @@ window#waybar.empty #window {
     padding: 0 10px;
 }
 
+/* BATTERY */
 
-
-
+#battery {
+    margin-left: 5px;
+    border-radius: 16px;
+    padding: 0 10px;
+}
 
 /*WIREPLUMBER AUDIO*/
 
@@ -165,21 +171,16 @@ window#waybar.empty #window {
 }
 
 
-/* BATTERY */
+/* BLUETOOTH */
 
-#battery {
+#bluetooth {
     margin: 0 5px;
     border-radius: 16px;
     padding: 0 10px;
 }
 
 
-
 /* CPU, DISK, BAT, MEM CRITICAL */
-
-#cpu,
-#memory,
-#disk {}
 
 #cpu.critical,
 #disk.critical,

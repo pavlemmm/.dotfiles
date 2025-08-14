@@ -3,8 +3,8 @@
     "position": "top",
     "margin-top": 6,
     "margin-bottom": 0,
-    "margin-left": 5,
-    "margin-right": 5,
+    "margin-left": 8,
+    "margin-right": 8,
     "modules-left": [
         "hyprland/window",
         "wlr/taskbar",
@@ -16,13 +16,13 @@
     "modules-right": [
         "tray",
         "wireplumber",
-        "battery",
+        "bluetooth",
         "network",
         "disk",
         "cpu",
         "memory",
-        "bluetooth",
         "hyprland/language",
+        "battery",
         "clock"
     ],
     "hyprland/window": {
@@ -58,11 +58,11 @@
         ]
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": "  {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr}",
         "format-disconnected": "no network",
         "tooltip-format": "{ifname} via {gwaddr}",
-        "tooltip-format-wifi": " {signalStrength}%",
+        "tooltip-format-wifi": "{essid},  {frequency}GHz",
         "tooltip-format-ethernet": "{ifname}",
         "tooltip-format-disconnected": "no network",
         "max-length": 50
@@ -88,7 +88,7 @@
         }
     },
     "bluetooth": {
-        "format": " {status}",
+        "format": "  {status}",
         "format-no-controller": "",
         "format-connected": " {device_alias}",
         "format-connected-battery": " {device_alias} {device_battery_percentage}%",
@@ -103,7 +103,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}%  {icon}",
         "format-icons": [
             "",
             "",

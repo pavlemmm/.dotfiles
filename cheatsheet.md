@@ -1,29 +1,140 @@
-# WM Packages and Explanation
+# Arch Installation
 
-Below is a curated list of essential Wayland/WM packages with explanations and usage notes.
+1. **Partition disks**  
+   Launch `cfdisk`:
+   ```bash
+   lsblk
+   cfdisk /dev/nvme0n1pX
+   ```
+   - Create at least:
+     - **EFI System Partition (ESP)** – 200 MiB, type `EFI System`
+     - **Root (/) partition** – remaining space, type `Linux filesystem`
 
-- **wlsunset** – Night light / Redshift alternative. Can also use `gammastep`.  
-  **Note:** Only use `wlsunset` or `gammastep` if **not** using Hyprland; for Hyprland use `hyprsunset`.
-- **brightnessctl** – Adjust keyboard backlight, screen brightness, and audio keys.  
-  **Note:** Only use if **not** using Hyprland with `hyprsunset`.
-- **grim, slurp** – Screenshot utilities for Wayland.
-- **wl-clipboard** – Wayland clipboard CLI utilities (`wl-copy`, `wl-paste`).
-- **cliphist** – Clipboard history manager for Wayland, works with `wl-clipboard` and `wofi`.
-- **policykit-1-gnome** – Authentication agent for GNOME/other DEs.  
-  **Note:** Hyprland has its own policykit agent.
-- **nwg-look** – GTK theme configuration tool.
-- **playerctl** – Media playback control (play/pause/next/previous) for compatible media players.
-- **mako** – Notification daemon (on Ubuntu: `mako-notifier`).
-- **libnotify** – Provides the `notify-send` command for sending notifications.
-- **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
-- **bluez** – Official Bluetooth utilities for Linux.
-- **bluetui** – TUI (terminal user interface) Bluetooth manager. Requires `bluez`.
+2. **Format partitions:**
+   ```bash
+   mkfs.ext4 /dev/<root_partition>
+   mkfs.fat -F32 /dev/<efi_partition>
+   ```
 
----
+3. **Mount partitions:**
+   ```bash
+   mount /dev/<root_partition> /mnt
+   mkdir -p /mnt/boot/efi
+   mount /dev/<efi_partition> /mnt/boot/efi
+   ```
 
-# LY Display Manager
+4. **Install base system:**
+   ```bash
+   pacstrap /mnt base base-devel linux linux-firmware neovim git networkmanager
+   ```
 
-To configure `ly` to set XDG environment variables for your WM (e.g., `XDG_CURRENT_DESKTOP`), create `.desktop` files in:
+5. **Generate fstab:**
+   ```bash
+   genfstab -U /mnt >> /mnt/etc/fstab
+   ```
+
+6. **Chroot into the new system:**
+   ```bash
+   arch-chroot /mnt
+   ```
+
+7. **Configure system:**
+   - **Timezone:**
+     ```bash
+     ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
+     hwclock --systohc
+     ```
+   - **Locale:**
+     ```bash
+     nvim /etc/locale.gen
+     # Uncomment your locale (e.g., en_US.UTF-8 UTF-8)
+     locale-gen
+     echo "LANG=en_US.UTF-8" > /etc/locale.conf
+     ```
+   - **Hostname:**
+     ```bash
+     echo pajarch > /etc/hostname
+     ```
+     `/etc/hosts`:
+     ```
+     127.0.0.1   localhost
+     ::1         localhost
+     127.0.1.1   pajarch.localdomain pajarch
+     ```
+
+8. **Set root password and add user:**
+   ```bash
+   passwd
+
+   useradd -m -G wheel -s /bin/bash paja
+   passwd paja
+
+   EDITOR=nvim visudo
+   ```
+   In the sudoers file, uncomment the following line to grant sudo access to the wheel group:
+   ```sql
+   %wheel ALL=(ALL:ALL) ALL
+   ```
+
+9. **Install and configure GRUB bootloader (UEFI + Windows Dual Boot + Secure Boot):**
+
+   #### 1. Install GRUB, shim, and tools
+   ```bash
+   pacman -S grub efibootmgr os-prober shim
+   ```
+
+   #### 2. Enable os-prober for Windows detection
+   ```bash
+   echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+   ```
+
+   #### 3. Install GRUB with shim support (for Secure Boot)
+   ```bash
+   grub-install \
+   --target=x86_64-efi \
+   --efi-directory=/boot/efi \
+   --bootloader-id=GRUB \
+   --disable-shim-lock
+   ```
+   - This uses the pre-signed `shim` binary trusted by Microsoft’s Secure Boot keys.
+   - It allows booting Arch with Secure Boot enabled without generating your own keys.
+   - Microsoft keys must be enrolled in your UEFI firmware (usually already present on Windows systems).
+
+   #### 4. Detect Windows and generate the GRUB config
+   ```bash
+   os-prober
+   grub-mkconfig -o /boot/grub/grub.cfg
+   ```
+   - `os-prober` will detect your Windows EFI boot entry and add it to GRUB.
+
+   #### 5. Enable Secure Boot in firmware
+   - Reboot, enter your UEFI/BIOS, and enable Secure Boot.
+   - Windows and Arch should both boot from the GRUB menu.
+
+10. **Exit and reboot:**
+    ```bash
+    exit
+    umount -R /mnt
+    reboot
+    ```
+
+## Post-Install
+
+### Enabling System Services
+
+```bash
+systemctl enable ly.service # Ly display manager
+systemctl enable NetworkManager # Network manager
+systemctl enable bluetooth.service # Bluetooth
+systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service # Pipewire Audio
+```
+
+**Note:** PipeWire services are user-level, so `--user` is required.
+
+
+### LY Display Manager
+
+If not automatically set, configure `ly` to set XDG environment variables for your WM (e.g., `XDG_CURRENT_DESKTOP`), create `.desktop` files in:
 
 ```
 /usr/share/wayland-sessions
@@ -33,10 +144,40 @@ This ensures the correct desktop environment variables are exported when startin
 
 ---
 
-# WM Commands
+# Packages and Explanation
+
+- Below is a curated list of essential Wayland/WM packages with explanations and usage notes.
+   ### Sway
+- **wlsunset** – Night light / Redshift alternative. Can also use `gammastep`.  
+  **Note:** Only use `wlsunset` or `gammastep` if **not** using Hyprland; for Hyprland use `hyprsunset`.
+- **brightnessctl** – Adjust keyboard backlight, screen brightness, and audio keys.  
+  **Note:** Only use if **not** using Hyprland with `hyprsunset`.
+- **policykit-1-gnome** – Authentication agent for GNOME/other DEs.   
+  **Note:** Hyprland has its own policykit agent.
+
+
+   ### Wayland
+- **grim, slurp** – Screenshot utilities for Wayland.
+- **wl-clipboard** – Wayland clipboard CLI utilities (`wl-copy`, `wl-paste`).
+- **cliphist** – Clipboard history manager for Wayland, works with `wl-clipboard` and `wofi`.
+- **nwg-look** – GTK theme configuration tool.
+- **playerctl** – Media playback control (play/pause/next/previous) for compatible media players.
+- **mako** – Notification daemon (on Ubuntu: `mako-notifier`).
+- **libnotify** – Provides the `notify-send` command for sending notifications.
+- **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
+
+   ### Bluetooth
+- **bluez** – Official Bluetooth utilities for Linux.
+- **bluez-utils** – Bluez command line tools like bluetoothctl
+- **bluetui** – TUI bluez frontend (complicated hotkeys)
+- **blueman** – GTK bluez frontend
+
+---
+
+# Configuring
 
 - **Networking:** Use `nmtui` (NetworkManager TUI) in TTY to configure wired/wireless connections.
-- **Bluetooth:** Use `bluetoothctl` in TTY for Bluetooth management, or `bluetui` for a more user-friendly TUI.
+- **Bluetooth:** Use `bluetoothctl` in TTY for Bluetooth management, or `bluetui/blueman` for a more user-friendly experience.
 
 ---
 
@@ -45,46 +186,3 @@ This ensures the correct desktop environment variables are exported when startin
 - **Sans font family** – For GTK themes, bars, and UI elements (e.g., *Ubuntu Nerd Font*).
 - **Monospace font family** – For terminals, WM configurations, and code editors (e.g., *UbuntuMono Nerd Font*).
 
----
-
-# Arch Installation (EFI + systemd-boot/GRUB)
-
-1. **Partition disks** using `cfdisk`  
-   - Create at least two partitions: one **Linux filesystem** for root (`/`) and one **EFI System Partition** for boot.
-2. **Format partitions:**
-   ```bash
-   mkfs.ext4 /dev/<root_partition>
-   mkfs.fat -F32 /dev/<efi_partition>
-   ```
-3. **Mount partitions:**
-   ```bash
-   mount /dev/<root_partition> /mnt
-   mkdir -p /mnt/boot/efi
-   mount /dev/<efi_partition> /mnt/boot/efi
-   ```
-4. **Install base system:**
-   ```bash
-   pacstrap /mnt linux linux-firmware base base-devel nvim
-   ```
-5. **Chroot into the system:**
-   ```bash
-   arch-chroot /mnt
-   ```
-6. **Configure system:**
-   - Locale
-   - Timezone
-   - Networking
-7. **Install and configure bootloader:**
-   - GRUB or systemd-boot
-
----
-
-# Post-Install: Enabling System Services
-
-```bash
-systemctl enable ly.service
-systemctl enable NetworkManager
-systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service
-```
-
-**Note:** PipeWire services are user-level, so `--user` is required.

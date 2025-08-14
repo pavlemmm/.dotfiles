@@ -31,9 +31,21 @@
 ###
 
 ###
-# BASE AND BASICS
+# BASE
 # ----
-# base-devel networkmanager bluez bluetui
+# base-devel
+###
+
+###
+# NETWORK
+# ----
+# networkmanager
+###
+
+###
+# BLUETOOTH
+# ----
+# bluez bluez-utils bluetui blueman
 ###
 
 ###
