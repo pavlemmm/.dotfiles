@@ -9,35 +9,35 @@
    - Create at least:
      - **EFI System Partition (ESP)** – 200 MiB, type `EFI System`
      - **Root (/) partition** – remaining space, type `Linux filesystem`
-
+---
 2. **Format partitions:**
    ```bash
    mkfs.ext4 /dev/<root_partition>
    mkfs.fat -F32 /dev/<efi_partition>
    ```
-
+---
 3. **Mount partitions:**
    ```bash
    mount /dev/<root_partition> /mnt
    mkdir -p /mnt/boot/efi
    mount /dev/<efi_partition> /mnt/boot/efi
    ```
-
+---
 4. **Install base system:**
    ```bash
    pacstrap /mnt base base-devel linux linux-firmware neovim git networkmanager
    ```
-
+---
 5. **Generate fstab:**
    ```bash
    genfstab -U /mnt >> /mnt/etc/fstab
    ```
-
+---
 6. **Chroot into the new system:**
    ```bash
    arch-chroot /mnt
    ```
-
+---
 7. **Configure system:**
    - **Timezone:**
      ```bash
@@ -61,7 +61,7 @@
      ::1         localhost
      127.0.1.1   pajarch.localdomain pajarch
      ```
-
+---
 8. **Set root password and add user:**
    ```bash
    passwd
@@ -75,8 +75,10 @@
    ```sql
    %wheel ALL=(ALL:ALL) ALL
    ```
-
-9. **Install and configure GRUB bootloader (UEFI + Windows Dual Boot + Secure Boot):**
+---
+9. **Install and configure GRUB bootloader:**
+   
+   ### OPTION A – (UEFI + Windows Dual Boot + Secure Boot)
 
    #### 1. Install GRUB, shim, and tools
    ```bash
@@ -86,6 +88,7 @@
    #### 2. Enable os-prober for Windows detection
    ```bash
    echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+   # or edit /etc/default/grub
    ```
 
    #### 3. Install GRUB with shim support (for Secure Boot)
@@ -98,26 +101,28 @@
    ```
    - This uses the pre-signed `shim` binary trusted by Microsoft’s Secure Boot keys.
    - It allows booting Arch with Secure Boot enabled without generating your own keys.
-   - Microsoft keys must be enrolled in your UEFI firmware (usually already present on Windows systems).
+   - Microsoft keys must be enrolled in your UEFI firmware (usually already present on Windows systems).NO DUAL BOOT
 
-   #### 4. Detect Windows and generate the GRUB config
+   ### OPTION B – UEFI Only (No Dual and Secure Boot)
+
    ```bash
-   os-prober
+   pacman -S grub efibootmgr
+
+   grub-install \
+   --target=x86_64-efi \
+   --efi-directory=/boot/efi \
+   --bootloader-id=GRUB \
+
    grub-mkconfig -o /boot/grub/grub.cfg
    ```
-   - `os-prober` will detect your Windows EFI boot entry and add it to GRUB.
-
-   #### 5. Enable Secure Boot in firmware
-   - Reboot, enter your UEFI/BIOS, and enable Secure Boot.
-   - Windows and Arch should both boot from the GRUB menu.
-
+---
 10. **Exit and reboot:**
     ```bash
     exit
     umount -R /mnt
     reboot
     ```
-
+---
 ## Post-Install
 
 ### Enabling System Services

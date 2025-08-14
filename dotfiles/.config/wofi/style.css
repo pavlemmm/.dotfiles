@@ -23,6 +23,8 @@ window {
 #input {
     background-color: transparent;
     color: white;
+    margin-bottom: 3px;
+    border-radius: 16px;
 }
 
 #entry, #input {
