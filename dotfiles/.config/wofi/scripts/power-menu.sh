@@ -31,7 +31,7 @@ option_3="3    Reload $compositor"
 option_4="4    Lock"
 option_5="5    Log Out"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | wofi --show dmenu --width 200 --height 210 --prompt "Power Menu")
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | wofi --show dmenu --width 200 --height 170 --prompt "Power Menu")
 
 case $option in
     $option_1) poweroff ;;

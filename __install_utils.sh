@@ -30,7 +30,7 @@ install_packages() {
 enable_color_and_multilib() {
     echo -e "\nEnabling color and multilib in /etc/pacman.conf...\n"
 
-    echo -e "\n\nColor\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
+    echo -e "\n\nColor\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" | sudo tee -a /etc/pacman.conf > /dev/null
 }
 
 install_yay() {

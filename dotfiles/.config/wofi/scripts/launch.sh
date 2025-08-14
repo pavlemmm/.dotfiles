@@ -3,5 +3,5 @@
 if pgrep -x wofi; then
     killall wofi
 else
-    wofi --show $1 -I
+    wofi --show $1 -I --prompt "Launch"
 fi

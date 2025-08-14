@@ -18,7 +18,7 @@
 ###
 # AUDIO
 # --------
-# pipewire, wireplumber, pavucontrol
+# pipewire pipewire-pulse wireplumber pavucontrol
 ###
 
 ###
@@ -31,9 +31,9 @@
 ###
 
 ###
-# BASE
+# BASE AND BASICS
 # ----
-# base-devel
+# base-devel networkmanager bluez bluetui
 ###
 
 ###
