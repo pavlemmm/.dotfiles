@@ -37,6 +37,12 @@
 ###
 
 ###
+# FONTS
+# ----
+# noto-fonts-emoji
+###
+
+###
 # NETWORK
 # ----
 # networkmanager

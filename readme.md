@@ -171,6 +171,12 @@ This ensures the correct desktop environment variables are exported when startin
 - **libnotify** – Provides the `notify-send` command for sending notifications.
 - **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
 
+
+   ### Fonts
+- **noto-fonts-emoji** – Font with emojis so apps like wofi, vscode can use it to display emojis
+  **Note:** Font awesome is included in Nerd Fonts, unlike color emoji, so there is no need to install it
+
+
    ### Bluetooth
 - **bluez** – Official Bluetooth utilities for Linux.
 - **bluez-utils** – Bluez command line tools like bluetoothctl

@@ -1,6 +1,8 @@
-font=UbuntuMono Nerd Font 10
+font=Ubuntu Nerd Font 10
+background-color=#21130aFF
+border-radius=16
 default-timeout=10000
-margin=40, 20, 0, 0
-width=300
-border-color=#ffffffaa
+outer-margin=10, 10, 0, 0
+border-color=#402412FF
 border-size=2
+layer=overlay

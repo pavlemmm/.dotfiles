@@ -10,14 +10,14 @@ DIR="$HOME/Pictures/screenshots/"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 FILE="$DIR/screenshot_$TIMESTAMP.png"
 
-option_1="1   Capture Screen"
-option_2="2   Capture Screen to Clipboard"
-option_3="3   Capture Selection"
-option_4="4   Capture Selection to Clipboard"
-option_5="5   Capture Window"
-option_6="6   Capture Window to Clipboard"
+option_1="1     Capture Screen and Save"
+option_2="2     Capture Screen to Clipboard"
+option_3="3     Capture Selection and Save"
+option_4="4     Capture Selection to Clipboard"
+option_5="5     Capture Window and Save"
+option_6="6     Capture Window to Clipboard"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | wofi --show dmenu --width 350 --height 250 --prompt "Screenshot Menu")
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | wofi --show dmenu --width 350 --height 210 --prompt "Screenshot Menu" --no-history)
 
 if [ ! -d "$DIR" ]; then
     mkdir -p "$DIR"
