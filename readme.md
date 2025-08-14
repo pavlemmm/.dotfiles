@@ -173,7 +173,7 @@ This ensures the correct desktop environment variables are exported when startin
 
 
    ### Fonts
-- **noto-fonts-emoji** – Font with emojis so apps like wofi, vscode can use it to display emojis
+- **noto-fonts-emoji** – Font with emojis so apps like wofi, vscode can use it to display emojis    
   **Note:** Font awesome is included in Nerd Fonts, unlike color emoji, so there is no need to install it
 
 
@@ -194,6 +194,11 @@ This ensures the correct desktop environment variables are exported when startin
 
 # Font Recommendations
 
-- **Sans font family** – For GTK themes, bars, and UI elements (e.g., *Ubuntu Nerd Font*).
-- **Monospace font family** – For terminals, WM configurations, and code editors (e.g., *UbuntuMono Nerd Font*).
+For terminals or apps that don't have font fallback, use Nerd Fonts variant because its patched with Font Awesome icons.  
+
+**Sans font family** – For GTK themes, bars, and UI elements (e.g., *Ubuntu Nerd Font*).   
+
+**Monospace font family** – For terminals, WM configurations, and code editors (e.g., *UbuntuMono Nerd Font*).  
+
+**Color emoji font** – For apps to see emojis, not included in font awesome/nerd fonts (e.g., *noto fonts emoji*)
 

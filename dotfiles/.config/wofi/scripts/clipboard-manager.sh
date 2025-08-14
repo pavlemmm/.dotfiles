@@ -3,5 +3,5 @@
 if pgrep -x wofi; then
     killall wofi
 else
-    wofi --dmenu --prompt "Clipboard History" --no-history
+    wofi --dmenu --prompt "Clipboard History"
 fi

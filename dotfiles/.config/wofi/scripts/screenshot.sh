@@ -17,7 +17,7 @@ option_4="4     Capture Selection to Clipboard"
 option_5="5     Capture Window and Save"
 option_6="6     Capture Window to Clipboard"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | wofi --show dmenu --width 350 --height 210 --prompt "Screenshot Menu" --no-history)
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | wofi --show dmenu --width 350 --height 210 --prompt "Screenshot Menu" -O alphabetical)
 
 if [ ! -d "$DIR" ]; then
     mkdir -p "$DIR"
