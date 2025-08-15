@@ -72,7 +72,7 @@
 ###
 # AUR PACKAGES
 # -------------
-# 
+# catppuccin-gtk-theme-mocha
 ###
 
 packages_to_install="zsh neovim lsd tree stow man"

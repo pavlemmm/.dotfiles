@@ -76,18 +76,16 @@
    %wheel ALL=(ALL:ALL) ALL
    ```
 ---
-9. **Install and configure GRUB bootloader:**
+9. **Install and configure GRUB bootloader (UEFI + Windows Dual Boot + Secure Boot):**
    
-   ### OPTION A – (UEFI + Windows Dual Boot + Secure Boot)
-
    #### 1. Install GRUB, shim, and tools
    ```bash
-   pacman -S grub efibootmgr os-prober shim
+   pacman -S grub efibootmgr os-prober shim # os-prober for dual booting, shim for secure boot
    ```
 
    #### 2. Enable os-prober for Windows detection
    ```bash
-   echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+   echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub # optional, for secure boot
    # or edit /etc/default/grub
    ```
 
@@ -97,11 +95,22 @@
    --target=x86_64-efi \
    --efi-directory=/boot/efi \
    --bootloader-id=GRUB \
-   --disable-shim-lock
+   --disable-shim-lock # optional, for secure boot
    ```
    - This uses the pre-signed `shim` binary trusted by Microsoft’s Secure Boot keys.
    - It allows booting Arch with Secure Boot enabled without generating your own keys.
-   - Microsoft keys must be enrolled in your UEFI firmware (usually already present on Windows systems).NO DUAL BOOT
+   - Microsoft keys must be enrolled in your UEFI firmware (usually already present on Windows systems).
+
+
+   #### 4. Detect Windows and generate the GRUB config
+   ```bash
+   os-prober # optional, if dual booting
+   grub-mkconfig -o /boot/grub/grub.cfg
+   ```
+   - `os-prober` will detect your Windows EFI boot entry and add it to GRUB.
+
+   #### 5. Enable Secure Boot in firmware
+   - Reboot, enter your UEFI/BIOS, and enable Secure Boot if shim was used.
 
    ### OPTION B – UEFI Only (No Dual and Secure Boot)
 
@@ -160,6 +169,8 @@ This ensures the correct desktop environment variables are exported when startin
 - **policykit-1-gnome** – Authentication agent for GNOME/other DEs.   
   **Note:** Hyprland has its own policykit agent.
 
+  ### Hyprland
+- **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
 
    ### Wayland
 - **grim, slurp** – Screenshot utilities for Wayland.
@@ -169,13 +180,10 @@ This ensures the correct desktop environment variables are exported when startin
 - **playerctl** – Media playback control (play/pause/next/previous) for compatible media players.
 - **mako** – Notification daemon (on Ubuntu: `mako-notifier`).
 - **libnotify** – Provides the `notify-send` command for sending notifications.
-- **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
-
 
    ### Fonts
 - **noto-fonts-emoji** – Font with emojis so apps like wofi, vscode can use it to display emojis    
   **Note:** Font awesome is included in Nerd Fonts, unlike color emoji, so there is no need to install it
-
 
    ### Bluetooth
 - **bluez** – Official Bluetooth utilities for Linux.
