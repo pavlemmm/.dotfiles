@@ -44,11 +44,18 @@
 }
 
 
-/* TRANSPARENT */
+/* TRANSPARENT WINDOW */
 
-window#waybar,
-tooltip {
+window#waybar {
     background: transparent;
+}
+
+/* TOOLTIP */
+
+tooltip label {
+    padding: 4px 8px;
+    background-color: rgb(33, 19, 10);
+    border: 2px solid rgb(64, 36, 18);
 }
 
 
