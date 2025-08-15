@@ -158,6 +158,7 @@ window#waybar.empty #window {
 /*WIREPLUMBER AUDIO*/
 
 #wireplumber {
+    margin-left: 5px;
     border-radius: 16px;
     padding: 0 10px;
 }
@@ -166,6 +167,7 @@ window#waybar.empty #window {
 
 #network {
     margin-right: 7px;
+    margin-left: 5px;
     border-radius: 16px;
     padding: 0 10px;
 }
@@ -174,7 +176,7 @@ window#waybar.empty #window {
 /* BLUETOOTH */
 
 #bluetooth {
-    margin: 0 5px;
+    margin-left: 5px;
     border-radius: 16px;
     padding: 0 10px;
 }
