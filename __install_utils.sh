@@ -32,6 +32,8 @@ enable_color_and_multilib() {
 
     sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
     sudo sed -i '/\[multilib\]/,/Include/ s/^#//' /etc/pacman.conf
+
+    sudo pacman -Sy
 }
 
 install_yay() {

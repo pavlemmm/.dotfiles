@@ -75,4 +75,4 @@
 # catppuccin-gtk-theme-mocha
 ###
 
-packages_to_install="zsh neovim lsd tree stow man"
+packages_to_install="zsh lsd tree stow "

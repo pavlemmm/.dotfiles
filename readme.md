@@ -3,17 +3,20 @@
 1. **Partition disks**  
    Launch `cfdisk`:
    ```bash
+   setfont ter-132n # set larger tty font
    lsblk
-   cfdisk /dev/nvme0n1pX
+   cfdisk /dev/nvme0n1
    ```
-   - Create at least:
+   - Create partitions:
      - **EFI System Partition (ESP)** – 200 MiB, type `EFI System`
+     - **Swap partition** – 4 GB at least, type `Linux swap`
      - **Root (/) partition** – remaining space, type `Linux filesystem`
 ---
 2. **Format partitions:**
    ```bash
    mkfs.ext4 /dev/<root_partition>
    mkfs.fat -F32 /dev/<efi_partition>
+   mkswap /dev/<swap_partition>
    ```
 ---
 3. **Mount partitions:**
@@ -21,6 +24,7 @@
    mount /dev/<root_partition> /mnt
    mkdir -p /mnt/boot/efi
    mount /dev/<efi_partition> /mnt/boot/efi
+   swapon /dev/<swap_partition>
    ```
 ---
 4. **Install base system:**
@@ -111,24 +115,11 @@
 
    #### 5. Enable Secure Boot in firmware
    - Reboot, enter your UEFI/BIOS, and enable Secure Boot if shim was used.
-
-   ### OPTION B – UEFI Only (No Dual and Secure Boot)
-
-   ```bash
-   pacman -S grub efibootmgr
-
-   grub-install \
-   --target=x86_64-efi \
-   --efi-directory=/boot/efi \
-   --bootloader-id=GRUB \
-
-   grub-mkconfig -o /boot/grub/grub.cfg
-   ```
+   
 ---
 10. **Exit and reboot:**
     ```bash
     exit
-    umount -R /mnt
     reboot
     ```
 ---
