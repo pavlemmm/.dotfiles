@@ -1,16 +1,16 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 6,
+    "margin-top": 0,
     "margin-bottom": 0,
-    "margin-left": 8,
-    "margin-right": 8,
+    "margin-left": 0,
+    "margin-right": 0,
     "modules-left": [
-        "hyprland/window"
+        "hyprland/workspaces"
         //"wlr/taskbar",
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/window"
     ],
     "modules-right": [
         "privacy",
@@ -37,7 +37,6 @@
         // ]
     },
     "hyprland/workspaces": {
-        "format": "",
         "tooltip": false,
         "persistent-workspaces": {
             "*": 5 // 5 workspaces by default on every monitor
