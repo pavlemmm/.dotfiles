@@ -22,7 +22,7 @@ window {
 
 #expander-box {
     background-color: transparent;
-    border: 1px solid rgba(77, 77, 77, 1);
+    border: 2px dashed rgba(77, 77, 77, 1);
     border-radius: 5px;
 }
 

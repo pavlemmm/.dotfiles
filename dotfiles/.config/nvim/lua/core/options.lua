@@ -53,5 +53,4 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 opt.scrolloff = 8
 
--- disable INSERT text
---opt.showmode = false
+opt.showmode = false -- disable INSERT text

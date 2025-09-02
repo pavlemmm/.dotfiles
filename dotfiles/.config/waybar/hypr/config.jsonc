@@ -1,26 +1,26 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 8,
+    "margin-top": 6,
     "margin-bottom": 0,
     "margin-left": 8,
     "margin-right": 8,
     "modules-left": [
-        "hyprland/window",
-        "wlr/taskbar",
-        "privacy"
+        "hyprland/window"
+        //"wlr/taskbar",
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "tray",
+        "privacy",
         "wireplumber",
         "bluetooth",
         "network",
         "disk",
         "cpu",
         "memory",
+        "tray",
         "hyprland/language",
         "battery",
         "clock"
@@ -45,7 +45,11 @@
     },
     "tray": {
         "spacing": 10,
-        "tooltip": false
+        "icon-size": 12
+    },
+    "privacy": {
+        "icon-spacing": 4,
+	    "icon-size": 12
     },
     "wireplumber": {
         "format": "{icon}  {volume}%",

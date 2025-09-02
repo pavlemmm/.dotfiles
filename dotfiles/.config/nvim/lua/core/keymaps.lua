@@ -1,10 +1,11 @@
 -- set leader key to space
 --
+
+vim.g.mapleader = " "
+
 local keymap = vim.keymap -- for conciseness
 
 keymap.set({"n", "v"}, "<Space>", "<Nop>")
-
-vim.g.mapleader = " "
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
@@ -14,6 +15,7 @@ keymap.set("n", "<leader>n", ":nohl<CR>")
 
 -- delete characters without copying into register
 keymap.set("n", "x", '"_x')
+
 
 -- enable commenting
 --keymap.set("n", "gc", require("vim.comment").operator, { expr = true, desc = "Toggle comment" })
@@ -51,8 +53,8 @@ keymap.set("n", "<leader>sw", ":close<CR>") -- close current split window
 
 keymap.set("n", "L", ":vertical resize +10<CR>")
 keymap.set("n", "H", ":vertical resize -10<CR>")
-keymap.set("n", "<leader><S-k>", ":resize +10<CR>")
-keymap.set("n", "<leader><S-j>", ":resize -10<CR>")
+keymap.set("n", "<leader>K", ":resize +5<CR>")
+keymap.set("n", "<leader>J", ":resize -5<CR>")
 
 keymap.set("n", "<leader>l", "<C-w>l")
 keymap.set("n", "<leader>h", "<C-w>h")
@@ -68,6 +70,31 @@ keymap.set("n", "<S-TAB>", ":tabp<CR>")       --  go to previous tab
 
 -- Terminal
 keymap.set("t", "<Esc>", "<C-\\><C-n>")       --  escape terminal
+keymap.set("t", "jk", "<C-\\><C-n>")          --  escape terminal
 
--- Explore (File tree)
-keymap.set("n", "<leader>e", ":Explore<CR>") 
+-- Explorer
+--keymap.set("n", "<leader>e", ":Explore<CR>")
+
+
+-- PLUGINS --
+
+-- files (mini.files)
+keymap.set("n", "<leader>e", function() require("mini.files").open() end, { desc = "Explorer" })
+
+-- telescope
+keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
+keymap.set("n", "<leader>fg", function() require("telescope.builtin").live_grep() end,  { desc = "Live grep" })
+keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end,    { desc = "Buffers" })
+keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Help" })
+
+-- LSP (also set per-buffer in on_attach)
+keymap.set("n", "gd", vim.lsp.buf.definition)
+keymap.set("n", "gr", vim.lsp.buf.references)
+keymap.set("n", "gD", vim.lsp.buf.declaration)
+keymap.set("n", "gi", vim.lsp.buf.implementation)
+keymap.set("n", "K",  vim.lsp.buf.hover)
+keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+keymap.set("n", "[d", vim.diagnostic.goto_prev)
+keymap.set("n", "]d", vim.diagnostic.goto_next)
+keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
