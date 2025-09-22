@@ -5,26 +5,29 @@ is_yes() {
 }
 
 install_packages() {
-    if [[ ! -f /usr/bin/pacman && ! -f /usr/bin/apt  ]]; then
-        echo -e "\nPacket manager not supported\n"
-        return
-    fi
-
     source ./__packages_to_install.sh
 
     if [ -f /usr/bin/pacman ]; then
-            # ARCH BASED
-            echo -e "\nInstalling packages with pacman...\n"
-            sudo pacman -Syu
-            sudo pacman -S --needed $packages_to_install
-    else
+        # ARCH BASED
+        echo -e "\nInstalling packages with pacman...\n"
+        sudo pacman -Syu
+        sudo pacman -S --needed $packages_to_install
+
+    elif [ -f /usr/bin/apt ]; then
         # DEBIAN BASED
         echo -e "\nInstalling packages with apt...\n"
-        sudo apt update && sudo apt upgrade
-        sudo apt install $packages_to_install
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install -y $packages_to_install
 
+    elif [ -f /usr/bin/dnf ]; then
+        # FEDORA BASED
+        echo -e "\nInstalling packages with dnf...\n"
+        sudo dnf upgrade -y
+        sudo dnf install -y $packages_to_install
+
+    else
+        echo -e "\nPacket manager not supported\n"
     fi
-
 }
 
 enable_color_and_multilib() {

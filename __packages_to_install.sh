@@ -1,78 +1,36 @@
 #!/bin/bash
 
-###
-# SWAY
-# ----
-# sway swayidle swaylock 
-# 
-# [ LESS IMPORTANT ]
-# swayimg swaybg wlsunset brightnessctl policykit-1-gnome
-###
-
-###
 # HYPRLAND
-# ----
-# hyprland hypridle hyprlock hyprsunset xdg-desktop-portal-hyprland hyprpaper
-###
+hyprland="hyprland hypridle hyprlock hyprsunset xdg-desktop-portal-hyprland hyprpaper"
 
-###
 # AUDIO
-# --------
-# pipewire pipewire-pulse wireplumber pavucontrol
-###
+audio="pipewire pipewire-pulse wireplumber pavucontrol"
 
-###
 # WM UTILS
-# --------
-# ly wofi alacritty waybar wl-clipboard cliphist grim slurp nwg-look mako libnotify playerctl
-#
-# [ LESS IMPORTANT ]
-# wlogout
-###
+wm="wofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl"
+wm_extra="ly nwg-look"
 
-###
 # BASE
-# ----
-# base-devel
-###
+base="base-devel"
 
-###
 # FONTS
-# ----
-# noto-fonts-emoji
-###
+fonts="noto-fonts-emoji"
 
-###
 # NETWORK
-# ----
-# networkmanager
-###
+network="networkmanager"
 
-###
 # BLUETOOTH
-# ----
-# bluez bluez-utils bluetui blueman
-###
+bluetooth="bluez bluez-utils bluetui blueman"
 
-###
 # DRIVERS
-# -------
-# libva-mesa-driver mesa amd-ucode
-#
+drivers="libva-mesa-driver mesa amd-ucode"
 # [ XORG DRIVERS ]
 # xf86-video-amdgpu
-###
 
-###
 # TERM
-# -------------
-# zsh neovim lsd tree stow man
-###
+term="zsh neovim lsd tree stow man"
 
-###
 # AUR PACKAGES
-# -------------
 # catppuccin-gtk-theme-mocha
-###
 
-packages_to_install="zsh lsd tree stow "
+packages_to_install="$term $wm"

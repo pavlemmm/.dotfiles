@@ -78,9 +78,9 @@ tooltip {
 /* WORKSPACES */
 
 #workspaces {
-    padding: 3px;
     border-radius: 16px;
-
+    padding: 3px;
+    background-color: transparent;
 }
 
 #workspaces button {
