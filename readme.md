@@ -1,3 +1,8 @@
+# PavleMMM dotfiles 
+
+This repository contains my personal Linux dotfiles and configuration setup, carefully tuned for a fast, minimal, and highly customizable workflow. It brings together multiple window managers and compositors, such as Hyprland, Sway, Qtile, and i3, along with essential tools like Waybar, Neovim, Alacritty, Wofi, and Mako. The goal is to have a unified, reproducible environment that works seamlessly across different setups, whether on Wayland or X11, with a focus on performance, aesthetics, and usability.<br><br>
+_**Includes** hyprland, sway, qtile, i3, waybar, neovim, alacritty, wofi, mako ..._
+
 # Arch Installation
 
 1. **Partition disks**  
@@ -151,17 +156,11 @@ This ensures the correct desktop environment variables are exported when startin
 
 # Packages and Explanation
 
-- Below is a curated list of essential Wayland/WM packages with explanations and usage notes.
-   ### Sway
-- **wlsunset** – Night light / Redshift alternative. Can also use `gammastep`.  
-  **Note:** Only use `wlsunset` or `gammastep` if **not** using Hyprland; for Hyprland use `hyprsunset`.
-- **brightnessctl** – Adjust keyboard backlight, screen brightness, and audio keys.  
-  **Note:** Only use if **not** using Hyprland with `hyprsunset`.
-- **policykit-1-gnome** – Authentication agent for GNOME/other DEs.   
-  **Note:** Hyprland has its own policykit agent.
-
   ### Hyprland
 - **xdg-desktop-portal-hyprland** – XDG desktop portal backend for Hyprland.
+- **brightnessctl** – Adjust keyboard backlight, screen brightness, and audio keys.
+- **policykit-1-gnome** – Authentication agent for GNOME/other DEs.   
+  **Note:** Hyprland has its own policykit agent.
 
    ### Wayland
 - **grim, slurp** – Screenshot utilities for Wayland.
