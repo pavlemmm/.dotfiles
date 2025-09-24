@@ -6,11 +6,11 @@
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": [
-        "hyprland/window"
+        "hyprland/workspaces"
         //"wlr/taskbar",
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/window"
     ],
     "modules-right": [
         "privacy",

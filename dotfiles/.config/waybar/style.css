@@ -22,7 +22,6 @@
 
 /* background primary */
 #workspaces,
-#window,
 #language,
 #battery,
 #clock,
@@ -31,7 +30,6 @@
 }
 
 /* border */
-#window,
 #language,
 #battery,
 #clock {
@@ -115,22 +113,6 @@ tooltip {
 }
 
 
-
-/* WINDOW */
-
-#window {
-    margin-right: 5px;
-    border-radius: 16px;
-    padding: 0 12px;
-
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
-    border: none;
-    padding: 0px;
-    margin: 0px;
-}
 
 
 /* RIGHT SECTION */
