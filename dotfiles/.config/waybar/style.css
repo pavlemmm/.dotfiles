@@ -48,7 +48,7 @@
 /* TRANSPARENT WINDOW */
 
 window#waybar {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.1);
 }
 
 /* TOOLTIP */
