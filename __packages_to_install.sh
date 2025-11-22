@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # HYPRLAND
-hyprland="hyprland hypridle hyprlock hyprsunset xdg-desktop-portal-hyprland hyprpaper"
+hyprland="hyprland hypridle hyprlock hyprsunset hyprpolkitagent hyprqt6engine xdg-desktop-portal-hyprland hyprpaper"
 
 # AUDIO
 audio="pipewire pipewire-pulse wireplumber pavucontrol"
 
 # WM UTILS
-wm="wofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl"
+wm="rofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl"
 wm_extra="ly nwg-look"
 
 # BASE
@@ -28,7 +28,7 @@ drivers="libva-mesa-driver mesa amd-ucode"
 # xf86-video-amdgpu
 
 # TERM
-term="zsh neovim lsd tree stow man"
+term="zsh neovim eza zoxide stow man starship"
 
 # AUR PACKAGES
 # catppuccin-gtk-theme-mocha

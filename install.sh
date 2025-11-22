@@ -40,7 +40,7 @@ fi
 echo -e "\nDo you want to link dotfiles? [Y/n]: \c"
 read -r yn
 
-is_yes "$yn" && stow dotfiles -t $HOME
+is_yes "$yn" && link_dotfiles
 
 
 

@@ -52,3 +52,9 @@ install_zsh_plugins() {
     git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
     git clone https://github.com/romkatv/powerlevel10k $HOME/.zsh/powerlevel10k
 }
+
+link_dotfiles() {
+  cd dotfiles
+  stow -t $HOME HOME
+  stow -t / ROOT
+}

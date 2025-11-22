@@ -1,0 +1,86 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "Ubuntu Nerd Font", serif;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* WINDOW */
+
+window#waybar {
+    background: black;
+}
+
+/* TOOLTIP */
+
+tooltip {
+  background-color: black;
+}
+
+/* WORKSPACES */
+
+#workspaces button {
+    margin: 0 5px;
+}
+
+#workspaces button.urgent {
+    color: #f04141;
+}
+
+#workspaces button.visible {
+    color: #90c608;
+}
+
+#workspaces button.empty {
+    color: #3a3a3a;
+}
+
+#workspaces button.active {
+    color: #ff6229;
+}
+
+#workspaces button:hover {
+    color: #a1928b;
+}
+
+
+
+
+/* RIGHT SECTION */
+
+.modules-right {
+  opacity: 0.8;
+}
+
+#tray, #network, #bluetooth, #wireplumber, #battery, #language, #clock {
+    padding: 3px 0; /* vertical padding for whole bar */
+    margin: 0 5px;
+}
+
+/* margins for disk,cpu,mem section */
+
+#disk {
+  margin-left: 5px;
+}
+
+#memory {
+  margin-right: 5px;
+}
+
+
+/* CPU, DISK, BAT, MEM, NETWORK CRITICAL */
+#network.disconnected,
+#network.disabled,
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+    color: #f04141;
+}

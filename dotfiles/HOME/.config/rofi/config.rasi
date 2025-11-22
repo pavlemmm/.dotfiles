@@ -1,0 +1,82 @@
+configuration {
+    modes: "drun,combi";
+    combi-modes: "window,run";
+    show-icons: true;
+    sidebar-mode: true;
+
+    display-drun:  "apps";
+    display-combi: "combi";
+
+	kb-remove-to-eol: "";
+	kb-accept-entry: "Return,KP_Enter";
+    kb-mode-next: "Tab";
+    kb-mode-previous: "Shift+Tab";
+    kb-element-next: "Control+j";
+    kb-element-prev: "Control+k";
+
+    matching: "fuzzy";
+    backend: "wayland";
+}
+
+* {
+    font: "Ubuntu Nerd Font 13";
+
+    background: #000000;
+    foreground: #c5c5c5;
+
+    /* highlight (orange) */
+    selected-normal-background:  #ff6229;
+    selected-normal-foreground:  #000000;
+
+    /* disable alt rows */
+    normal-background:           #000000;
+    alternate-normal-background: #000000;
+
+    spacing: 3;
+}
+
+window {
+    background-color: @background;
+    width: 600px;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+listview {
+    spacing: 3px;
+    fixed-height: false;
+    border: 0;
+    scrollbar: false;
+}
+
+element {
+    padding: 6px 8px;
+    background-color: @background;
+}
+
+element selected {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border-radius: 2px;
+}
+
+inputbar {
+    padding: 6px 8px;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element-text, element-icon {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+button {
+    padding: 8px 12px;
+}
+
+button selected {
+    background-color: @background;
+    color: @selected-normal-background;
+}
