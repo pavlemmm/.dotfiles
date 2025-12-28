@@ -1,76 +1,98 @@
+@import "color.css";
+
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-family: "Ubuntu Nerd Font", serif;
-    font-weight: bold;
-    font-size: 10px;
-    padding: 0;
-    margin: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Inter", serif;
+  /* font-weight: bold; */
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 
-/* WINDOW */
+/* WAYBAR WINDOW */
 
 window#waybar {
-    background: black;
+  background: @bg;
+  /* border-bottom: 1px solid @fg; */
+  color: @fg;
+}
+
+/* ACTIVE WINDOW */
+
+#window {
+  /* border-left: 1px solid @fg; */
+  font-weight: bold;
 }
 
 /* TOOLTIP */
 
 tooltip {
-  background-color: black;
+  background-color: @bg;
+  /* border: 1px solid @fg; */
 }
 
 /* WORKSPACES */
 
 #workspaces button {
-    margin: 0 5px;
+  /* border-bottom: 1px solid @fg; */
+  padding: 0 6px;
+  background-color: @gray;
+  color: @fg;
 }
 
 #workspaces button.urgent {
-    color: #f04141;
+  background-color: @red;
+  color: @bg;
 }
 
 #workspaces button.visible {
-    color: #90c608;
+  background-color: @green;
+  color: @bg;
 }
 
 #workspaces button.empty {
-    color: #3a3a3a;
+  background-color: @bg;
 }
 
 #workspaces button.active {
-    color: #ff6229;
+  background-color: @orange;
+  color: @bg;
 }
 
 #workspaces button:hover {
-    color: #a1928b;
+  background-color: @fg;
+  color: @bg;
 }
-
-
 
 
 /* RIGHT SECTION */
-
-.modules-right {
-  opacity: 0.8;
+#clock {
+  /* vertical padding for whole bar */
+  padding: 1px 0;
 }
 
-#tray, #network, #bluetooth, #wireplumber, #battery, #language, #clock {
-    padding: 3px 0; /* vertical padding for whole bar */
-    margin: 0 5px;
+
+#network,
+#bluetooth,
+#wireplumber,
+#battery,
+#cpu,
+#clock,
+#memory,
+#disk,
+#tray,
+#language {
+  color: @fg;
+  margin: 0 10px;
 }
 
-/* margins for disk,cpu,mem section */
-
-#disk {
-  margin-left: 5px;
+#language {
+  color: @cyan;
 }
 
-#memory {
-  margin-right: 5px;
-}
 
 
 /* CPU, DISK, BAT, MEM, NETWORK CRITICAL */
@@ -82,5 +104,5 @@ tooltip {
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    color: #f04141;
+  color: @red;
 }

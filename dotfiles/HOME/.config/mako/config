@@ -1,8 +1,8 @@
-font=Ubuntu Nerd Font 10
-background-color=#21130aFF
-border-radius=16
-default-timeout=10000
-outer-margin=10, 10, 0, 0
-border-color=#402412FF
-border-size=2
+font=Inter 8
+background-color=#0f0f14ff
+border-radius=8
+border-color=#c0caf5FF
+text-color=#c0caf5FF
+border-size=0
+default-timeout=5000
 layer=overlay

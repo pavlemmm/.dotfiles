@@ -5,14 +5,14 @@ if pgrep -x rofi; then
     exit
 fi
 
-option_1="1\tTemp 1000K"
-option_2="2\tTemp 1500K"
-option_3="3\tTemp 2000K"
-option_4="4\tTemp 2500K"
-option_5="5\tTemp 3000K"
-option_6="6\tIdentity"
+option_1="1     Temp 1000K"
+option_2="2     Temp 1500K"
+option_3="3     Temp 2000K"
+option_4="4     Temp 2500K"
+option_5="5     Temp 3000K"
+option_6="6     Identity"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "hyprsunset menu")
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "hyprsunset menu" -matching prefix)
 
 case $option in
     $option_1) hyprctl hyprsunset temperature 1000 && notify-send "Hyprsunset temperature 1000" ;;

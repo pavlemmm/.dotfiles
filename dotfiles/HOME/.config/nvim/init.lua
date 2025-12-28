@@ -1,5 +1,9 @@
+require("plugins")
 require("options")
-require("keymaps")
 require("colors")
-
-
+require("lsp")
+require("completion")
+require("treesitter")
+require("other")
+require("keymaps")
+require("commands")

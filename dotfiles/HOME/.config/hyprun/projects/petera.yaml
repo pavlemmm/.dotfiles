@@ -1,0 +1,37 @@
+project: petera
+dir: ~/Documents/petera/
+
+commands:
+  - systemctl start docker
+
+workspaces:
+  2:
+    windows:
+      - app: terminal
+        args: npm run dev
+
+  3:
+    layout: horizontal
+    windows:
+      - app: terminal
+        args: docker compose up
+      - app: terminal
+        args: docker exec -it petera-postgres psql -U postgres -d petera
+        delay: 0.5
+
+  4:
+    windows:
+      - app: nvim
+
+  5:
+    windows:
+      - app: terminal
+        args: opencode
+
+special:
+  sp:
+    windows:
+      - app: terminal
+        float: true
+        center: true
+        size: "75%"

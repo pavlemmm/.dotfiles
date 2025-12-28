@@ -1,16 +1,30 @@
+[general]
+import = [ "~/.config/alacritty/themes/tokyo-night.toml" ]
+
 [font]
-normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
-size = 18
+# normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 13
 
 [window]
-title = "term"
-opacity = 0.3
+title = "Terminal"
+# opacity = 0.8
+
+# [colors.primary]
+# background = "#000000"
 
 [window.padding]
-x = 10
-y = 10
+x = 3
+y = 3
 
-[colors.primary]
-background = "#000000"
+# [[keyboard.bindings]]
+# key = "Space"
+# mods = "Control|Alt"
+# action = "ToggleViMode"
+
+[[keyboard.bindings]]
+key = "Escape"
+mode = "Vi"
+action = "ToggleViMode"
 
 

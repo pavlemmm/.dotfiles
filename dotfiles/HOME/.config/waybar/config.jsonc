@@ -1,30 +1,34 @@
 {
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "margin-top": 0,
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "privacy",
         "wireplumber",
+        "battery",
         "bluetooth",
         "network",
-        "disk",
+
         "cpu",
+        "disk",
         "memory",
+
+        "privacy",
         "tray",
+          
         "hyprland/language",
-        "battery",
         "clock"
     ],
     "hyprland/window": {
+        "format": "{}",
         "separate-outputs": true
     },
     "hyprland/workspaces": {
@@ -38,7 +42,7 @@
           "6": "util",
           "7": "main",
           "8": "term",
-          "9": "term",
+          "9": "www",
           "10": "www"
         },
         "tooltip": false,
@@ -51,11 +55,11 @@
         "icon-size": 12
     },
     "privacy": {
-        "icon-spacing": 4,
+      "icon-spacing": 4,
 	    "icon-size": 12
     },
     "wireplumber": {
-        "format": "{icon}  {volume}%",
+        "format": "{icon}   {volume}%",
         "format-muted": "  Mute",
         "on-click": "pavucontrol",
         "format-icons": [
@@ -66,29 +70,60 @@
     },
     "network": {
         "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "{ipaddr}/{cidr}",
+        "format-ethernet": "",
         "format-disconnected": "no network",
         "tooltip-format": "{ifname} via {gwaddr}",
         "tooltip-format-wifi": "{essid},  {frequency}GHz",
-        "tooltip-format-ethernet": "{ifname}",
         "tooltip-format-disconnected": "no network",
         "max-length": 50
     },
+    // "disk": {
+    //     "interval": 30,
+    //     "format": "DISK {percentage_used}%",
+    //     "path": "/",
+    //     "states": {
+    //         "critical": 90
+    //     }
+    // },
     "disk": {
         "interval": 30,
-        "format": "D  {percentage_used}%  ",
-        "path": "/"
-    },
-    "cpu": {
-      "interval": 10,
-        "format": "/  C  {usage}%  ",
+        "format": " {used}/{total}",
+        "path": "/",
         "states": {
             "critical": 90
         }
     },
+    // "cpu": {
+    //   "interval": 10,
+    //     "format": "cpu {usage}%",
+    //     "states": {
+    //         "critical": 80
+    //     }
+    // },
+    "cpu": {
+         "interval": 10,
+         "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+         "format-icons": [
+              "<span color='#69ff94'>▁</span>", // green
+              "<span color='#2aa9ff'>▂</span>", // blue
+              "<span color='#f8f8f2'>▃</span>", // white
+              "<span color='#f8f8f2'>▄</span>", // white
+              "<span color='#ffffa5'>▅</span>", // yellow
+              "<span color='#ffffa5'>▆</span>", // yellow
+              "<span color='#ff9977'>▇</span>", // orange
+              "<span color='#dd532e'>█</span>"  // red
+         ]
+    },
+    // "memory": {
+    //     "interval": 10,
+    //     "format": "ram {}%",
+    //     "states": {
+    //         "critical": 80
+    //     }
+    // },
     "memory": {
-        "interval": 10,
-        "format": "/  M  {}%  ",
+        "interval": 30,
+        "format": "   {used:0.1f}G/{total:0.1f}G",
         "states": {
             "critical": 80
         }
@@ -121,6 +156,7 @@
         "max-length": 25
     },
     "hyprland/language": {
+      // "format": "[ {} ]",
         "format-en": "US"
     },
     "clock": {

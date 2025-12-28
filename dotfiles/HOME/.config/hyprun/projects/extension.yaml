@@ -1,0 +1,12 @@
+project: extension
+dir: ~/Documents/extension_test/
+
+workspaces:
+  4:
+    windows:
+      - app: nvim
+special:
+  sp:
+    windows:
+      - app: terminal
+        float: true
