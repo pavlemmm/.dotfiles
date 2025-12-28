@@ -1,8 +1,3 @@
-# PavleMMM dotfiles 
-
-This repository contains my personal Linux dotfiles and configuration setup, carefully tuned for a fast, minimal, and highly customizable workflow. It brings together multiple window managers and compositors, such as Hyprland, Sway, Qtile, and i3, along with essential tools like Waybar, Neovim, Alacritty, Wofi, and Mako. The goal is to have a unified, reproducible environment that works seamlessly across different setups, whether on Wayland or X11, with a focus on performance, aesthetics, and usability.<br><br>
-_**Includes** hyprland, sway, qtile, i3, waybar, neovim, alacritty, wofi, mako ..._
-
 # Arch Installation
 
 1. **Partition disks**  
@@ -199,4 +194,3 @@ For terminals or apps that don't have font fallback, use Nerd Fonts variant beca
 **Monospace font family** – For terminals, WM configurations, and code editors (e.g., *UbuntuMono Nerd Font*).  
 
 **Color emoji font** – For apps to see emojis, not included in font awesome/nerd fonts (e.g., *noto fonts emoji*)
-
