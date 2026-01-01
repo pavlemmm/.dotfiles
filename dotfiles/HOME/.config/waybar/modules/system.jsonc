@@ -1,0 +1,18 @@
+{
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "  Mute",
+    "format-icons": ["", "", ""],
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "interval": 100,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}   {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  }
+}

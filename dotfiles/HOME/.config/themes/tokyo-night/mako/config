@@ -1,0 +1,8 @@
+default-timeout=5000
+layer=overlay
+font=JetBrainsMono 8
+background-color=#1a1b26FF
+text-color=#c0caf5FF
+border-color=#3b4261
+border-size=1
+border-radius=8

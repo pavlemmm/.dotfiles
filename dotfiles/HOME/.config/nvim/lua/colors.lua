@@ -37,8 +37,3 @@ require("rose-pine").setup({
     -- transparency = true,
   },
 })
-
--- Set theme
-
-vim.cmd("colorscheme tokyonight")
--- vim.cmd("colorscheme habamax")

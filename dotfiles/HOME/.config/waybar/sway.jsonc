@@ -1,0 +1,41 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 20,
+  "spacing": 20,
+  "margin": "0 0",
+  // "start_hidden": true,
+
+  "modules-left": [
+    "sway/workspaces",
+    "sway/scratchpad",
+    "sway/mode"
+  ],
+
+  "modules-center": [
+    // "sway/window"
+    "clock"
+  ],
+
+  "modules-right": [
+    "wireplumber",
+    "battery",
+    "bluetooth",
+    "network",
+    "cpu",
+    "disk",
+    "memory",
+    "privacy",
+    "tray",
+    "sway/language"
+  ],
+
+  "include": [
+    "~/.config/waybar/modules/sway.jsonc",
+    "~/.config/waybar/modules/system.jsonc",
+    "~/.config/waybar/modules/hardware.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/tray.jsonc",
+    "~/.config/waybar/modules/clock.jsonc"
+  ]
+}

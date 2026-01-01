@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if pgrep -x rofi; then
-    killall rofi
+if pgrep -x rofi >/dev/null; then
+    pkill rofi
     exit
 fi
 
@@ -16,7 +16,7 @@ option_4="4       Capture Selection to Clipboard"
 option_5="5       Capture Window and Save"
 option_6="6       Capture Window to Clipboard"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "screenshot menu")
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "screenshot menu" -i)
 
 if [ ! -d "$DIR" ]; then
     mkdir -p "$DIR"

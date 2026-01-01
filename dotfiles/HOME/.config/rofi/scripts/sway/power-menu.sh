@@ -5,17 +5,17 @@ if pgrep -x rofi >/dev/null; then
     exit
 fi
 
-reload_cmd="hyprctl reload"
-logout_cmd="hyprctl dispatch exit"
-lock_cmd="hyprlock"
+reload_cmd="swaymsg reload"
+logout_cmd="swaymsg exit"
+lock_cmd="swaylock"
 
 option_1="1       Power Off"
 option_2="2       Restart"
-option_3="3       Reload Hyprland"
+option_3="3       Reload Sway"
 option_4="4       Lock"
 option_5="5       Log Out"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi -dmenu -p "power menu")
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi -dmenu -p "power menu" -i)
 
 case $option in
     $option_1) poweroff ;;

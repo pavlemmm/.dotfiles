@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if pgrep -x rofi; then
-    killall rofi
+if pgrep -x rofi >/dev/null; then
+    pkill rofi
     exit
 fi
 
-sed '1,/^### DATA ###$/d' $0 | rofi -dmenu -p "emoji menu" | cut -d ' ' -f 1 | tr -d '\n' | wl-copy
+sed '1,/^### DATA ###$/d' $0 | rofi -dmenu -p "emoji menu" -i | cut -d ' ' -f 1 | tr -d '\n' | wl-copy
 exit
 
 ### DATA ###

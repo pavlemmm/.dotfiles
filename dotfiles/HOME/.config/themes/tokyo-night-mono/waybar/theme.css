@@ -1,0 +1,14 @@
+/* TOKYONIGHT COLORS */
+@define-color bg #1a1b26;
+@define-color fg #c0caf5;
+@define-color non-empty #3b4261;
+@define-color empty #1a1b26;
+@define-color active #ff9e64;
+@define-color visible #7aa2f7;
+@define-color urgent #f7768a;
+@define-color language #9ece6a;
+
+* {
+  font-family: JetBrainsMono, serif;
+  font-size: 10px;
+}

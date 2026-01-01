@@ -1,0 +1,35 @@
+# Include theme
+include ~/.config/sway/modules/theme.conf
+
+# Appearance
+include ~/.config/sway/modules/appearance.conf
+
+# Apps
+include ~/.config/sway/modules/apps.conf
+
+# Input devices
+include ~/.config/sway/modules/inputs.conf
+
+# Keybinds (movement, utilities, volume, brightness)
+include ~/.config/sway/modules/keybinds.conf
+
+# Workspaces
+include ~/.config/sway/modules/workspaces.conf
+
+# Monitors and wallpaper
+include ~/.config/sway/modules/monitors.conf
+
+# Layouts
+include ~/.config/sway/modules/layout.conf
+
+# Scratchpad
+include ~/.config/sway/modules/scratchpad.conf
+
+# Bar
+include ~/.config/sway/modules/bar.conf
+
+# Window rules & exec commands
+include ~/.config/sway/modules/rules.conf
+
+# System includes
+include /etc/sway/config.d/*

@@ -1,0 +1,39 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin": "0 0",
+  "spacing": 20,
+  "height": 20,
+  // "start_hidden": true,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    // "hyprland/window"
+    "clock"
+  ],
+
+  "modules-right": [
+    "wireplumber",
+    "battery",
+    "bluetooth",
+    "network",
+    "cpu",
+    "disk",
+    "memory",
+    "privacy",
+    "tray",
+    "hyprland/language"
+  ],
+
+  "include": [
+    "~/.config/waybar/modules/hypr.jsonc",
+    "~/.config/waybar/modules/system.jsonc",
+    "~/.config/waybar/modules/hardware.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/tray.jsonc",
+    "~/.config/waybar/modules/clock.jsonc"
+  ]
+}

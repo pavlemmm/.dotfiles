@@ -1,64 +1,69 @@
-@import "color.css";
+@import url("theme.css");
 
+/* =============================
+   GLOBAL RESET
+   ============================= */
 * {
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: "Inter", serif;
-  /* font-weight: bold; */
-  font-size: 10px;
   padding: 0;
   margin: 0;
 }
 
-
-/* WAYBAR WINDOW */
-
+/* =============================
+   WAYBAR WINDOW
+   ============================= */
 window#waybar {
   background: @bg;
-  /* border-bottom: 1px solid @fg; */
   color: @fg;
 }
 
-/* ACTIVE WINDOW */
+#waybar.icon {
+  margin: 0 20px;
+  padding: 0;
+  min-width: 0;
+}
 
+/* ACTIVE WINDOW */
 #window {
-  /* border-left: 1px solid @fg; */
   font-weight: bold;
 }
 
 /* TOOLTIP */
-
 tooltip {
   background-color: @bg;
-  /* border: 1px solid @fg; */
-}
-
-/* WORKSPACES */
-
-#workspaces button {
-  /* border-bottom: 1px solid @fg; */
-  padding: 0 6px;
-  background-color: @gray;
   color: @fg;
 }
 
-#workspaces button.urgent {
-  background-color: @red;
+/* =============================
+   WORKSPACES
+   ============================= */
+
+#workspaces button {
+  padding: 0 6px;
+
+  background-color: @non-empty;
+  color: @fg;
+}
+
+#workspaces button.empty {
+  background-color: @empty;
+  color: @fg;
+}
+
+#workspaces button.active {
+  background-color: @active;
   color: @bg;
 }
 
 #workspaces button.visible {
-  background-color: @green;
+  background-color: @visible;
   color: @bg;
 }
 
-#workspaces button.empty {
-  background-color: @bg;
-}
-
-#workspaces button.active {
-  background-color: @orange;
+#workspaces button.urgent {
+  background-color: @urgent;
   color: @bg;
 }
 
@@ -67,35 +72,16 @@ tooltip {
   color: @bg;
 }
 
-
-/* RIGHT SECTION */
-#clock {
-  /* vertical padding for whole bar */
-  padding: 1px 0;
-}
-
-
-#network,
-#bluetooth,
-#wireplumber,
-#battery,
-#cpu,
-#clock,
-#memory,
-#disk,
-#tray,
-#language {
-  color: @fg;
-  margin: 0 10px;
-}
+/* =============================
+   RIGHT SECTION
+   ============================= */
 
 #language {
-  color: @cyan;
+  color: @language;
+  margin-right: 5px;
 }
 
-
-
-/* CPU, DISK, BAT, MEM, NETWORK CRITICAL */
+/* CRITICAL / WARNING */
 #network.disconnected,
 #network.disabled,
 #cpu.critical,
@@ -104,5 +90,5 @@ tooltip {
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  color: @red;
+  color: @urgent;
 }

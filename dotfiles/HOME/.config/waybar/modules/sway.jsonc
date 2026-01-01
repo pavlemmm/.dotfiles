@@ -1,0 +1,18 @@
+{
+  "sway/window": {
+    "format": "{}"
+  },
+
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": ["", ""],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+
+  "sway/language": {
+    "format": "{long}",
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+  }
+}

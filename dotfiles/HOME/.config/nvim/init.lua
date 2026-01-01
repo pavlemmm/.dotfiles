@@ -1,6 +1,7 @@
 require("plugins")
 require("options")
 require("colors")
+require("colorscheme")
 require("lsp")
 require("completion")
 require("treesitter")

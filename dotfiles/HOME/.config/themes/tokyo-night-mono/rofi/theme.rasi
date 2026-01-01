@@ -1,0 +1,60 @@
+* {
+  font: "JetBrainsMono 11";
+
+  background: #0f0f14;
+  foreground: #c0caf5;
+
+  /* highlight (orange) */
+  selected-normal-background:  #3b4261;
+  selected-normal-foreground:  #c0caf5;
+
+  /* disable alt rows */
+  normal-background:           #0f0f14;
+  alternate-normal-background: #0f0f14;
+
+  spacing: 3;
+}
+
+window {
+  background-color: @background;
+  width: 600px;
+  border: 0;
+  padding: 4px;
+}
+
+listview {
+  spacing: 3px;
+  fixed-height: false;
+  border: 0;
+  scrollbar: false;
+}
+
+element {
+  padding: 4px 6px;
+  background-color: @background;
+}
+
+element selected {
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-foreground;
+}
+
+inputbar {
+  padding: 4px 6px;
+  background-color: @background;
+  text-color: @foreground;
+}
+
+element-text, element-icon {
+  background-color: transparent;
+  text-color: inherit;
+}
+
+button {
+  padding: 6px 8px;
+  color: @selected-normal-background;
+}
+
+// button selected {
+//   background-color: @background;
+// }

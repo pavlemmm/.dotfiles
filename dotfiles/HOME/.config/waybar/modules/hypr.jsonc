@@ -1,0 +1,30 @@
+{
+  "hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "www",
+      "2": "term",
+      "3": "term",
+      "4": "main",
+      "5": "util",
+      "6": "util",
+      "7": "main",
+      "8": "term",
+      "9": "www",
+      "10": "www"
+    },
+    "tooltip": false,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "hyprland/language": {
+    "format-en": "US"
+  }
+}
