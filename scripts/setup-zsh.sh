@@ -6,6 +6,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosu
 
 echo "Zsh plugins are now installed"
 
-chsh -s $(which zsh)
-
-echo "Zsh is now default shell"
+# chsh -s $(which zsh)
+#
+# echo "Zsh is now default shell"
