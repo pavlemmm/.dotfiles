@@ -55,6 +55,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       # Use LS_COLORS for 
 
 # link: https://github.com/zsh-users/zsh-autosuggestions.git
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # link: https://github.com/zdharma-continuum/fast-syntax-highlighting.git
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
@@ -90,6 +91,11 @@ alias v="nvim"
 
 # Other
 alias c='clear'
+
+# NixOS
+alias ns='sudo nixos-rebuild switch --flake /etc/nixos/'
+alias nc='sudoedit /etc/nixos/configuration.nix'
+alias nf='sudoedit /etc/nixos/flake.nix'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION

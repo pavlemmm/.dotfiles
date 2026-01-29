@@ -17,23 +17,17 @@ require("tokyonight").setup({
   -- lualine_bold = true,
 })
 
-require("github-theme").setup({
-  options = {
-    -- transparent = true,
-  }
-})
+-- require("catppuccin").setup({
+--   flavour = "mocha",
+--   -- transparent_background = true,
+--   -- float = {
+--   --     transparent = true,
+--   -- },
+--   term_colors = true,
+-- })
 
-require("catppuccin").setup({
-  flavour = "mocha",
-  -- transparent_background = true,
-  -- float = {
-  --     transparent = true,
-  -- },
-  term_colors = true,
-})
-
-require("rose-pine").setup({
-  styles = {
-    -- transparency = true,
-  },
-})
+-- require("rose-pine").setup({
+--   styles = {
+--     -- transparency = true,
+--   },
+-- })

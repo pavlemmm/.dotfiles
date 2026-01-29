@@ -1,1 +1,1 @@
-/home/jopa/.config/themes/tokyo-night-mono/nvim/colorscheme.lua
+vim.cmd("colorscheme tokyonight")

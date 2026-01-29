@@ -1,8 +1,8 @@
 vim.pack.add({
   -- LSP
   "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/mason-org/mason.nvim",
-  "https://github.com/mason-org/mason-lspconfig.nvim.git",
+  -- "https://github.com/mason-org/mason.nvim",
+  -- "https://github.com/mason-org/mason-lspconfig.nvim.git",
 
   -- COMPLETITON
   "https://github.com/saghen/blink.cmp",
@@ -16,9 +16,8 @@ vim.pack.add({
 
   -- COLORS
   "https://github.com/folke/tokyonight.nvim",
-  "https://github.com/catppuccin/nvim.git",
-  "https://github.com/rose-pine/neovim.git",
-  "https://github.com/projekt0n/github-nvim-theme",
+  -- "https://github.com/catppuccin/nvim.git",
+  -- "https://github.com/rose-pine/neovim.git",
 
   -- ICONS
   "https://github.com/nvim-mini/mini.icons.git",
@@ -64,5 +63,5 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.indentscope.git",
 
   -- TMUX
-  "https://github.com/christoomey/vim-tmux-navigator.git",
+  -- "https://github.com/christoomey/vim-tmux-navigator.git",
 })
