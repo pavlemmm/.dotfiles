@@ -1,11 +1,12 @@
--- Mason
--- require("mason").setup()
--- require("mason-lspconfig").setup({
---   ensure_installed = { "lua_ls", "ts_ls", "pyright", "tailwindcss", "html", "cssls", "emmet_ls" },
--- })
-
 local servers = { "lua_ls", "ts_ls", "pyright", "tailwindcss", "html", "cssls", "emmet_ls" }
 
+-- Install LSP with Mason
+-- require("mason").setup()
+-- require("mason-lspconfig").setup({
+--   ensure_installed = servers,
+-- })
+
+-- Install LSP manually (best for NixOS)
 for _, lsp in ipairs(servers) do
   vim.lsp.enable(lsp)
 end

@@ -66,14 +66,11 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # SMART DIRECTORY JUMPING, PROMPT, FZF
 ########################################
 source <(zoxide init zsh) # zoxide: smarter cd command with ranking
-# eval "$(zoxide init zsh)"
 
 source <(oh-my-posh init zsh --config ~/.config/oh-my-posh/huvix.omp.json) # oh-my-posh: power10k alternative
 # source <(starship init zsh) # starship: fast, modern, cross-shell prompt
-# eval "$(starship init zsh)"
 
 source <(fzf --zsh) # fzf: fuzzy find in zsh
-# eval "$(fzf --zsh)"
 
 ########################################
 # ALIASES
