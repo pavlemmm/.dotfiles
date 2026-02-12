@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Install zsh plugins
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions

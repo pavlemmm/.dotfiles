@@ -2,9 +2,9 @@
 
 set -e
 
-dnf_packages=(
+deb_packages=(
   # Terminal
-  zsh neovim eza zoxide stow man fzf
+  zsh neovim eza zoxide man fzf stow 
 
   # WM Tools
   rofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl
@@ -13,7 +13,7 @@ dnf_packages=(
   noto-emoji-fonts jetbrains-mono-fonts
 )
 
-sudo dnf -y upgrade
-sudo dnf -y install "${dnf_packages[@]}"
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install -y "${deb_packages[@]}"
 
-echo "Fedora packages installed"
+echo "Debian based packages installed"

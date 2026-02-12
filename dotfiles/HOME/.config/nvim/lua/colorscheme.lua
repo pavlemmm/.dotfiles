@@ -1,1 +1,1 @@
-vim.cmd("colorscheme tokyonight")
+/home/pavlem/.config/themes/tokyo-night-mono/nvim/colorscheme.lua

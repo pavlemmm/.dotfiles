@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if pgrep -x rofi >/dev/null; then
     pkill rofi
@@ -19,27 +19,32 @@ option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_
 case $option in
     $option_1)
         pkill wlsunset || true
-        wlsunset -t 1000 &
+        gammastep -O 1000 &
+        # wlsunset -t 1000 &
         notify-send "Sunset" "Temperature 1000K"
         ;;
     $option_2)
         pkill wlsunset || true
-        wlsunset -t 1500 &
+        gammastep -O 1500 &
+        # wlsunset -t 1500 &
         notify-send "Sunset" "Temperature 1500K"
         ;;
     $option_3)
         pkill wlsunset || true
-        wlsunset -t 2000 &
+        gammastep -O 2000 &
+        # wlsunset -t 2000 &
         notify-send "Sunset" "Temperature 2000K"
         ;;
     $option_4)
         pkill wlsunset || true
-        wlsunset -t 2500 &
+        gammastep -O 2500 &
+        # wlsunset -t 2500 &
         notify-send "Sunset" "Temperature 2500K"
         ;;
     $option_5)
         pkill wlsunset || true
-        wlsunset -t 3000 &
+        gammastep -O 3000 &
+        # wlsunset -t 3000 &
         notify-send "Sunset" "Temperature 3000K"
         ;;
     $option_6)

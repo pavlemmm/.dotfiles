@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 git clone https://aur.archlinux.org/yay.git $HOME/yay
 
 ( cd $HOME/yay || exit

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Zen Browser
-Exec=zen
-Terminal=false
-Type=Application
-Icon=/opt/zen/browser/chrome/icons/default/default128.png
-Categories=Network;WebBrowser;
-StartupNotify=true

@@ -1,7 +1,7 @@
 {
   "wireplumber": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "  Mute",
+    "format": "{icon} {volume}%",
+    "format-muted": " Mute",
     "format-icons": ["", "", ""],
     "on-click": "pavucontrol"
   },

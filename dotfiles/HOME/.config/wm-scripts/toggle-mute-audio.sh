@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Clear all previous notifications (mako)
 makoctl dismiss -a
