@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-mv $HOME/.config/dconf/config.dconf $HOME/.config/dconf/config.dconf.bak
-dconf dump / > $HOME/.config/dconf/config.dconf
+set -e
+
+dir="$HOME/.dotfiles/dotfiles/HOME/.config/dconf"
+
+mv "$dir"/config.dconf "$dir"/config.dconf.bak
+dconf dump / > "$dir"/config.dconf

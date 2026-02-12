@@ -1,38 +1,45 @@
 #!/usr/bin/env bash
 
-#############################################
-# PACMAN PACKAGES
-#############################################
+pacman_packages=(
+  # Base
+  base-devel
 
-hyprland="hyprland hypridle hyprlock hyprsunset hyprpolkitagent hyprqt6engine xdg-desktop-portal-hyprland hyprpaper"
+  # Hyprland
+  hyprland hypridle hyprlock hyprsunset hyprpolkitagent hyprqt6engine xdg-desktop-portal-hyprland hyprpaper
 
-audio="pipewire pipewire-pulse wireplumber pavucontrol"
+  # Audio
+  pipewire pipewire-pulse wireplumber pavucontrol
 
-window_manager_utils="rofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl"
-# extra:
-# ly nwg-look
+  # WM Tools
+  rofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl
 
-base="base-devel"
+  # Fonts
+  noto-fonts-emoji ttf-jetbrains-mono-nerd
 
-fonts="noto-fonts-emoji ttf-jetbrains-mono-nerd"
+  # Network
+  networkmanager
 
-network="networkmanager"
+  # Bluetooth
+  bluez bluez-utils bluetui blueman
 
-bluetooth="bluez bluez-utils bluetui blueman"
+  # Drivers
+  libva-mesa-driver mesa amd-ucode
 
-drivers="libva-mesa-driver mesa amd-ucode"
-# extra:
-# xf86-video-amdgpu
-
-terminal="zsh neovim eza zoxide stow man fzf"
+  # Terminal
+  zsh neovim eza zoxide stow man fzf
+)
 
 sudo pacman -Syu
-sudo pacman -S --needed "$terminal"
+sudo pacman -S --needed "${pacman_packages[@]}"
 
-#############################################
-# YAY PACKAGES
-#############################################
+if ! command -v yay >/dev/null 2>&1; then
+  echo "yay not found, skipping aur packages"
+  exit 1
+fi
 
-fonts="inter-font"
+yay_packages=(
+  # Fonts
+  inter-font
+)
 
-yay -Sy "$fonts"
+yay -S --needed "${yay_packages[@]}"

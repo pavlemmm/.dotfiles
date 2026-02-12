@@ -1,3 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-dconf load / < $HOME/.config/dconf/config.dconf
+set -e
+
+dir="$HOME/.dotfiles/dotfiles/HOME/.config/dconf"
+
+dconf load / < "$dir"/config.dconf
