@@ -1,1 +1,1 @@
-/home/pavlem/.config/themes/tokyo-night-mono/nvim/colorscheme.lua
+/home/pavlem/.config/themes/tokyo-night/nvim/colorscheme.lua

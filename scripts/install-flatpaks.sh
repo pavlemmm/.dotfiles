@@ -12,5 +12,13 @@ install_zen_browser() {
   echo "Zen browser installed"
 }
 
+install_discord() {
+  flatpak install flathub com.discordapp.Discord
+  echo "Discord installed"
+}
+
+# ---------------------------------------------------------------------------
 setup_flathub
-# install_zen_browser
+install_zen_browser
+install_discord
+# ---------------------------------------------------------------------------

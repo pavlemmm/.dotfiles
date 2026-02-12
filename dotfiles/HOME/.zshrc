@@ -49,28 +49,47 @@ zstyle ':completion:*' menu select                          # Show menu for sele
 zstyle ':completion:*' special-dirs true                    # force . and .. to show in cmp menu
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # Case-insensitive completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       # Use LS_COLORS for coloring completion entries
+
 ########################################
 # LOAD PLUGINS
 ########################################
+# Zsh Autosuggestions
+if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
-# link: https://github.com/zsh-users/zsh-autosuggestions.git
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Fast Syntax Highlighting
+if [[ -f ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+    source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
 
-# link: https://github.com/zdharma-continuum/fast-syntax-highlighting.git
-source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# link: https://github.com/jeffreytse/zsh-vi-mode.git
-# source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Zsh Vi Mode (optional)
+# if [[ -f ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh ]]; then
+#     source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# fi
 
 ########################################
 # SMART DIRECTORY JUMPING, PROMPT, FZF
 ########################################
-source <(zoxide init zsh) # zoxide: smarter cd command with ranking
+# zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
 
-source <(oh-my-posh init zsh --config ~/.config/oh-my-posh/huvix.omp.json) # oh-my-posh: power10k alternative
-# source <(starship init zsh) # starship: fast, modern, cross-shell prompt
+# oh-my-posh
+if command -v oh-my-posh >/dev/null 2>&1; then
+    eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/huvix.omp.json)"
+fi
 
-source <(fzf --zsh) # fzf: fuzzy find in zsh
+# starship (alternative prompt)
+# if command -v starship >/dev/null 2>&1; then
+#     eval "$(starship init zsh)"
+# fi
+
+# fzf
+if command -v fzf >/dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
 
 ########################################
 # ALIASES

@@ -1,8 +1,8 @@
 vim.pack.add({
   -- LSP
   "https://github.com/neovim/nvim-lspconfig",
-  -- "https://github.com/mason-org/mason.nvim",
-  -- "https://github.com/mason-org/mason-lspconfig.nvim.git",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim.git",
 
   -- COMPLETITON
   "https://github.com/saghen/blink.cmp",
