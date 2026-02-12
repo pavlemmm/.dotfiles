@@ -42,7 +42,7 @@ link_nixos() {
 
 link_manual() {
   # ~/*
-  # link_home ".zshrc"
+  link_home ".zshrc"
 
   # ~/.config/*
   # link_cfg niri
@@ -55,17 +55,17 @@ link_manual() {
   # link_cfg mako
   # link_cfg wm-scripts
   # link_cfg themes
-  #
-  # link_cfg nvim
-  # link_cfg git
-  # link_cfg tmux
-  # link_cfg oh-my-posh
-  # link_cfg dconf
-  #
-  # link_cfg ghostty
+
+  link_cfg nvim
+  link_cfg git
+  link_cfg tmux
+  link_cfg oh-my-posh
+  link_cfg dconf
+
+  link_cfg ghostty
 
   # /etc/nixos/*
-  link_nixos
+  # link_nixos
 
   echo "Dotfiles linked manually"
 }
