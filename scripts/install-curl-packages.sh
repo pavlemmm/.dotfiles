@@ -12,7 +12,7 @@ install_opencode() {
   echo "Opencode installed"
 }
 
-install_zen() {
+install_zen_browser() {
   tmp="$(mktemp -d)"
   trap 'rm -rf "$tmp"' EXIT
 
@@ -41,4 +41,4 @@ EOF
 
 install_oh_my_posh
 # install_opencode
-# install_zen
+# install_zen_browser

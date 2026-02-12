@@ -1,40 +1,85 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -e
+DOT="$HOME/.dotfiles/dotfiles"
 
-link_stow() {
-  (
-    cd $HOME/.dotfiles/dotfiles || exit
-    stow -t $HOME HOME
-    stow -t / ROOT
-  )
-  echo "Dotfiles has been successfully linked with stow"
+HOME_DIR="$DOT/HOME"
+CFG_DIR="$HOME_DIR/.config"
+
+ROOT_DIR="$DOT/ROOT"
+
+link() {
+  local src="$1" dst="$2"
+
+  mkdir -p "$(dirname "$dst")"
+
+  # backup
+  if [[ -e "$dst" || -L "$dst" ]]; then
+    mv "$dst" "${dst}.bak"
+  fi
+
+  ln -s "$src" "$dst"
+  echo "linked: $dst -> $src"
+}
+
+# ~/.config/<name>
+link_cfg() {
+  local name="$1"
+  link "$CFG_DIR/$name" "$HOME/.config/$name"
+}
+
+# $HOME/<file>
+link_home() {
+  local name="$1"
+  link "$HOME_DIR/$name" "$HOME/$name"
+}
+
+# /etc/nixos/<file> (root)
+link_nixos() {
+  sudo ln -sf "$ROOT/etc/nixos" "/etc/nixos"
+  echo "linked: /etc/nixos -> $ROOT/etc/nixos"
 }
 
 link_manual() {
-  # .zshrc
-  ln -sfr HOME/.zshrc ~/.zshrc
+  # ~/*
+  # link_home ".zshrc"
 
-  # .config
-  ln -sfr HOME/.config/niri ~/.config/niri
-  ln -sfr HOME/.config/sway ~/.config/sway
-  ln -sfr HOME/.config/hypr ~/.config/hypr
-  ln -sfr HOME/.config/waybar ~/.config/waybar
-  ln -sfr HOME/.config/nvim ~/.config/nvim
-  ln -sfr HOME/.config/tmux ~/.config/tmux
-  ln -sfr HOME/.config/rofi ~/.config/rofi
-  ln -sfr HOME/.config/ghostty ~/.config/ghostty
-  ln -sfr HOME/.config/alacritty ~/.config/alacritty
-  ln -sfr HOME/.config/mako ~/.config/mako
-  ln -sfr HOME/.config/git ~/.config/git
+  # ~/.config/*
+  # link_cfg niri
+  # link_cfg sway
+  # link_cfg hypr
+  # link_cfg hyprun
+  # link_cfg waybar
+  # link_cfg rofi
+  # link_cfg alacritty
+  # link_cfg mako
+  # link_cfg wm-scripts
+  # link_cfg themes
+  #
+  # link_cfg nvim
+  # link_cfg git
+  # link_cfg tmux
+  # link_cfg oh-my-posh
+  # link_cfg dconf
+  #
+  # link_cfg ghostty
 
-  # nixos 
-  sudo ln -sfr ROOT/etc/nixos/configuration.nix /etc/nixos/configuration.nix
-  sudo ln -sfr ROOT/etc/nixos/flake.nix /etc/nixos/flake.nix
+  # /etc/nixos/*
+  link_nixos
 
-  echo "Dotfiles has been successfully linked manually"
+  echo "Dotfiles linked manually"
 }
 
-link_stow
-# link_manual
+link_stow() {
+  (
+    cd "$DOT"
+    stow -t "$HOME" HOME
+    sudo stow -t / ROOT
+  )
+  echo "Dotfiles linked with stow"
+}
 
+# ------------------------------------------------
+# link_stow
+link_manual
+# ------------------------------------------------

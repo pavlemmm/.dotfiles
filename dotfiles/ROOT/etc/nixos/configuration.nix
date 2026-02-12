@@ -32,38 +32,62 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-
-  # Opengl and drivers
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mesa
-      vulkan-loader
-      vulkan-validation-layers
-    ];
-  };
-
-  # Enable wayland
-  services.displayManager.gdm.wayland = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us,rs,rs";
     variant = ",latin,";
-    options = "grp:rshift_toggle,caps:escape,ctrl:swap_lalt_lctl,altwin:swap_ralt_rwin";
+    options = "grp:alt_shift_toggle,caps:escape,ctrl:swap_lalt_lctl,altwin:swap_ralt_rwin";
   };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Opengl and drivers
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+
+    extraPackages = with pkgs; [
+      mesa
+      vulkan-validation-layers
+    ];
+
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      mesa
+    ];
+  };
+
+  # Enable the GNOME Desktop Environment.
+  services.desktopManager.gnome.enable = true;
+
+  # GDM display manager
+  services.displayManager.gdm.wayland = true;
+  services.displayManager.gdm.enable = true;
+
+  # Sway 
+  # programs.sway.enable = true;
+  # Niri
+  # programs.niri.enable = true;
+
+  # Portals (file picker, screensharing, etc.)
+  xdg.portal = {
+    enable = true;
+    # wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+    ];
+  };
+
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  # services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -77,18 +101,19 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pavlem = {
     isNormalUser = true;
     description = "PavleM";
     extraGroups = [
+      # Sudo
       "wheel"
 
+      # Network
       "networkmanager"
 
+      # Virtualization
       "docker"
       "libvirtd"
       "kvm"
@@ -96,10 +121,11 @@
     shell = pkgs.zsh;
   };
 
-  # Virtualisation, VirtManager / KVM
+  # Virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {
     docker.enable = true;
+
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
@@ -109,9 +135,6 @@
 
   # Enable flatpak
   services.flatpak.enable = true;
-
-  # (preporučeno) portali za file picker itd.
-  # xdg.portal.enable = true;
 
   # Allow flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -150,10 +173,10 @@
 
     # Dev Tools
     nodejs_24
+    python3
     codex
 
     # Desktop Apps
-    alacritty
     brave
     libreoffice
     discord
@@ -172,10 +195,24 @@
     wl-clipboard
     tldr
 
+    # WM
+    # swaylock
+    # swayidle
+    # waybar
+    # rofi
+    # gammastep
+    # alacritty
+    # ghostty
+    # mako
+    # brightnessctl
+    # cliphist
+    # grim
+    # slurp
+    # libnotify
+    # playerctl
+
     # Gnome
     gnome-tweaks
-    gnomeExtensions.launch-new-instance
-    gnomeExtensions.paperwm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

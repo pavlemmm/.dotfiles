@@ -12,7 +12,7 @@
         ./configuration.nix
         ({ pkgs, ... }: {
           nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
-      })
+        })
       ];
     };
   };

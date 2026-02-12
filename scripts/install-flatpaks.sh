@@ -7,10 +7,10 @@ setup_flathub() {
   echo "Flathub remote added"
 }
 
-install_zen() {
+install_zen_browser() {
   flatpak install flathub app.zen_browser.zen
   echo "Zen browser installed"
 }
 
 setup_flathub
-# install_zen
+# install_zen_browser

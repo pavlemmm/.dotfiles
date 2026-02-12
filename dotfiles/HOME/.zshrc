@@ -91,8 +91,7 @@ alias c='clear'
 
 # NixOS
 alias ns='sudo nixos-rebuild switch --flake /etc/nixos/'
-alias nc='sudoedit /etc/nixos/configuration.nix'
-alias nf='sudoedit /etc/nixos/flake.nix'
+alias nc='nvim /etc/nixos/configuration.nix'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION
