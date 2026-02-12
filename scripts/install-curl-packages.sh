@@ -2,25 +2,29 @@
 
 set -euo pipefail
 
-# Install oh-my-posh
-curl -s https://ohmyposh.dev/install.sh | bash -s
-echo "Oh-my-posh has been installed"
+install_oh_my_posh() {
+  curl -s https://ohmyposh.dev/install.sh | bash -s
+  echo "Oh-my-posh installed"
+}
 
-# Install opencode
-curl -fsSL https://opencode.ai/install | bash
-echo "Opencode has been installed"
+install_opencode() {
+  curl -fsSL https://opencode.ai/install | bash
+  echo "Opencode installed"
+}
 
+install_zen() {
+  tmp="$(mktemp -d)"
+  trap 'rm -rf "$tmp"' EXIT
 
-# Install zen browser (latest) -> /opt/zen-browser + /usr/local/bin/zen + desktop entry
-tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
+  curl -L -o "$tmp/zen.tar.xz" \
+    "https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz"
+  tar -xf "$tmp/zen.tar.xz" -C "$tmp"
 
-curl -L -o "$tmp/zen.tar.xz" "https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz"
-tar -xf "$tmp/zen.tar.xz" -C "$tmp"
-sudo rm -rf /opt/zen-browser
-sudo mv "$tmp/zen" /opt/zen-browser
-sudo ln -sf /opt/zen-browser/zen /usr/local/bin/zen
+  sudo rm -rf /opt/zen-browser
+  sudo mv "$tmp/zen" /opt/zen-browser
+  sudo ln -sf /opt/zen-browser/zen /usr/local/bin/zen
 
-sudo tee /usr/local/share/applications/zen-browser.desktop >/dev/null <<'EOF'
+  sudo tee /usr/local/share/applications/zen-browser.desktop >/dev/null <<'EOF'
 [Desktop Entry]
 Name=Zen Browser
 Exec=zen %u
@@ -32,4 +36,9 @@ StartupNotify=true
 StartupWMClass=zen
 EOF
 
-echo "Zen browser has been installed"
+  echo "Zen browser installed"
+}
+
+install_oh_my_posh
+# install_opencode
+# install_zen

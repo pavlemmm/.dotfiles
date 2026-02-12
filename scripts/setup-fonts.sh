@@ -2,6 +2,10 @@
 
 set -e
 
-fc-cache -f
+cache_fonts() {
+  fc-cache -f
+  echo "Fonts have been successfully cached"
+}
 
-echo "Fonts have been successfully cached"
+cache_fonts
+

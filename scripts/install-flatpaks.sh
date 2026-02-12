@@ -2,6 +2,15 @@
 
 set -e
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+setup_flathub() {
+  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  echo "Flathub remote added"
+}
 
-flatpak install flathub app.zen_browser.zen
+install_zen() {
+  flatpak install flathub app.zen_browser.zen
+  echo "Zen browser installed"
+}
+
+setup_flathub
+# install_zen
