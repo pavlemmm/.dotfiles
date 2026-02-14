@@ -67,9 +67,9 @@
   services.displayManager.gdm.enable = true;
 
   # Sway 
-  # programs.sway.enable = true;
+  programs.sway.enable = true;
   # Niri
-  # programs.niri.enable = true;
+  programs.niri.enable = true;
 
   # Portals (file picker, screensharing, etc.)
   xdg.portal = {
@@ -181,6 +181,8 @@
     libreoffice
     discord
     transmission_4-gtk
+    ghostty
+    vlc
 
     # Fonts
     nerd-fonts.jetbrains-mono
@@ -196,20 +198,19 @@
     tldr
 
     # WM
-    # swaylock
-    # swayidle
-    # waybar
-    # rofi
-    # gammastep
-    # alacritty
-    # ghostty
-    # mako
-    # brightnessctl
-    # cliphist
-    # grim
-    # slurp
-    # libnotify
-    # playerctl
+    swaylock
+    swayidle
+    waybar
+    rofi
+    gammastep
+    alacritty
+    mako
+    brightnessctl
+    cliphist
+    grim
+    slurp
+    libnotify
+    playerctl
 
     # Gnome
     gnome-tweaks
