@@ -11,7 +11,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/nixos/configuration.nix
+          ./hosts/nix-pc/configuration.nix
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
           })

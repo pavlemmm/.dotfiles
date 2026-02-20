@@ -111,7 +111,7 @@ alias v="nvim"
 alias c='clear'
 
 # NixOS
-alias ns='sudo nixos-rebuild switch --flake ~/.dotfiles/nixos#$(hostname)'
+alias ns='sudo nixos-rebuild switch --flake ~/.dotfiles/nixos\#$(hostname)'
 alias nc='nvim /etc/nixos/configuration.nix'
 
 ########################################
