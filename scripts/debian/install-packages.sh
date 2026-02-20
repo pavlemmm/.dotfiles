@@ -4,13 +4,23 @@ set -e
 
 deb_packages=(
   # Terminal
-  zsh neovim eza zoxide man fzf stow 
+  zsh eza zoxide man tldr fzf yazi wl-clipboard
+  
+  # Development
+  neovim
+  nodejs
+  
+  # Apps
+  libreoffice transmission ghostty
+  
+  # Gnome
+  gnome-tweaks gnome-extensions-app
 
   # WM Tools
-  rofi alacritty waybar wl-clipboard cliphist grim slurp mako libnotify playerctl
+  #rofi alacritty waybar cliphist grim slurp mako libnotify playerctl
 
   # Fonts
-  noto-emoji-fonts jetbrains-mono-fonts
+  noto-emoji-fonts
 )
 
 sudo apt update -y && sudo apt upgrade -y

@@ -12,5 +12,7 @@ clone_hyprun() {
   echo "Hyprun cloned"
 }
 
+# ------------------------------
 # clone_hyprun
+# ------------------------------
 

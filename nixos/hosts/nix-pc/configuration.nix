@@ -12,31 +12,43 @@
 
   # Bootloader.
   boot.loader = {
-    # systemd-boot.enable = true;
+    systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 10; # max 10 gen in /boot
     efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      # efiInstallAsRemovable = true;
 
-      # useOSProber = true;
-
-      extraEntries = ''
-        menuentry "Fedora" {
-          chainloader /EFI/FEDORA/SHIMX64.EFI
-        }
-        menuentry "Reboot" {
-            reboot
-        }
-        menuentry "Poweroff" {
-            halt
-        }
-      '';
-    };
+    # grub = {
+    #   enable = true;
+    #   efiSupport = true;
+    #   device = "nodev";
+    #   # useOSProber = true;
+    #   extraEntries = ''
+    #     menuentry "Fedora" {
+    #       chainloader /EFI/FEDORA/SHIMX64.EFI
+    #     }
+    #     menuentry "Reboot" {
+    #         reboot
+    #     }
+    #     menuentry "Poweroff" {
+    #         halt
+    #     }
+    #   '';
+    # };
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # garbage collect unreferenced store objects
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  # dedupe nix store
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
+  };
+
+  networking.hostName = "nix-pc"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -225,8 +237,9 @@
     discord
     transmission_4-gtk
     libreoffice
-    ghostty
     vlc
+    ghostty
+    alacritty
 
     # Fonts
     nerd-fonts.jetbrains-mono
@@ -249,7 +262,6 @@
     waybar
     rofi
     gammastep
-    alacritty
     mako
     brightnessctl
     cliphist

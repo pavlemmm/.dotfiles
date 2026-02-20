@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOT="$HOME/.dotfiles/dotfiles"
+DOT="$HOME/.dotfiles"
 
 HOME_DIR="$DOT/HOME"
 CFG_DIR="$HOME_DIR/.config"
-
-ROOT_DIR="$DOT/ROOT"
 
 link() {
   local src="$1" dst="$2"
@@ -34,27 +32,20 @@ link_home() {
   link "$HOME_DIR/$name" "$HOME/$name"
 }
 
-# /etc/nixos/<file> (root)
-link_nixos() {
-  sudo ln -sf "$ROOT/etc/nixos" "/etc/nixos"
-  echo "linked: /etc/nixos -> $ROOT/etc/nixos"
-}
-
 link_manual() {
-  # ~/*
+  ## ~/*
   link_home ".zshrc"
 
-  # ~/.config/*
-  # link_cfg niri
-  # link_cfg sway
+  ## ~/.config/*
+  link_cfg niri
+  link_cfg sway
   # link_cfg hypr
   # link_cfg hyprun
-  # link_cfg waybar
-  # link_cfg rofi
-  # link_cfg alacritty
-  # link_cfg mako
-  # link_cfg wm-scripts
-  # link_cfg themes
+  link_cfg waybar
+  link_cfg rofi
+  link_cfg mako
+  link_cfg wm-scripts
+  link_cfg themes
 
   link_cfg nvim
   link_cfg git
@@ -62,10 +53,8 @@ link_manual() {
   link_cfg oh-my-posh
   link_cfg dconf
 
+  link_cfg alacritty
   link_cfg ghostty
-
-  # /etc/nixos/*
-  # link_nixos
 
   echo "Dotfiles linked manually"
 }
@@ -74,7 +63,6 @@ link_stow() {
   (
     cd "$DOT"
     stow -t "$HOME" HOME
-    sudo stow -t / ROOT
   )
   echo "Dotfiles linked with stow"
 }
