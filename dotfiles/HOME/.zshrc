@@ -83,6 +83,9 @@ alias la="eza -la --icons --group-directories-first"
 alias t="eza -l --icons --tree"
 alias lt="eza -l --icons --tree -L 3"
 
+# Better cat
+alias cat="bat"
+
 # Neovim shortcut
 alias v="nvim"
 

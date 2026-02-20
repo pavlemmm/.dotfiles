@@ -1,0 +1,8 @@
+spawn-at-startup "sh" "-lc" "waybar -c ~/.config/waybar/niri.jsonc"
+spawn-at-startup "gammastep" "-O" "3000"
+
+
+spawn-at-startup "sh" "-lc" "swayidle -w timeout 300 'swaylock -f' timeout 600 'wlopm --off' resume 'wlopm --on' before-sleep 'swaylock -f'"
+
+// spawn-at-startup "nm-applet --indicator"
+// spawn-at-startup "blueman-applet"

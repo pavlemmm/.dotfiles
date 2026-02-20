@@ -12,7 +12,7 @@ option_4="4     Temp 2500K"
 option_5="5     Temp 3000K"
 option_6="6     OFF"
 
-option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "hyprsunset menu" -matching prefix -i)
+option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "night-light menu" -matching prefix -i)
 
 case $option in
     $option_1) hyprctl hyprsunset temperature 1000 && notify-send "Hyprsunset temperature 1000" ;;

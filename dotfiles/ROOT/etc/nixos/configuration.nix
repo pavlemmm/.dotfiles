@@ -11,8 +11,30 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    # systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      # efiInstallAsRemovable = true;
+
+      # useOSProber = true;
+
+      extraEntries = ''
+        menuentry "Fedora" {
+          chainloader /EFI/FEDORA/SHIMX64.EFI
+        }
+        menuentry "Reboot" {
+            reboot
+        }
+        menuentry "Poweroff" {
+            halt
+        }
+      '';
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -31,18 +53,28 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "amdgpu" ];
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us,rs,rs";
-    variant = ",latin,";
-    options = "grp:alt_shift_toggle,caps:escape,ctrl:swap_lalt_lctl,altwin:swap_ralt_rwin";
+    xkb = {
+      layout = "us,rs,rs";
+      variant = ",latin,";
+      options = "grp:alt_shift_toggle,caps:escape,ctrl:swap_lalt_lctl,altwin:swap_ralt_rwin";
+    };
+
+    autoRepeatInterval = 25; # Interval between repeats (ms)
+    autoRepeatDelay = 200; # Delay before repeat (ms)
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput = {
+    # Enable touchpad support (enabled default in most desktopManager).
+    enable = true;
+    mouse = {
+      accelProfile = "flat";
+      accelSpeed = "0.0";
+    };
+  };
 
   # Opengl and drivers
   hardware.graphics = {
@@ -59,12 +91,22 @@
     ];
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.desktopManager.gnome.enable = true;
+  # Display manager
+  services.displayManager = {
+    ly.enable = true;
+    ly.x11Support = false;
+    # sddm.enable = true;
+    # sddm.wayland.enable = true;
+    # gdm.enable = true;
+    # gdm.wayland = true;
+  };
 
-  # GDM display manager
-  services.displayManager.gdm.wayland = true;
-  services.displayManager.gdm.enable = true;
+  # Enable the GNOME Desktop Environment.
+  # services.desktopManager.gnome.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.desktopManager.plasma6.enable = true;
+  # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
   # Sway 
   programs.sway.enable = true;
@@ -156,6 +198,8 @@
     neovim
     zed-editor
 
+    inputs.affinity-nix.packages.x86_64-linux.v3
+
     # LSP Servers for NeoVIM
     lua-language-server
     nodePackages.typescript-language-server
@@ -178,9 +222,9 @@
 
     # Desktop Apps
     brave
-    libreoffice
     discord
     transmission_4-gtk
+    libreoffice
     ghostty
     vlc
 
@@ -194,6 +238,8 @@
     oh-my-posh
     fzf
     eza
+    bat
+    nvtopPackages.amd
     wl-clipboard
     tldr
 
@@ -213,7 +259,7 @@
     playerctl
 
     # Gnome
-    gnome-tweaks
+    # gnome-tweaks
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

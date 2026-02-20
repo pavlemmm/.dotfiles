@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 if pgrep -x rofi >/dev/null; then
-    pkill rofi
-    exit
+  pkill rofi
+  exit 0
 fi
 
-# Lista dostupnih tema
-ALL_THEMES=$(theme-switcher ls)
+app="$HOME/.config/themes/theme-switcher.sh"
 
-THEME=$(printf "$ALL_THEMES" | rofi -dmenu -p "select theme" -matching prefix -i)
+if [ ! -x "$app" ]; then
+  rofi -e "Theme switcher not found or not executable:\n$app"
+  exit 1
+fi
 
-[ -z "$THEME" ] && exit 0
+ALL_THEMES="$("$app" ls)"
 
-theme-switcher "$THEME"
+THEME="$(printf '%s\n' "$ALL_THEMES" | rofi -dmenu -p "select theme" -matching prefix -i)"
+
+[ -z "${THEME:-}" ] && exit 0
+
+"$app" "$THEME"

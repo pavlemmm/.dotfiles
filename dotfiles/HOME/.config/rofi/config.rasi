@@ -22,7 +22,7 @@ configuration {
   kb-element-next: "Control+j,Tab";
   kb-element-prev: "Control+k,ISO_Left_Tab";
 
-  matching: "fuzzy";
+  // matching: "fuzzy";
   backend: "wayland";
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Clear old notifications
-makoctl dismiss -a
+# makoctl dismiss -a
 
 # Toggle mute for default microphone
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle

@@ -1,0 +1,22 @@
+input {
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    keyboard {
+        repeat-delay 200
+        repeat-rate 40
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    trackpoint {
+        // defaults
+    }
+
+    // warp-mouse-to-focus
+    // focus-follows-mouse max-scroll-amount="0%"
+}

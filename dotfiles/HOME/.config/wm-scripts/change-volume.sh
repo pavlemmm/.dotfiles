@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Clear previous notifications
-makoctl dismiss -a
+# makoctl dismiss -a
 
 # Set volume +/- by 5%
 wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $1

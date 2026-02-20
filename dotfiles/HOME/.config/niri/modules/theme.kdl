@@ -1,0 +1,36 @@
+layout {
+    // Fokus ring držimo OFF (kao kod tebe), koristimo border za stanje.
+    focus-ring {
+        off
+        width 1
+        active-color "#7aa2f7"
+        inactive-color "#565f89"
+    }
+
+    border {
+        // on
+        width 1
+        active-color "#7aa2f7"     // TokyoNight blue
+        inactive-color "#565f89"   // muted
+        urgent-color "#f7768e"     // red/pink
+    }
+
+    shadow {
+        // on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    tab-indicator {
+        on
+        place-within-column
+        gap 2
+        width 2
+
+        // active-color "#7aa2f7"
+        // inactive-color "#565f89"
+        // urgent-color "#f7768e"
+    }
+}

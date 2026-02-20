@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Clear all previous notifications (mako)
-makoctl dismiss -a
+# makoctl dismiss -a
 
 # Toggle mute for default audio output
 wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
