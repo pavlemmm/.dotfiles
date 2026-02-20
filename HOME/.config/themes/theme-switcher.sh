@@ -20,28 +20,21 @@ if [ ! -d "$THEME_DIR" ]; then
     exit 1
 fi
 
+link() {
+  ln -sfn "$THEME_DIR/$1" "$HOME/.config/$2" 2>/dev/null || return
+  echo "linked -> $2"
+}
+
 echo "Switching theme to: $THEME"
 
-# ---- Alacritty ----
-ln -sfn "$THEME_DIR/alacritty/colors.toml" "$HOME/.config/alacritty/colors.toml"
-
-# ---- Neovim ----
-ln -sfn "$THEME_DIR/nvim/colorscheme.lua" "$HOME/.config/nvim/lua/colorscheme.lua"
-
-# ---- Rofi ----
-ln -sfn "$THEME_DIR/rofi/theme.rasi" "$HOME/.config/rofi/theme.rasi"
-
-# ---- Waybar ----
-ln -sfn "$THEME_DIR/waybar/theme.css" "$HOME/.config/waybar/theme.css"
-
-# ---- Mako ----
-ln -sfn "$THEME_DIR/mako/config" "$HOME/.config/mako/config"
-
-# ---- Sway ----
-ln -sfn "$THEME_DIR/sway/theme.conf" "$HOME/.config/sway/modules/theme.conf"
-
-# ---- Hyprland ----
-ln -sfn "$THEME_DIR/hypr/colors.conf" "$HOME/.config/hypr/modules/colors.conf"
+link "nvim/colorscheme.lua"   "nvim/lua/colorscheme.lua"
+link "ghostty/theme"          "ghostty/theme"
+link "alacritty/colors.toml"  "alacritty/colors.toml"
+link "rofi/theme.rasi"        "rofi/theme.rasi"
+link "waybar/theme.css"       "waybar/theme.css"
+link "mako/config"            "mako/config"
+link "sway/theme.conf"        "sway/modules/theme.conf"
+link "hypr/colors.conf"       "hypr/modules/colors.conf"
 
 # ---- Reload compositor ----
 if [ -n "$SWAYSOCK" ]; then
@@ -54,6 +47,13 @@ fi
 pkill -USR2 waybar || true
 
 # ---- Reload mako ----
-makoctl reload
+if command -v mako >/dev/null 2>&1; then
+  makoctl reload
+fi
+
+# ---- Reload ghostty ----
+if command -v ghostty >/dev/null 2>&1; then
+    ghostty +reload-config >/dev/null 2>&1 || true
+fi
 
 echo "Theme '$THEME' applied successfully"
