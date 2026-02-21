@@ -1,4 +1,8 @@
 {
+  "niri/workspaces": {
+    "all-outputs": true
+  },
+
   "niri/window": {
     "format": "{}"
   },

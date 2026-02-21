@@ -52,14 +52,18 @@ tooltip {
   color: @fg;
 }
 
-#workspaces button.active {
-  background-color: @active;
+#workspaces button.visible {
+  background-color: @visible;
   color: @bg;
 }
 
-#workspaces button.visible,
-#workspaces button.focused {
+#workspaces button.active {
   background-color: @visible;
+  color: @bg;
+}
+
+#workspaces button.focused {
+  background-color: @focused;
   color: @bg;
 }
 

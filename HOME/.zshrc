@@ -112,7 +112,7 @@ alias c='clear'
 
 # NixOS
 alias ns='sudo nixos-rebuild switch --flake ~/.dotfiles/nixos\#$(hostname)'
-alias nc='nvim /etc/nixos/configuration.nix'
+alias nc='nvim ~/.dotfiles/nixos/'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION

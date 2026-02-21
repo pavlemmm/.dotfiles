@@ -9,12 +9,12 @@ DIR="$HOME/Pictures/screenshots"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 FILE="$DIR/screenshot_$TIMESTAMP.png"
 
-option_1="1       Capture Screen and Save"
-option_2="2       Capture Screen to Clipboard"
-option_3="3       Capture Selection and Save"
-option_4="4       Capture Selection to Clipboard"
-option_5="5       Capture Window and Save"
-option_6="6       Capture Window to Clipboard"
+option_1="1       Screen and Save"
+option_2="2       Screen to Clipboard"
+option_3="3       Selection and Save"
+option_4="4       Selection to Clipboard"
+option_5="5       Window and Save"
+option_6="6       Window to Clipboard"
 
 option=$(printf "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi -dmenu -p "screenshot menu" -i)
 
