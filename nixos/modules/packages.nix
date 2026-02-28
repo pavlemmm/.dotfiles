@@ -1,20 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
-  ############################################################
-  # Programs
-  ############################################################
-
-  programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-    };
-
-    zsh.enable = true;
-  };
-
   ############################################################
   # System-wide installed packages
   ############################################################
@@ -25,10 +11,8 @@
     # Editors
     ############################
     neovim
+    helix
     zed-editor
-
-    # Affinity (from flake input)
-    inputs.affinity-nix.packages.x86_64-linux.v3
 
     ############################
     # Development
@@ -50,7 +34,7 @@
     ############################
     # Desktop applications
     ############################
-    brave
+    chromium
     discord
     transmission_4-gtk
     libreoffice
@@ -72,28 +56,45 @@
     bat
     tldr
     wl-clipboard
-    nvtopPackages.amd
+    nvtopPackages.amd # analysis for gpu
+    efibootmgr # tool for efi
+    # btop
+    exfatprogs # mkfs.exfat tool
 
     ############################
     # Window manager utilities
     ############################
-    swaylock
-    swayidle
-    waybar
-    rofi
-    gammastep
-    mako
-    brightnessctl
-    cliphist
-    grim
-    slurp
-    libnotify
-    playerctl
+    xwayland-satellite # xwayland for niri
+    # quickshell
+    noctalia-shell
+    # dms-shell
+
+    ############################
+    # Desktop environment utilities
+    ############################
+    gnome-tweaks
 
     ############################
     # Fonts
     ############################
     nerd-fonts.jetbrains-mono
-    inter
   ];
+
+  ############################################################
+  # Programs
+  ############################################################
+
+  programs = {
+    zsh.enable = true;
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+    };
+
+    # dms-shell = {
+    #   enable = true;
+    #   systemd.enable = false;
+    # };
+  };
 }

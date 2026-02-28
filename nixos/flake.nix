@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
+    # scroll.url = "github:AsahiRocks/scroll-flake";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -15,6 +15,7 @@
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
           })
+          # inputs.scroll.nixosModules.default
         ];
       };
     };

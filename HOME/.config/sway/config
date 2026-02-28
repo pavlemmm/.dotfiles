@@ -1,6 +1,3 @@
-# Include theme
-include ~/.config/sway/modules/theme.conf
-
 # Appearance
 include ~/.config/sway/modules/appearance.conf
 
@@ -17,7 +14,7 @@ include ~/.config/sway/modules/keybinds.conf
 include ~/.config/sway/modules/workspaces.conf
 
 # Monitors and wallpaper
-include ~/.config/sway/modules/monitors.conf
+include ~/.config/sway/modules/outputs.conf
 
 # Layouts
 include ~/.config/sway/modules/layout.conf
@@ -33,3 +30,6 @@ include ~/.config/sway/modules/rules.conf
 
 # System includes
 include /etc/sway/config.d/*
+
+include ~/.config/sway/noctalia
+

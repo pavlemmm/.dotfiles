@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   ############################################################
@@ -45,17 +45,40 @@
   # Desktop environments and WMs
   ############################################################
 
-  # Enable the GNOME Desktop Environment.
-  # services.desktopManager.gnome.enable = true;
+  # Enable the GNOME Desktop Environment
+  services.desktopManager.gnome.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager.plasma6.enable = true;
+  # Enable the KDE Plasma Desktop Environment
+  # services.desktopManager.plasma6.enable = true;
   # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+  
+  # Enable the Sway Window Manager
+  # programs.sway.enable = true;
 
-  # Sway 
-  programs.sway.enable = true;
-  # Niri
+  # Enable the Niri Window Manager
   programs.niri.enable = true;
+
+  # Enable the Hyprland Window Manager
+  # programs.hyprland.enable = true;
+
+  # Enable the Scroll Window Manager
+  # programs.scroll = {
+  #   enable = true;
+  #   package = inputs.scroll.packages.${pkgs.stdenv.hostPlatform.system}.scroll-stable;
+  # };
+
+  ############################################################
+  # Power Managing
+  ############################################################
+
+  services.logind.settings.Login = {
+    IdleAction = "suspend-then-hibernate";
+    IdleActionSec = "15min";   # posle 15 min neaktivnosti krene suspend
+  };
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=45min    # posle 45 min u suspendu pređe u hibernate
+  '';
 
   ############################################################
   # Portals (file pickers, screen sharing, etc.)
@@ -65,8 +88,8 @@
     enable = true;
     # wlr.enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-gtk
+      # xdg-desktop-portal-gnome
+      # xdg-desktop-portal-gtk
     ];
   };
 
@@ -79,15 +102,13 @@
   # services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
+
+    # compatibility with others
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   ############################################################
@@ -109,9 +130,24 @@
   };
 
   ############################################################
+  # Virtualization
+  ############################################################
+
+  programs.virt-manager.enable = true;
+  virtualisation = {
+    docker.enable = true;
+
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
+  };
+
+  ############################################################
   # Other services
   ############################################################
 
-  services.printing.enable = true;
+  # Enable flatpak
   services.flatpak.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 }

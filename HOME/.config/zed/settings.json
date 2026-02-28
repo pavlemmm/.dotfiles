@@ -1,0 +1,17 @@
+{
+  "theme": "Noctalia Dark",
+  "relative_line_numbers": "enabled",
+  "tab_size": 2,
+  "soft_wrap": "none",
+  "format_on_save": "on",
+  "autosave": "on_focus_change",
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+  },
+  "vertical_scroll_margin": 8,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vim_mode": true,
+}

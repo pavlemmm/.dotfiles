@@ -1,11 +1,14 @@
 include "modules/input.kdl"
 include "modules/outputs.kdl"
-
-include "modules/layout-base.kdl"
+include "modules/apperance.kdl"
 include "modules/theme.kdl"
-
-include "modules/ui.kdl"
-include "modules/window-rules.kdl"
+include "modules/rules.kdl"
 include "modules/binds.kdl"
-
 include "modules/startup.kdl"
+
+// Noctalia
+include "./noctalia.kdl"
+
+// DMS
+// include "dms/colors.kdl"
+

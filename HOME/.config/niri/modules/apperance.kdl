@@ -1,0 +1,75 @@
+layout {
+    // gaps 8
+    gaps 0
+
+    center-focused-column "never"
+    always-center-single-column
+
+    preset-column-widths {
+        proportion 0.33334
+        proportion 0.5
+        proportion 0.66666
+        proportion 1.0
+    }
+
+    preset-window-heights {
+        proportion 0.33334
+        proportion 0.5
+        proportion 0.66666
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.66666; }
+
+    struts {
+        left 2
+        // right 10
+        // top 0
+        // bottom 0
+    }
+
+    focus-ring {
+        off
+        width 1
+    }
+
+    border {
+        on
+        width 1
+    }
+
+    shadow {
+        off
+        softness 30
+        spread 5
+        offset x=0 y=5
+    }
+
+    tab-indicator {
+        on
+        place-within-column
+        gap 2
+        width 1
+    }
+}
+
+window-rule {
+    // geometry-corner-radius 10
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+cursor {
+    xcursor-size 32
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+
+animations {
+    // off
+}

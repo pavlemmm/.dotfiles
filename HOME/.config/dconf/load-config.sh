@@ -2,6 +2,6 @@
 
 set -e
 
-dir="$HOME/.dotfiles/dotfiles/HOME/.config/dconf"
+dir="$HOME/.dotfiles/HOME/.config/dconf"
 
 dconf load / < "$dir"/config.dconf

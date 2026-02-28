@@ -2,7 +2,7 @@
 
 set -e
 
-dir="$HOME/.dotfiles/dotfiles/HOME/.config/dconf"
+dir="$HOME/.dotfiles/HOME/.config/dconf"
 
 mv "$dir"/config.dconf "$dir"/config.dconf.bak
 dconf dump / > "$dir"/config.dconf

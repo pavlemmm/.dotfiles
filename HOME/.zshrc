@@ -101,6 +101,9 @@ alias la="eza -la --icons --group-directories-first"
 alias t="eza -l --icons --tree"
 alias lt="eza -l --icons --tree -L 3"
 
+# Copy with progress
+alias cpr="rsync -ahP "
+
 # Better cat
 alias cat="bat"
 
@@ -112,7 +115,8 @@ alias c='clear'
 
 # NixOS
 alias ns='sudo nixos-rebuild switch --flake ~/.dotfiles/nixos\#$(hostname)'
-alias nc='nvim ~/.dotfiles/nixos/'
+alias nc='nvim ~/.dotfiles/nixos/modules/packages.nix'
+alias nf='nvim ~/.dotfiles/nixos/'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION

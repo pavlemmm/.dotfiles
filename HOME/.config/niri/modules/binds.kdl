@@ -1,26 +1,47 @@
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    // Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+RETURN hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
 
-    Mod+A hotkey-overlay-title="Run an Application" { spawn-sh "~/.config/wm-scripts/launch.sh -show drun"; }
-    Mod+T { spawn-sh "~/.config/wm-scripts/nightlight.sh"; }
-    Mod+ESCAPE { spawn-sh "~/.config/wm-scripts/niri/power-menu.sh"; }
-    Mod+PERIOD { spawn-sh "~/.config/wm-scripts/emoji.sh"; }
-    Mod+Shift+T { spawn-sh "~/.config/wm-scripts/theme-switcher.sh"; }
+    // DMS
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.config/wm-scripts/change-volume.sh 5%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.config/wm-scripts/change-volume.sh 5%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "~/.config/wm-scripts/toggle-mute-audio.sh"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "~/.config/wm-scripts/toggle-mute-mic.sh"; }
+    // Mod+A hotkey-overlay-title="Run an Application" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    // Mod+T hotkey-overlay-title="Toggle Night-Light" { spawn "dms" "ipc" "call" "night" "toggle"; }
+    // Mod+V hotkey-overlay-title="Clipboard Menu" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    // Mod+ESCAPE hotkey-overlay-title="Power Menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
 
-    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+    // XF86AudioRaiseVolume { spawn "dms" "ipc" "call" "audio" "increment"; }
+    // XF86AudioLowerVolume { spawn "dms" "ipc" "call" "audio" "decrement"; }
+    // XF86AudioMute { spawn "dms" "ipc" "call" "audio" "mute"; }
+    // XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement"; }
+    // XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    // XF86AudioStop allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "stop"; }
+    // XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    // XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "~/.config/wm-scripts/sway/set-gamma.sh 5%+"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "~/.config/wm-scripts/sway/set-gamma.sh 5%-"; }
+
+    // Noctalia
+
+    Mod+A { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+T { spawn "noctalia-shell" "ipc" "call" "nightLight" "toggle"; }
+    Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+ESCAPE { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+PERIOD { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    Mod+SEMICOLON { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+Shift+SEMICOLON { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+
+    XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioMicMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+    XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86AudioPlay allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    XF86AudioStop allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "stop"; }
+    XF86AudioPrev allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+    XF86AudioNext allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+W repeat=false { close-window; }
@@ -84,16 +105,18 @@ binds {
     Mod+I { center-column; }
     Mod+Shift+I { center-visible-columns; }
 
-    Mod+C { toggle-window-floating; }
-    Mod+Shift+C { switch-focus-between-floating-and-tiling; }
+    Mod+E { toggle-window-floating; }
+    Mod+R { switch-focus-between-floating-and-tiling; }
 
     Mod+TAB { toggle-column-tabbed-display; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Shift+Print { screenshot; }
+    Ctrl+Shift+Print { screenshot-screen write-to-disk=false; }
+    Alt+Shift+Print { screenshot-window write-to-disk=false; }
 
-    // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    Mod+Shift+P { quit; }
+    Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; } // toggle allow apps to block niri binds
+    // Mod+Shift+ESC { quit; }
 }

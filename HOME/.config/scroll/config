@@ -1,0 +1,39 @@
+# Include theme
+include ~/.config/scroll/modules/theme.conf
+
+# Appearance
+include ~/.config/scroll/modules/appearance.conf
+
+# Apps
+include ~/.config/scroll/modules/apps.conf
+
+# Input devices
+include ~/.config/scroll/modules/inputs.conf
+
+# Keybinds (movement, utilities, volume, brightness)
+include ~/.config/scroll/modules/keybinds.conf
+
+# Workspaces
+include ~/.config/scroll/modules/workspaces.conf
+
+# Monitors and wallpaper
+include ~/.config/scroll/modules/outputs.conf
+
+# Layouts
+include ~/.config/scroll/modules/layout.conf
+
+# Scratchpad
+include ~/.config/scroll/modules/scratchpad.conf
+
+# Bar
+include ~/.config/scroll/modules/bar.conf
+
+# Window rules & exec commands
+include ~/.config/scroll/modules/rules.conf
+
+# System includes
+include @sysconfdir@/scroll/config.d/*
+
+
+include ~/.config/scroll/noctalia
+

@@ -14,13 +14,17 @@ install_jetbrains_nerd_font() {
   sudo rm -rf /usr/local/share/fonts/jetbrains-nerd/*
   sudo mv "$tmp"/*.ttf /usr/local/share/fonts/jetbrains-nerd/
 
+  # sudo mkdir -p ~/.local/share/fonts/jetbrains-nerd
+  # sudo rm -rf ~/.local/share/fonts/jetbrains-nerd/*
+  # sudo mv "$tmp"/*.ttf ~/.local/share/fonts/jetbrains-nerd/
+
   # sudo fc-cache -fv >/dev/null
 
   echo "JetBrains Mono Nerd Font installed"
 }
 
 cache_fonts() {
-  fc-cache -f
+  fc-cache -fv
   echo "Fonts have been successfully cached"
 }
 

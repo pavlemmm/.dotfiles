@@ -21,8 +21,8 @@ last-window-size=(956, 1048)
 use-system-font=false
 
 [org/gnome/Extensions]
-window-height=1048
-window-width=470
+window-height=1036
+window-width=634
 
 [org/gnome/Showtime/State]
 is-maximized=false
@@ -45,8 +45,8 @@ window-maximized=false
 window-size=(768, 1048)
 
 [org/gnome/control-center]
-last-panel='display'
-window-state=(981, 1048, false)
+last-panel='keyboard'
+window-state=(1266, 1036, false)
 
 [org/gnome/desktop/a11y/applications]
 screen-reader-enabled=false
@@ -74,6 +74,14 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png'
+picture-uri-dark='file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png'
+primary-color='#77767B'
+secondary-color='#000000'
+
 [org/gnome/desktop/input-sources]
 mru-sources=[('xkb', 'us'), ('xkb', 'rs+latin')]
 per-window=false
@@ -86,8 +94,11 @@ color-scheme='prefer-dark'
 cursor-blink=true
 cursor-blink-time=1000
 cursor-size=24
+document-font-name='Adwaita Sans 10'
 enable-animations=true
 enable-hot-corners=false
+font-name='Adwaita Sans 11'
+monospace-font-name='JetBrainsMono Nerd Font Mono 10'
 scaling-factor=uint32 1
 toolbar-style='text'
 
@@ -127,6 +138,9 @@ application-id='org.gnome.Console.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-decibels]
 application-id='org.gnome.Decibels.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-extensions]
+application-id='org.gnome.Extensions.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
@@ -158,6 +172,13 @@ accel-profile='flat'
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
 
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png'
+primary-color='#77767B'
+secondary-color='#000000'
+
 [org/gnome/desktop/wm/keybindings]
 maximize=['<Super>Up']
 minimize=@as []
@@ -177,7 +198,10 @@ switch-input-source=@as []
 switch-input-source-backward=@as []
 switch-panels=['<Control><Alt>Tab']
 switch-panels-backward=['<Shift><Control><Alt>Tab']
-switch-to-workspace-1=['<Super>Home']
+switch-to-workspace-1=['<Super>1']
+switch-to-workspace-2=['<Super>2']
+switch-to-workspace-3=['<Super>3']
+switch-to-workspace-4=['<Super>4']
 switch-to-workspace-last=['<Super>End']
 switch-to-workspace-left=['<Super>Page_Up', '<Super>KP_Prior', '<Super><Alt>Left', '<Control><Alt>Left']
 switch-to-workspace-right=['<Super>Page_Down', '<Super>KP_Next', '<Super><Alt>Right', '<Control><Alt>Right']
@@ -191,25 +215,26 @@ ask-for-default=false
 
 [org/gnome/epiphany/state]
 is-maximized=false
-window-size=(1024, 1048)
+window-size=(1024, 1036)
 
 [org/gnome/evolution-data-server]
 migrated=true
 
 [org/gnome/gnome-system-monitor]
-current-tab='resources'
+current-tab='processes'
 maximized=false
+mem-color='rgb(224,27,36)'
 show-dependencies=false
 show-whose-processes='user'
-window-height=1050
+window-height=1036
 window-width=952
 
 [org/gnome/gnome-system-monitor/proctree]
 col-26-visible=false
 col-26-width=0
 columns-order=[0, 12, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-sort-col=12
-sort-order=1
+sort-col=8
+sort-order=0
 
 [org/gnome/mutter]
 attach-modal-dialogs=false
@@ -228,11 +253,11 @@ restore-shortcuts=['<Super>Escape']
 default-zoom-level='small-plus'
 
 [org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
+default-folder-viewer='list-view'
 migrated-gtk-settings=true
 
 [org/gnome/nautilus/window-state]
-initial-size=(1271, 1048)
+initial-size=(1271, 1036)
 initial-size-file-chooser=(1397, 1048)
 
 [org/gnome/papers]
@@ -282,7 +307,7 @@ donation-reminder-last-shown=int64 1769293085057763
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-rotate-video-lock-static=['<Super>o', 'XF86RotationLockToggle']
+rotate-video-lock-static=@as []
 screensaver=@as []
 www=['<Super>q']
 
@@ -303,12 +328,12 @@ favorite-apps=['com.mitchellh.ghostty.desktop', 'app.zen_browser.zen.desktop', '
 welcome-dialog-last-shown-version='49.2'
 
 [org/gnome/shell/extensions/paperwm]
-cycle-height-steps=[0.25, 0.5, 1.0]
-cycle-width-steps=[0.25, 0.5, 0.75]
-default-focus-mode=1
+cycle-height-steps=[0.33399999999999996, 0.5, 0.66599999999999993]
+cycle-width-steps=[0.33399999999999996, 0.5, 0.66599999999999993]
+default-focus-mode=0
 edge-preview-click-enable=false
 edge-preview-enable=false
-horizontal-margin=0
+horizontal-margin=6
 last-used-display-server='Wayland'
 maximize-within-tiling=false
 minimap-scale=0.0
@@ -316,19 +341,19 @@ open-window-position=0
 open-window-position-option-left=false
 restore-attach-modal-dialogs='true'
 restore-edge-tiling='true'
-restore-keybinds='{"minimize":{"bind":"[\\"<Super>h\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-input-source":{"bind":"[\\"<Super>space\\",\\"XF86Keyboard\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-input-source-backward":{"bind":"[\\"<Shift><Super>space\\",\\"<Shift>XF86Keyboard\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-application-5":{"bind":"[\\"<Super>5\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-1":{"bind":"[\\"<Super>1\\"]","schema_id":"org.gnome.shell.keybindings"},"toggle-quick-settings":{"bind":"[\\"<Super>s\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-7":{"bind":"[\\"<Super>7\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-9":{"bind":"[\\"<Super>9\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-6":{"bind":"[\\"<Super>6\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-3":{"bind":"[\\"<Super>3\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-8":{"bind":"[\\"<Super>8\\"]","schema_id":"org.gnome.shell.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-4":{"bind":"[\\"<Super>4\\"]","schema_id":"org.gnome.shell.keybindings"},"switch-to-application-2":{"bind":"[\\"<Super>2\\"]","schema_id":"org.gnome.shell.keybindings"},"screensaver":{"bind":"[\\"<Super>l\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'
+restore-keybinds='{"minimize":{"bind":"[\\"<Super>h\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-input-source":{"bind":"[\\"<Super>space\\",\\"XF86Keyboard\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-input-source-backward":{"bind":"[\\"<Shift><Super>space\\",\\"<Shift>XF86Keyboard\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"toggle-quick-settings":{"bind":"[\\"<Super>s\\"]","schema_id":"org.gnome.shell.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"screensaver":{"bind":"[\\"<Super>l\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"},"rotate-video-lock-static":{"bind":"[\\"<Super>o\\",\\"XF86RotationLockToggle\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'
 restore-workspaces-only-on-primary='true'
 selection-border-radius-bottom=0
 selection-border-radius-top=0
 selection-border-size=0
-vertical-margin=0
-vertical-margin-bottom=0
-window-gap=4
+vertical-margin=6
+vertical-margin-bottom=6
+window-gap=6
 
 [org/gnome/shell/extensions/paperwm/keybindings]
 barf-out=['']
 barf-out-active=['<Super>bracketright']
-center=['<Shift><Super>i']
+center=['<Super>o']
 center-horizontally=['']
 center-vertically=['']
 close-window=['<Super>w']
@@ -376,11 +401,11 @@ switch-down-loop=['']
 switch-down-or-else-workspace=['']
 switch-down-workspace=['']
 switch-down-workspace-from-all-monitors=['<Super>d']
-switch-eighth=['<Super>8']
-switch-fifth=['<Super>5']
-switch-first=['<Super>1']
+switch-eighth=['']
+switch-fifth=['']
+switch-first=['']
 switch-focus-mode=['<Super>i']
-switch-fourth=['<Super>4']
+switch-fourth=['']
 switch-global-down=['']
 switch-global-left=['']
 switch-global-right=['']
@@ -393,15 +418,15 @@ switch-monitor-below=['']
 switch-monitor-left=['<Super>s']
 switch-monitor-right=['<Super>g']
 switch-next=['']
-switch-ninth=['<Super>9']
+switch-ninth=['']
 switch-open-window-position=['<Super>u']
 switch-previous=['']
 switch-right=['<Super>l']
 switch-right-loop=['']
-switch-second=['<Super>2']
-switch-seventh=['<Super>7']
-switch-sixth=['<Super>6']
-switch-third=['<Super>3']
+switch-second=['']
+switch-seventh=['']
+switch-sixth=['']
+switch-third=['']
 switch-up=['<Super>k']
 switch-up-loop=['']
 switch-up-or-else-workspace=['']
@@ -442,15 +467,15 @@ name='Workspace 1'
 focus-active-notification=@as []
 shift-overview-down=['<Super><Alt>Down']
 shift-overview-up=['<Super><Alt>Up']
-switch-to-application-1=@as []
-switch-to-application-2=@as []
-switch-to-application-3=@as []
-switch-to-application-4=@as []
-switch-to-application-5=@as []
-switch-to-application-6=@as []
-switch-to-application-7=@as []
-switch-to-application-8=@as []
-switch-to-application-9=@as []
+switch-to-application-1=['<Super>1']
+switch-to-application-2=['<Super>2']
+switch-to-application-3=['<Super>3']
+switch-to-application-4=['<Super>4']
+switch-to-application-5=['<Super>5']
+switch-to-application-6=['<Super>6']
+switch-to-application-7=['<Super>7']
+switch-to-application-8=['<Super>8']
+switch-to-application-9=['<Super>9']
 toggle-message-tray=['<Super>v', '<Super>m']
 toggle-quick-settings=@as []
 
@@ -458,9 +483,9 @@ toggle-quick-settings=@as []
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1771253896
+check-timestamp=int64 1772042466
 first-run=false
-flatpak-purge-timestamp=int64 1771270437
+flatpak-purge-timestamp=int64 1772058120
 
 [org/gnome/tweaks]
 show-extensions-notice=false

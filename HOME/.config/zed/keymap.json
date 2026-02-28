@@ -1,0 +1,13 @@
+[
+  {
+    "bindings": {
+      "space e": "project_panel::ToggleFocus",
+      "space f": "file_finder::Toggle",
+      "space g": "workspace::NewSearch",
+      "space b": "tab_switcher::Toggle",
+      "space v": "pane::SplitVertical",
+      "space s": "pane::SplitHorizontal",
+      "space w": "pane::CloseActiveItem"
+    }
+  }
+]
