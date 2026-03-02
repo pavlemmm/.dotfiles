@@ -59,26 +59,19 @@
   programs.niri.enable = true;
 
   # Enable the Hyprland Window Manager
-  # programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   # Enable the Scroll Window Manager
   # programs.scroll = {
   #   enable = true;
   #   package = inputs.scroll.packages.${pkgs.stdenv.hostPlatform.system}.scroll-stable;
   # };
-
-  ############################################################
-  # Power Managing
-  ############################################################
-
-  services.logind.settings.Login = {
-    IdleAction = "suspend-then-hibernate";
-    IdleActionSec = "15min";   # posle 15 min neaktivnosti krene suspend
-  };
-
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=45min    # posle 45 min u suspendu pređe u hibernate
-  '';
 
   ############################################################
   # Portals (file pickers, screen sharing, etc.)
@@ -93,41 +86,6 @@
     ];
   };
 
-  ############################################################
-  # Audio stack (PipeWire)
-  ############################################################
-
-  # Enable sound with pipewire.
-  security.rtkit.enable = true;
-  # services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-
-    # compatibility with others
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
-
-  ############################################################
-  # Graphics and OpenGL/Vulkan
-  ############################################################
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-
-    extraPackages = with pkgs; [
-      mesa
-      vulkan-validation-layers
-    ];
-
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      mesa
-    ];
-  };
 
   ############################################################
   # Virtualization

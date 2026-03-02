@@ -52,4 +52,32 @@
     automatic = true;
     dates = [ "weekly" ];
   };
+
+  nix.settings.auto-optimise-store = true;
+
+  # Automatic updating
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
+
+  ############################################################
+  # Nix configuration
+  ############################################################
+
+  # Enable flakes and new nix CLI
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Allow proprietary software (Steam, Discord, Brave...)
+  nixpkgs.config.allowUnfree = true;
+
+  ############################################################
+  # Caching
+  ############################################################
+
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
 }

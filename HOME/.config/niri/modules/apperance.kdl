@@ -1,25 +1,26 @@
 layout {
-    // gaps 8
     gaps 0
+    // gaps 8
 
     center-focused-column "never"
     always-center-single-column
+    // empty-workspace-above-first
 
     preset-column-widths {
-        proportion 0.33334
+        proportion 0.333
         proportion 0.5
-        proportion 0.66666
+        proportion 0.667
         proportion 1.0
     }
 
     preset-window-heights {
-        proportion 0.33334
+        proportion 0.333
         proportion 0.5
-        proportion 0.66666
+        proportion 0.667
         proportion 1.0
     }
 
-    default-column-width { proportion 0.66666; }
+    default-column-width { proportion 0.667; }
 
     struts {
         left 2
@@ -60,15 +61,10 @@ window-rule {
 }
 
 cursor {
-    xcursor-size 32
-}
-
-hotkey-overlay {
-    skip-at-startup
+    xcursor-size 20
 }
 
 prefer-no-csd
-
 
 animations {
     // off

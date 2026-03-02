@@ -9,12 +9,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   ############################################################
-  # Networking
-  ############################################################
-
-  networking.networkmanager.enable = true;
-
-  ############################################################
   # User configuration
   ############################################################
 
@@ -39,14 +33,45 @@
     shell = pkgs.zsh;
   };
 
+  ############################################################
+  # Networking
+  ############################################################
+
+  networking.networkmanager.enable = true;
 
   ############################################################
-  # Nix configuration
+  # Audio stack (PipeWire)
   ############################################################
 
-  # Enable flakes and new nix CLI
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable sound with pipewire.
+  security.rtkit.enable = true;
+  # services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
 
-  # Allow proprietary software (Steam, Discord, Brave...)
-  nixpkgs.config.allowUnfree = true;
+    # compatibility with others
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+
+  ############################################################
+  # Graphics and OpenGL/Vulkan
+  ############################################################
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+
+    extraPackages = with pkgs; [
+      mesa
+      vulkan-validation-layers
+    ];
+
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      mesa
+    ];
+  };
 }

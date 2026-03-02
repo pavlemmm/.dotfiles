@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    hyprland.url = "github:hyprwm/Hyprland";
     # scroll.url = "github:AsahiRocks/scroll-flake";
   };
 

@@ -3,25 +3,6 @@ binds {
 
     Mod+RETURN hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
 
-    // DMS
-
-    // Mod+A hotkey-overlay-title="Run an Application" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    // Mod+T hotkey-overlay-title="Toggle Night-Light" { spawn "dms" "ipc" "call" "night" "toggle"; }
-    // Mod+V hotkey-overlay-title="Clipboard Menu" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-    // Mod+ESCAPE hotkey-overlay-title="Power Menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
-
-    // XF86AudioRaiseVolume { spawn "dms" "ipc" "call" "audio" "increment"; }
-    // XF86AudioLowerVolume { spawn "dms" "ipc" "call" "audio" "decrement"; }
-    // XF86AudioMute { spawn "dms" "ipc" "call" "audio" "mute"; }
-    // XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
-    // XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment"; }
-    // XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement"; }
-    // XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    // XF86AudioStop allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "stop"; }
-    // XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
-    // XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
-
-
     // Noctalia
 
     Mod+A { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
@@ -42,6 +23,24 @@ binds {
     XF86AudioStop allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "stop"; }
     XF86AudioPrev allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
     XF86AudioNext allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+
+    // DMS
+
+    // Mod+A hotkey-overlay-title="Run an Application" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    // Mod+T hotkey-overlay-title="Toggle Night-Light" { spawn "dms" "ipc" "call" "night" "toggle"; }
+    // Mod+V hotkey-overlay-title="Clipboard Menu" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    // Mod+ESCAPE hotkey-overlay-title="Power Menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+
+    // XF86AudioRaiseVolume { spawn "dms" "ipc" "call" "audio" "increment"; }
+    // XF86AudioLowerVolume { spawn "dms" "ipc" "call" "audio" "decrement"; }
+    // XF86AudioMute { spawn "dms" "ipc" "call" "audio" "mute"; }
+    // XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement"; }
+    // XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    // XF86AudioStop allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "stop"; }
+    // XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    // XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+W repeat=false { close-window; }

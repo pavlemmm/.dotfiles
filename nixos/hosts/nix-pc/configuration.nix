@@ -6,7 +6,7 @@
     ./hardware-configuration.nix
 
     ../../modules/core.nix
-    ../../modules/boot.nix
+    ../../modules/system.nix
     ../../modules/desktop.nix
     ../../modules/packages.nix
   ];

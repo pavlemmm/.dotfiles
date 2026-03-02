@@ -394,7 +394,7 @@
         "compactLockScreen": false,
         "dimmerOpacity": 0,
         "enableLockScreenCountdown": true,
-        "enableShadows": false,
+        "enableShadows": true,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
@@ -474,7 +474,7 @@
         "autoSchedule": false,
         "dayTemp": "2715",
         "enabled": true,
-        "forced": false,
+        "forced": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "nightTemp": "1725"

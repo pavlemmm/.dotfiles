@@ -17,6 +17,8 @@
     ############################
     # Development
     ############################
+
+    # LSPs
     lua-language-server
     nodePackages.typescript-language-server
     pyright
@@ -25,10 +27,13 @@
     nodePackages.vscode-langservers-extracted
     emmet-ls
 
+    # Compilers/Interpreters
     gcc
     gnumake
-    nodejs_24
+    nodejs
     python3
+    
+    # Tools
     codex
 
     ############################
@@ -57,8 +62,8 @@
     tldr
     wl-clipboard
     nvtopPackages.amd # analysis for gpu
-    efibootmgr # tool for efi
-    # btop
+    efibootmgr # tool for uefi boot
+    btop
     exfatprogs # mkfs.exfat tool
 
     ############################
@@ -67,7 +72,7 @@
     xwayland-satellite # xwayland for niri
     # quickshell
     noctalia-shell
-    # dms-shell
+    swayidle # idle tool for niri, sway
 
     ############################
     # Desktop environment utilities
@@ -81,7 +86,7 @@
   ];
 
   ############################################################
-  # Programs
+  # Other programs
   ############################################################
 
   programs = {
