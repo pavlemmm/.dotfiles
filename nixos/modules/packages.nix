@@ -12,6 +12,7 @@
     ############################
     neovim
     helix
+    vscode
     zed-editor
 
     ############################
@@ -46,6 +47,7 @@
     vlc
     ghostty
     alacritty
+    krita
 
     ############################
     # CLI utilities
@@ -61,23 +63,30 @@
     bat
     tldr
     wl-clipboard
-    nvtopPackages.amd # analysis for gpu
     efibootmgr # tool for uefi boot
-    btop
     exfatprogs # mkfs.exfat tool
+    nvtopPackages.amd # analysis for gpu
+    btop
+    fastfetch
 
     ############################
     # Window manager utilities
     ############################
-    xwayland-satellite # xwayland for niri
-    # quickshell
     noctalia-shell
+    # quickshell
+
+    # Niri
+    xwayland-satellite # xwayland for niri
     swayidle # idle tool for niri, sway
 
     ############################
     # Desktop environment utilities
     ############################
+    # Gnome
     gnome-tweaks
+
+    # KDE
+    # kdePackages.kcalc
 
     ############################
     # Fonts
