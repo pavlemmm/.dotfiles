@@ -5,10 +5,10 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/core.nix
-    ../../modules/system.nix
-    ../../modules/desktop.nix
-    ../../modules/packages.nix
+    ../../modules/nixos/core.nix
+    ../../modules/nixos/system.nix
+    ../../modules/nixos/desktop.nix
+    ../../modules/nixos/packages.nix
   ];
 
   # Host-specific configuration

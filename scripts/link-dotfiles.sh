@@ -34,29 +34,29 @@ link_home() {
 
 link_manual() {
   ## ~/*
-  # link_home ".zshrc"
+  link_home ".zshrc"
 
   ## ~/.config/*
-  # link_cfg niri
+  link_cfg niri
   # link_cfg sway
   # link_cfg scroll
   # link_cfg hypr
   # link_cfg hyprun
 
-  # link_cfg noctalia
+  link_cfg noctalia
   # link_cfg DankMaterialShell
   # link_cfg dconf
   
-  # link_cfg nvim
-  # link_cfg zed
+  link_cfg nvim
+  link_cfg zed
   #
-  # link_cfg git
-  # link_cfg tmux
-  # link_cfg yazi
-  # link_cfg oh-my-posh
+  link_cfg git
+  link_cfg tmux
+  link_cfg yazi
+  link_cfg oh-my-posh
   
   # link_cfg alacritty
-  # link_cfg ghostty
+  link_cfg ghostty
 
   echo "Dotfiles linked manually"
 }

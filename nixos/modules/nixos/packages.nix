@@ -2,23 +2,19 @@
 
 {
   ############################################################
-  # System-wide installed packages
+  # System-level programs
   ############################################################
 
   environment.systemPackages = with pkgs; [
-
     ############################
     # Editors
     ############################
     neovim
-    helix
-    vscode
     zed-editor
 
     ############################
     # Development
     ############################
-
     # LSPs
     lua-language-server
     nodePackages.typescript-language-server
@@ -33,8 +29,8 @@
     gnumake
     nodejs
     python3
-    
-    # Tools
+
+    # Dev Tools
     codex
 
     ############################
@@ -46,8 +42,7 @@
     libreoffice
     vlc
     ghostty
-    alacritty
-    krita
+    gimp
 
     ############################
     # CLI utilities
@@ -61,32 +56,23 @@
     fzf
     eza
     bat
-    tldr
-    wl-clipboard
-    efibootmgr # tool for uefi boot
-    exfatprogs # mkfs.exfat tool
-    nvtopPackages.amd # analysis for gpu
-    btop
     fastfetch
+    efibootmgr # efi boot tool
+    exfatprogs # mkfs.exfat tool
+    wl-clipboard
+    tldr
 
     ############################
     # Window manager utilities
     ############################
     noctalia-shell
-    # quickshell
-
-    # Niri
-    xwayland-satellite # xwayland for niri
-    swayidle # idle tool for niri, sway
+    xwayland-satellite
+    swayidle
 
     ############################
     # Desktop environment utilities
     ############################
-    # Gnome
     gnome-tweaks
-
-    # KDE
-    # kdePackages.kcalc
 
     ############################
     # Fonts
@@ -94,21 +80,10 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  ############################################################
-  # Other programs
-  ############################################################
-
-  programs = {
-    zsh.enable = true;
-
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-    };
-
-    # dms-shell = {
-    #   enable = true;
-    #   systemd.enable = false;
-    # };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
   };
+
+  programs.zsh.enable = true;
 }

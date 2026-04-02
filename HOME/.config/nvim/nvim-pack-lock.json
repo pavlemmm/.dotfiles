@@ -64,6 +64,10 @@
       "rev": "f9358544ed06bc10197e698b7fc8dc5963be3f4b",
       "src": "https://github.com/nvim-mini/mini.surround.git"
     },
+    "nvim": {
+      "rev": "12c004cde3f36cb1d57242f1e6aac46b09a0e5b4",
+      "src": "https://github.com/catppuccin/nvim.git"
+    },
     "nvim-lspconfig": {
       "rev": "419b082102fa813739588dd82e19a8b6b2442855",
       "src": "https://github.com/neovim/nvim-lspconfig"
