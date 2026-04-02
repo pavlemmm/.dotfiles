@@ -43,6 +43,7 @@
     vlc
     ghostty
     gimp
+    ventoy-full-gtk
 
     ############################
     # CLI utilities
