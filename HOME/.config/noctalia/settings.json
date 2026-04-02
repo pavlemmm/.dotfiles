@@ -18,7 +18,11 @@
         "pinnedApps": [
             "app.zen_browser.zen",
             "com.mitchellh.ghostty",
-            "discord"
+            "discord",
+            "org.gnome.TextEditor",
+            "org.gnome.Nautilus",
+            "startcenter",
+            "org.gnome.Calculator"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -242,7 +246,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Noctalia (default)",
+        "predefinedScheme": "Catppuccin",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -376,6 +380,7 @@
         ],
         "onlySameOutput": false,
         "pinnedApps": [
+            "app.zen_browser.zen"
         ],
         "pinnedStatic": true,
         "position": "bottom",
@@ -528,7 +533,7 @@
     "sessionMenu": {
         "countdownDuration": 10000,
         "enableCountdown": true,
-        "largeButtonsLayout": "single-row",
+        "largeButtonsLayout": "grid",
         "largeButtonsStyle": true,
         "position": "center",
         "powerOptions": [
@@ -631,14 +636,6 @@
             },
             {
                 "enabled": true,
-                "id": "qt"
-            },
-            {
-                "enabled": true,
-                "id": "kcolorscheme"
-            },
-            {
-                "enabled": true,
                 "id": "btop"
             },
             {
@@ -671,6 +668,18 @@
             },
             {
                 "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "code"
+            },
+            {
+                "enabled": true,
                 "id": "zed"
             }
         ],
@@ -680,11 +689,11 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
-        "fontDefault": "Adwaita Sans",
+        "fontDefault": "Noto Sans",
         "fontDefaultScale": 1,
         "fontFixed": "JetBrainsMono Nerd Font Mono",
         "fontFixedScale": 1,
-        "networkPanelView": "wifi",
+        "networkPanelView": "ethernet",
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": false,
         "settingsPanelMode": "centered",
