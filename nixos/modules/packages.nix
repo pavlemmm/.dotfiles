@@ -59,14 +59,19 @@
     fastfetch
     efibootmgr # efi boot tool
     exfatprogs # mkfs.exfat tool
-    wl-clipboard
-    tldr
+    wl-clipboard # wayland clipboard
+    # libnotify # lib for sending notifications
+    tldr # simpler man pages
 
     ############################
     # Window manager utilities
     ############################
     noctalia-shell
     xwayland-satellite
+
+    # screenshot utils
+    grim
+    slurp
 
     ############################
     # Desktop environment utilities

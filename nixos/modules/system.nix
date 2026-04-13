@@ -68,6 +68,12 @@
   # Enable flakes and new nix CLI
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Enable multi-core package building
+  nix.settings = {
+    max-jobs = "auto";
+    cores = 0;
+  };
+
   # Allow proprietary software (Steam, Discord, Brave...)
   nixpkgs.config.allowUnfree = true;
 
@@ -76,8 +82,14 @@
   ############################################################
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://nix-community.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypb6Zp5ZrF5d1mXzV2o1kZyZ4s0="
+      "nix-community.cachix.org-1:mB9Fs7Z2Z8M0R1fQ4P0Z3r3m2P6wX9cF2q1sQ3kXz1A="
+    ];
   };
 }

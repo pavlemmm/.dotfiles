@@ -1,14 +1,14 @@
 # Appearance
-include ~/.config/sway/modules/appearance.conf
+include ~/.config/sway/modules/looks.conf
 
-# Apps
-include ~/.config/sway/modules/apps.conf
+# Defaults
+include ~/.config/sway/modules/defaults.conf
 
 # Input devices
 include ~/.config/sway/modules/inputs.conf
 
 # Keybinds (movement, utilities, volume, brightness)
-include ~/.config/sway/modules/keybinds.conf
+include ~/.config/sway/modules/binds.conf
 
 # Workspaces
 include ~/.config/sway/modules/workspaces.conf
@@ -19,12 +19,6 @@ include ~/.config/sway/modules/outputs.conf
 # Layouts
 include ~/.config/sway/modules/layout.conf
 
-# Scratchpad
-include ~/.config/sway/modules/scratchpad.conf
-
-# Bar
-include ~/.config/sway/modules/bar.conf
-
 # Window rules & exec commands
 include ~/.config/sway/modules/rules.conf
 
@@ -33,5 +27,3 @@ include ~/.config/sway/noctalia
 
 # System includes
 include /etc/sway/config.d/*
-
-
