@@ -11,6 +11,7 @@ window-padding-balance = true
 ## Other
 confirm-close-surface = false
 resize-overlay = never
+gtk-single-instance = true
 
 ## Theme
 theme = noctalia

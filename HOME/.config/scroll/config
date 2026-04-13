@@ -1,17 +1,14 @@
-# Include theme
-include ~/.config/scroll/modules/theme.conf
-
 # Appearance
-include ~/.config/scroll/modules/appearance.conf
+include ~/.config/scroll/modules/looks.conf
 
 # Apps
-include ~/.config/scroll/modules/apps.conf
+include ~/.config/scroll/modules/defaults.conf
 
 # Input devices
 include ~/.config/scroll/modules/inputs.conf
 
 # Keybinds (movement, utilities, volume, brightness)
-include ~/.config/scroll/modules/keybinds.conf
+include ~/.config/scroll/modules/binds.conf
 
 # Workspaces
 include ~/.config/scroll/modules/workspaces.conf
@@ -34,6 +31,5 @@ include ~/.config/scroll/modules/rules.conf
 # System includes
 include @sysconfdir@/scroll/config.d/*
 
-
+# Noctalia themeing
 include ~/.config/scroll/noctalia
-

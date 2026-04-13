@@ -25,8 +25,28 @@ setopt HIST_FIND_NO_DUPS
 ########################################
 # ENVIRONMENT VARIABLES
 ########################################
-export EDITOR=nvim                # Default editor
-export VISUAL=nvim                # Default visual editor
+export EDITOR=nvim # Default editor
+export VISUAL=nvim # Default visual editor
+
+# Tell QT, GDK and others to use the Wayland backend by default, X11 if not available
+# export QT_QPA_PLATFORM="wayland;xcb"
+# export GDK_BACKEND="wayland,x11"
+# export SDL_VIDEODRIVER=wayland
+# export CLUTTER_BACKEND=wayland
+# So GTK4 applications work when sending dead keys
+# export GTK_IM_MODULE=simple
+
+# Configure Electron to use Wayland instead of X11
+# export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1 # Disables window decorations on Qt applications
+# export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_STYLE_OVERRIDE=kvantum
+#
+# export XCURSOR_THEME=Adwaita
+# export XCURSOR_SIZE=20
+#
+# export _JAVA_AWT_WM_NONREPARENTING=1 # Java fix for Wayland
 
 ########################################
 # SAFE PATH HANDLING
@@ -35,8 +55,7 @@ export VISUAL=nvim                # Default visual editor
 path_add() {
   [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
 }
-path_add "$HOME/.local/bin"        # Local binaries
-path_add "$HOME/.opencode/bin"     # Opencode binaries
+path_add "$HOME/.local/bin" # Local binaries
 
 ########################################
 # COMPLETION SYSTEM

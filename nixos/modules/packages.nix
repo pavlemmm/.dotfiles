@@ -17,11 +17,10 @@
     ############################
     # LSPs
     lua-language-server
-    nodePackages.typescript-language-server
+    typescript-language-server
     pyright
     nil
     tailwindcss-language-server
-    nodePackages.vscode-langservers-extracted
     emmet-ls
 
     # Compilers/Interpreters
@@ -42,8 +41,8 @@
     libreoffice
     vlc
     ghostty
-    gimp
-    ventoy-full-gtk
+    krita
+    gparted
 
     ############################
     # CLI utilities
@@ -68,11 +67,11 @@
     ############################
     noctalia-shell
     xwayland-satellite
-    swayidle
 
     ############################
     # Desktop environment utilities
     ############################
+    # Gnome
     gnome-tweaks
 
     ############################

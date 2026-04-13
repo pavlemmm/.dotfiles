@@ -3,10 +3,10 @@
 set -e
 
 enable_copr() {
-  sudo dnf -y copr enable alternateved/eza
+  # sudo dnf -y copr enable alternateved/eza
   sudo dnf -y copr enable lihaohong/yazi
-  sudo dnf -y copr enable agriffis/neovim-nightly
-  sudo dnf copr enable scottames/ghostty
+  # sudo dnf -y copr enable agriffis/neovim-nightly
+  sudo dnf -y copr enable scottames/ghostty
 }
 
 install_dnf_packages() {
@@ -14,8 +14,10 @@ install_dnf_packages() {
     # Terminal
     zsh eza zoxide man tldr fzf yazi wl-clipboard
     
-    # Development
+    # Development Tools
     neovim
+
+    # Compilers/Interpreters
     nodejs
     
     # Apps

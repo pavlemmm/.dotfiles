@@ -23,7 +23,7 @@ layout {
     default-column-width { proportion 0.667; }
 
     struts {
-        left 2
+        // left 2
         // right 10
         // top 0
         // bottom 0
@@ -68,4 +68,10 @@ prefer-no-csd
 
 animations {
     // off
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }

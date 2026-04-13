@@ -28,8 +28,10 @@ include ~/.config/sway/modules/bar.conf
 # Window rules & exec commands
 include ~/.config/sway/modules/rules.conf
 
+# Noctalia
+include ~/.config/sway/noctalia
+
 # System includes
 include /etc/sway/config.d/*
 
-include ~/.config/sway/noctalia
 

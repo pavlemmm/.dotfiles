@@ -9,3 +9,23 @@ hotkey-overlay {
 }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+    // Wayland forcing
+    GDK_BACKEND "wayland,x11"
+    QT_QPA_PLATFORM "wayland;xcb"
+
+    // Qt theming
+    // QT_QPA_PLATFORMTHEME "qt6ct"
+
+    // Chromium / Electron
+    NIXOS_OZONE_WL "1"
+    OZONE_PLATFORM "wayland"
+
+    // Java fix for Wayland
+    _JAVA_AWT_WM_NONREPARENTING "1"
+
+    // Cursor consistency
+    XCURSOR_SIZE "20"
+    // XCURSOR_THEME "Adwaita"
+}
