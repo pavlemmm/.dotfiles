@@ -7,10 +7,18 @@
 
   environment.systemPackages = with pkgs; [
     ############################
-    # Editors
+    # IDEs and Tools
     ############################
+    # Terminals
+    ghostty
+
+    # IDEs
     neovim
     zed-editor
+    code-cursor
+
+    # Dev Tools
+    codex
 
     ############################
     # Development
@@ -29,20 +37,22 @@
     nodejs
     python3
 
-    # Dev Tools
-    codex
+    ############################
+    # Web Browsers
+    ############################
+    chromium
+    brave
+    inputs.zen-browser.packages.${pkgs.system}.default
 
     ############################
     # Desktop applications
     ############################
-    chromium
-    discord
-    transmission_4-gtk
-    libreoffice
-    vlc
-    ghostty
     krita
     gparted
+    libreoffice
+    discord
+    transmission_4-gtk
+    vlc
 
     ############################
     # CLI utilities
