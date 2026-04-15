@@ -16,6 +16,7 @@
     neovim
     zed-editor
     code-cursor
+    vscode
 
     # Dev Tools
     codex
@@ -40,16 +41,17 @@
     ############################
     # Web Browsers
     ############################
-    chromium
+    # chromium
+    librewolf
     brave
-    inputs.zen-browser.packages.${pkgs.system}.default
+    # inputs.zen-browser.packages.${pkgs.system}.default
 
     ############################
     # Desktop applications
     ############################
     krita
     gparted
-    libreoffice
+    onlyoffice-desktopeditors
     discord
     transmission_4-gtk
     vlc

@@ -404,7 +404,7 @@
         "launcherIcon": "",
         "launcherIconColor": "none",
         "launcherPosition": "start",
-        "launcherUseDistroLogo": true,
+        "launcherUseDistroLogo": false,
         "monitors": [
         ],
         "onlySameOutput": false,
