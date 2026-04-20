@@ -55,7 +55,7 @@
   programs.sway.enable = true;
 
   # Enable the Niri Window Manager
-  programs.niri.enable = true;
+  # programs.niri.enable = true;
 
   # Enable the Hyprland Window Manager
   # programs.hyprland.enable = true;

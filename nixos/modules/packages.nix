@@ -15,8 +15,8 @@
     # IDEs
     neovim
     zed-editor
-    code-cursor
-    vscode
+    # code-cursor
+    # vscode
 
     # Dev Tools
     codex
@@ -50,7 +50,7 @@
     # Desktop applications
     ############################
     krita
-    gparted
+    # gparted
     onlyoffice-desktopeditors
     discord
     transmission_4-gtk
@@ -79,7 +79,7 @@
     # Window manager utilities
     ############################
     noctalia-shell
-    xwayland-satellite
+    # xwayland-satellite
 
     # screenshot utils
     grim
