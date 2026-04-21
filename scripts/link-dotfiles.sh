@@ -9,10 +9,13 @@ CFG_DIR="$HOME_DIR/.config"
 link() {
   local src="$1" dst="$2"
 
-  mkdir -p "$(dirname "$dst")"
+  mkdir -p "$(dirname "$dst")" # make parent dir if not exists
 
-  # backup
-  if [[ -e "$dst" || -L "$dst" ]]; then
+  if [[ -L "$dst" ]]; then # if symlink already exists, skip
+    echo "skip: symlink exists: $dst"
+    return 0
+  elif [[ -e "$dst" ]]; then # if dir exists and not a symlink, backup
+    echo "backup: $dst -> ${dst}.bak"
     mv "$dst" "${dst}.bak"
   fi
 
