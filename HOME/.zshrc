@@ -133,9 +133,9 @@ alias v="nvim"
 alias c='clear'
 
 # NixOS
-alias ns='sudo nixos-rebuild switch --flake ~/.dotfiles/nixos\#$(hostname)'
-alias nc='nvim ~/.dotfiles/nixos/modules/packages.nix'
-alias nf='nvim ~/.dotfiles/nixos/'
+alias ns='sudo nixos-rebuild switch --flake /etc/nixos\#$(hostname)'
+alias nc='nvim /etc/nixos/packages.nix'
+alias nf='nvim /etc/nixos/'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION

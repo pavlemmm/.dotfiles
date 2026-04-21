@@ -1,29 +1,19 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
 HOST="${1:-$(hostname)}"
-NIXOS_DIR="${HOME}/.dotfiles/nixos"
-SRC="${NIXOS_DIR}/hosts/${HOST}"
+SRC="$HOME/.dotfiles/nixos/hosts/$HOST"
 DST="/etc/nixos"
 
-[ -d "$SRC" ] || { echo "Missing: $SRC" >&2; exit 1; }
+# Check if SRC exists
+[ -d "$SRC" ] || { echo "Missing: $SRC"; exit 1; }
 
-# If /etc/nixos is already a symlink to the right place, do nothing
-if sudo test -L "$DST" && [ "$(readlink -f "$DST")" = "$SRC" ]; then
-  echo "OK: $DST already -> $SRC"
-  exit 0
-fi
-
-# Backup only if /etc/nixos is a real directory (not a symlink)
-if sudo test -d "$DST" && ! sudo test -L "$DST"; then
-  BAK="${DST}.backup-$(date +%Y%m%d-%H%M%S)"
-  sudo mv "$DST" "$BAK"
-  echo "Backup: $DST -> $BAK"
-fi
-
-# Replace /etc/nixos with symlink
+# Link /etc/nixos -> repo
 sudo rm -rf "$DST"
 sudo ln -s "$SRC" "$DST"
 
-echo "Linked: $DST -> $SRC"
-echo "Rebuild: sudo nixos-rebuild switch --flake ${NIXOS_DIR}#${HOST}"
+# Generate hardware config
+sudo nixos-generate-config --show-hardware-config > "$SRC/hardware-configuration.nix"
+
+echo "Done. Rebuild with:"
+echo "sudo nixos-rebuild switch --flake /etc/nixos#${HOST}"
