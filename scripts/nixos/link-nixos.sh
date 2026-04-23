@@ -2,7 +2,7 @@
 set -e
 
 HOST="${1:-$(hostname)}"
-SRC="$HOME/.dotfiles/nixos/hosts/$HOST"
+SRC="$HOME/.dotfiles/nixos"
 DST="/etc/nixos"
 
 # Check if SRC exists
@@ -10,10 +10,10 @@ DST="/etc/nixos"
 
 # Link /etc/nixos -> repo
 sudo rm -rf "$DST"
-sudo ln -s "$SRC" "$DST"
+sudo ln -sf "$SRC" "$DST"
 
 # Generate hardware config
-sudo nixos-generate-config --show-hardware-config > "$SRC/hardware-configuration.nix"
+sudo nixos-generate-config --show-hardware-config > "$SRC/hosts/$HOST/hardware-configuration.nix"
 
 echo "Done. Rebuild with:"
 echo "sudo nixos-rebuild switch --flake /etc/nixos#${HOST}"

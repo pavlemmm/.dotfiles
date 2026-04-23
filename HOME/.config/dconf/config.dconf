@@ -10,9 +10,6 @@ window-width=1271
 preload-engines=['xkb:us::eng', 'xkb:rs:latin:srp', 'xkb:rs::srp']
 version='1.5.33'
 
-[org/gnome/Characters]
-recent-characters=['📝', '😡', '☺️', '🫶', '🥹', '😔', '😞', '🙏', '🙏🏻', '🥺', '🐵', '😝']
-
 [org/gnome/Console]
 custom-font='JetBrainsMono Nerd Font Mono 10'
 font-scale=1.2000000000000002
@@ -20,39 +17,11 @@ last-window-maximised=false
 last-window-size=(956, 1048)
 use-system-font=false
 
-[org/gnome/Extensions]
-window-height=1036
-window-width=634
-
 [org/gnome/Showtime/State]
 is-maximized=false
 
-[org/gnome/TextEditor]
-last-save-directory='file:///home/pavlem/Projects/domaci-eticko/zad8'
-
-[org/gnome/calculator]
-base=10
-button-mode='basic'
-source-units=['degree']
-target-units=['radian']
-unit-category='angle'
-window-maximized=false
-window-size=(952, 1050)
-
-[org/gnome/calendar]
-active-view='month'
-window-maximized=false
-window-size=(768, 1048)
-
-[org/gnome/control-center]
-last-panel='keyboard'
-window-state=(1266, 1036, false)
-
 [org/gnome/desktop/a11y/applications]
 screen-reader-enabled=false
-
-[org/gnome/desktop/app-folders]
-folder-children=['System', 'Utilities', 'YaST', 'Pardus']
 
 [org/gnome/desktop/app-folders/folders/Pardus]
 categories=['X-Pardus-Apps']
@@ -63,24 +32,6 @@ translate=true
 apps=['org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Logs.desktop', 'org.gnome.SystemMonitor.desktop']
 name='X-GNOME-Shell-System.directory'
 translate=true
-
-[org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.Decibels.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Papers.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Loupe.desktop']
-name='X-GNOME-Shell-Utilities.directory'
-translate=true
-
-[org/gnome/desktop/app-folders/folders/YaST]
-categories=['X-SuSE-YaST']
-name='suse-yast.directory'
-translate=true
-
-[org/gnome/desktop/background]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png'
-picture-uri-dark='file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png'
-primary-color='#77767B'
-secondary-color='#000000'
 
 [org/gnome/desktop/input-sources]
 mru-sources=[('xkb', 'us'), ('xkb', 'rs+latin')]
@@ -102,66 +53,6 @@ monospace-font-name='JetBrainsMono Nerd Font Mono 10'
 scaling-factor=uint32 1
 toolbar-style='text'
 
-[org/gnome/desktop/notifications]
-application-children=['org-gnome-console', 'org-gnome-tweaks', 'gnome-about-panel', 'gnome-power-panel', 'brave-browser', 'org-gnome-nautilus', 'dev-zed-zed', 'discord', 'transmission-gtk', 'org-gnome-showtime', 'org-gnome-software', 'app-zen-browser-zen', 'virt-manager', 'com-usebottles-bottles', 'com-lunarclient-lunarclient', 'com-mitchellh-ghostty', 'org-gnome-decibels', 'vlc']
-
-[org/gnome/desktop/notifications/application/app-zen-browser-zen]
-application-id='app.zen_browser.zen.desktop'
-
-[org/gnome/desktop/notifications/application/brave-browser]
-application-id='brave-browser.desktop'
-
-[org/gnome/desktop/notifications/application/com-lunarclient-lunarclient]
-application-id='com.lunarclient.LunarClient.desktop'
-
-[org/gnome/desktop/notifications/application/com-mitchellh-ghostty]
-application-id='com.mitchellh.ghostty.desktop'
-
-[org/gnome/desktop/notifications/application/com-usebottles-bottles]
-application-id='com.usebottles.bottles.desktop'
-
-[org/gnome/desktop/notifications/application/dev-zed-zed]
-application-id='dev.zed.Zed.desktop'
-
-[org/gnome/desktop/notifications/application/discord]
-application-id='discord.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-about-panel]
-application-id='gnome-about-panel.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-power-panel]
-application-id='gnome-power-panel.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-console]
-application-id='org.gnome.Console.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-decibels]
-application-id='org.gnome.Decibels.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-extensions]
-application-id='org.gnome.Extensions.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-nautilus]
-application-id='org.gnome.Nautilus.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-showtime]
-application-id='org.gnome.Showtime.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-software]
-application-id='org.gnome.Software.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-tweaks]
-application-id='org.gnome.tweaks.desktop'
-
-[org/gnome/desktop/notifications/application/transmission-gtk]
-application-id='transmission-gtk.desktop'
-
-[org/gnome/desktop/notifications/application/virt-manager]
-application-id='virt-manager.desktop'
-
-[org/gnome/desktop/notifications/application/vlc]
-application-id='vlc.desktop'
-
 [org/gnome/desktop/peripherals/keyboard]
 delay=uint32 200
 repeat-interval=uint32 25
@@ -171,13 +62,6 @@ accel-profile='flat'
 
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
-
-[org/gnome/desktop/screensaver]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png'
-primary-color='#77767B'
-secondary-color='#000000'
 
 [org/gnome/desktop/wm/keybindings]
 maximize=['<Super>Up']
@@ -213,28 +97,8 @@ workspace-names=['', '', 'Workspace 3']
 [org/gnome/epiphany]
 ask-for-default=false
 
-[org/gnome/epiphany/state]
-is-maximized=false
-window-size=(1024, 1036)
-
 [org/gnome/evolution-data-server]
 migrated=true
-
-[org/gnome/gnome-system-monitor]
-current-tab='processes'
-maximized=false
-mem-color='rgb(224,27,36)'
-show-dependencies=false
-show-whose-processes='user'
-window-height=1036
-window-width=952
-
-[org/gnome/gnome-system-monitor/proctree]
-col-26-visible=false
-col-26-width=0
-columns-order=[0, 12, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-sort-col=8
-sort-order=0
 
 [org/gnome/mutter]
 attach-modal-dialogs=false
@@ -287,14 +151,8 @@ last-folder-path='/home/pavlem/Downloads'
 [org/gnome/portal/filechooser/discord]
 last-folder-path='/home/pavlem/Downloads'
 
-[org/gnome/portal/filechooser/kgx]
-last-folder-path='/home/pavlem/Downloads/metasploitable-linux-2.0.0/Metasploitable2-Linux'
-
 [org/gnome/portal/filechooser/org.chromium.Chromium]
 last-folder-path='/home/pavlem/Downloads'
-
-[org/gnome/portal/filechooser/org.gnome.TextEditor]
-last-folder-path='/home/pavlem/Projects/domaci-eticko/zad8'
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
@@ -506,76 +364,6 @@ sort-order='descending'
 type-format='category'
 window-position=(2279, 82)
 window-size=(1203, 902)
-
-[org/virt-manager/virt-manager]
-manager-window-height=1011
-manager-window-width=556
-
-[org/virt-manager/virt-manager/confirm]
-delete-storage=true
-forcepoweroff=true
-removedev=true
-unapplied-dev=true
-
-[org/virt-manager/virt-manager/connections]
-autoconnect=['qemu:///system']
-uris=['qemu:///system']
-
-[org/virt-manager/virt-manager/conns/qemu:system]
-window-size=(800, 1011)
-
-[org/virt-manager/virt-manager/details]
-show-toolbar=true
-
-[org/virt-manager/virt-manager/new-vm]
-graphics-type='system'
-
-[org/virt-manager/virt-manager/paths]
-image-default='/home/pavlem/Downloads/metasploitable-linux-2.0.0/Metasploitable2-Linux'
-media-default='/home/pavlem/Downloads/metasploitable-linux-2.0.0/Metasploitable2-Linux'
-
-[org/virt-manager/virt-manager/urls]
-isos=['/home/pavlem/Downloads/metasploitable-linux-2.0.0/Metasploitable2-Linux/metasploitable2.qcow2', '/home/pavlem/Downloads/metasploitable-linux-2.0.0/Metasploitable2-Linux/Metasploitable.vmdk', '/home/pavlem/Downloads/Fedora-Sway-Live-x86_64-43-1.6.iso', '/home/pavlem/Downloads/kali-linux-2025.4-qemu-amd64.qcow2']
-
-[org/virt-manager/virt-manager/vmlist-fields]
-disk-usage=false
-network-traffic=false
-
-[org/virt-manager/virt-manager/vms/0a365a700dd74a8ba331188689b98f35]
-autoconnect=1
-vm-window-size=(958, 1011)
-
-[org/virt-manager/virt-manager/vms/354b2adaae7942a1bd0015a0cdc04539]
-autoconnect=1
-vm-window-size=(1280, 1011)
-
-[org/virt-manager/virt-manager/vms/55c87cf4b8744d428a04a33c2765f2a9]
-autoconnect=1
-vm-window-size=(1280, 1011)
-
-[org/virt-manager/virt-manager/vms/63c8989d13de4a968e907ff0589aa03a]
-autoconnect=1
-vm-window-size=(1280, 1011)
-
-[org/virt-manager/virt-manager/vms/73696fe799e44b189cff2f2483e43658]
-autoconnect=1
-vm-window-size=(958, 1011)
-
-[org/virt-manager/virt-manager/vms/aa9c13e614d042eaa03931a4ae5238d5]
-autoconnect=1
-vm-window-size=(958, 1011)
-
-[org/virt-manager/virt-manager/vms/b208fdd42a7b4443af967003b3952064]
-autoconnect=1
-vm-window-size=(1157, 1011)
-
-[org/virt-manager/virt-manager/vms/f6ec2eba47264692a5be6b6c4520488e]
-autoconnect=1
-vm-window-size=(1280, 1011)
-
-[org/virt-manager/virt-manager/vms/faf2b33551284634bd41da46ab6bd284]
-autoconnect=1
-vm-window-size=(1280, 1011)
 
 [system/proxy]
 mode='none'

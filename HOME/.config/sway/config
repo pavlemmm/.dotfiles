@@ -14,7 +14,7 @@ include ~/.config/sway/modules/binds.conf
 include ~/.config/sway/modules/workspaces.conf
 
 # Outputs
-# include ~/.config/sway/modules/outputs.conf
+include ~/.config/sway/modules/outputs.conf
 
 # Layouts
 include ~/.config/sway/modules/layout.conf

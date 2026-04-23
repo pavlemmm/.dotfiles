@@ -41,7 +41,7 @@
     ############################
     # Web Browsers
     ############################
-    chromium
+    # chromium
     librewolf
     brave
     # inputs.zen-browser.packages.${pkgs.system}.default
@@ -49,7 +49,7 @@
     ############################
     # Desktop applications
     ############################
-    # krita
+    krita
     # gparted
     onlyoffice-desktopeditors
     discord
