@@ -24,7 +24,9 @@
             "org.gnome.TextEditor",
             "org.gnome.Nautilus",
             "startcenter",
-            "org.gnome.Calculator"
+            "org.gnome.Calculator",
+            "librewolf",
+            "brave-browser"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -537,7 +539,7 @@
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "grid"
+        "wifiDetailsViewMode": "list"
     },
     "nightLight": {
         "autoSchedule": false,

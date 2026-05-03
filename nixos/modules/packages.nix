@@ -28,6 +28,7 @@
     lua-language-server
     typescript-language-server
     pyright
+    clang-tools
     nil
     tailwindcss-language-server
     emmet-ls

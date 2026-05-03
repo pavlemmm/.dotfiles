@@ -1,4 +1,4 @@
-local servers = { "lua_ls", "ts_ls", "pyright", "tailwindcss", "html", "cssls", "emmet_ls" }
+local servers = { "lua_ls", "ts_ls", "pyright", "tailwindcss", "html", "cssls", "emmet_ls", "clangd" }
 
 -- Install LSP with Mason
 -- require("mason").setup()
