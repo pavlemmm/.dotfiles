@@ -10,7 +10,9 @@
     # IDEs and Tools
     ############################
     # Terminals
-    ghostty
+    wezterm
+    # ghostty
+    # alacritty
 
     # IDEs
     neovim
@@ -91,6 +93,11 @@
     ############################
     # Gnome
     gnome-tweaks
+
+    # KDE
+    qalculate-qt # qt calculator
+    libsForQt5.qt5ct # styling for qt5
+    qt6Packages.qt6ct # styling for qt6
 
     ############################
     # Fonts

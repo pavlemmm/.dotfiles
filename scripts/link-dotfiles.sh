@@ -60,6 +60,7 @@ link_manual() {
   
   # link_cfg alacritty
   link_cfg ghostty
+  # link_cfg wezterm
 
   echo "Dotfiles linked manually"
 }

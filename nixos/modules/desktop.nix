@@ -33,12 +33,12 @@
   ############################################################
 
   services.displayManager = {
-    # ly.enable = true;
-    # ly.x11Support = false;
+    ly.enable = true;
+    ly.x11Support = false;
     # sddm.enable = true;
     # sddm.wayland.enable = true;
-    gdm.enable = true;
-    gdm.wayland = true;
+    # gdm.enable = true;
+    # gdm.wayland = true;
   };
 
   ############################################################
@@ -46,10 +46,10 @@
   ############################################################
 
   # Enable the GNOME Desktop Environment
-  services.desktopManager.gnome.enable = true;
+  # services.desktopManager.gnome.enable = true;
 
   # Enable the KDE Plasma Desktop Environment
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
   
   # Enable the Sway Window Manager
   programs.sway.enable = true;
@@ -90,10 +90,14 @@
     ELECTRON_OZONE_PLATFORM_HINT = "wayland"; # Electron
     MOZ_ENABLE_WAYLAND = "1"; # Firefox
     NIXOS_OZONE_WL = "1"; # Electron
-    
+
     # Java GUI fix
     _JAVA_AWT_WM_NONREPARENTING = "1";
-    
+
+    # Qt and KDE apps styling and fix
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    XDG_MENU_PREFIX = "plasma-";
+
     # Cursor
     XCURSOR_SIZE = "20";
   };
