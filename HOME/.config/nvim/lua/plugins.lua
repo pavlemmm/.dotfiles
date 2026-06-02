@@ -24,6 +24,7 @@ vim.pack.add({
 
   -- FILE EXPLORER
   "https://github.com/nvim-mini/mini.files.git",
+  "https://github.com/stevearc/oil.nvim",
 
   -- COLORIZER
   "https://github.com/uga-rosa/ccc.nvim.git",

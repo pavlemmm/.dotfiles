@@ -116,12 +116,14 @@ end
 -- Terminal
 
 local t = "t"
-keymap.set(t, "<Esc>", "<C-\\><C-n>") --  escape terminal
+keymap.set(t, "<Esc>", "<C-\\><C-n>") -- escape terminal
 
 --------------------------
 -- Explorer
 
--- keymap.set(n, "<leader>e", ":Explore<CR>") - default explorer (Netrw file explorer)
+-- keymap.set(n, "<leader>e", ":Explore<CR>") -- default explorer (Netrw file explorer)
+
+keymap.set(n, "<leader>E", ":Oil<CR>") -- Oil file explorer
 
 -- MiniFiles explorer
 keymap.set(nvx, "<leader>e", function()

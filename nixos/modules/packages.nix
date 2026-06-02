@@ -70,8 +70,9 @@
     oh-my-posh
     fzf
     eza
-    bat
     fastfetch
+    bat # better cat cmd
+    btop-rocm # better top, rocm=amd cuda=nvidia
     efibootmgr # efi boot tool
     exfatprogs # mkfs.exfat tool
     wl-clipboard # wayland clipboard
@@ -95,15 +96,29 @@
     gnome-tweaks
 
     # KDE
-    qalculate-qt # qt calculator
-    libsForQt5.qt5ct # styling for qt5
-    qt6Packages.qt6ct # styling for qt6
-
-    ############################
-    # Fonts
-    ############################
-    nerd-fonts.jetbrains-mono
+    # qalculate-qt # qt calculator
+    # libsForQt5.qt5ct # styling for qt5
+    # qt6Packages.qt6ct # styling for qt6
+    # mission-center # system monitor replacement for WMs
   ];
+
+  ############################
+  # Fonts
+  ############################
+  fonts = {
+    fontconfig.defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
+      };
+
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      nerd-fonts.jetbrains-mono
+    ];
+  };
 
   programs.steam = {
     enable = true;

@@ -15,7 +15,7 @@ return {
 
   -- Window
   -- adjust_window_size_when_changing_font_size = false,
-  -- window_close_confirmation = "NeverPrompt", -- confirm-close-surface = false
+  window_close_confirmation = "NeverPrompt", -- disable close confirmation
   hide_tab_bar_if_only_one_tab = true,
 
   -- Opacity
