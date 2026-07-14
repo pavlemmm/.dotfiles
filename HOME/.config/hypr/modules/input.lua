@@ -1,5 +1,3 @@
-local hl = require("hyprland")
-
 hl.set("input", {
   kb_layout = "us,rs,rs",
   kb_variant = ",latin,",

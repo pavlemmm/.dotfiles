@@ -33,12 +33,11 @@
   ############################################################
 
   services.displayManager = {
-    ly.enable = true;
-    ly.x11Support = false;
+    # ly.enable = true;
+    # ly.x11Support = false;
     # sddm.enable = true;
     # sddm.wayland.enable = true;
-    # gdm.enable = true;
-    # gdm.wayland = true;
+    gdm.enable = true;
   };
 
   ############################################################
@@ -74,9 +73,10 @@
     enable = true;
     # wlr.enable = true;
     extraPortals = with pkgs; [
-      # xdg-desktop-portal-gnome
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
+    config.common.default = [ "gtk" ];
   };
 
   ############################################################

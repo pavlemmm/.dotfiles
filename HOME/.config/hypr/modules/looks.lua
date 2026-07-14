@@ -1,5 +1,3 @@
-local hl = require("hyprland")
-
 hl.set("general", {
   gaps_in = 0,
   gaps_out = 0,

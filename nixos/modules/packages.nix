@@ -47,12 +47,13 @@
     # chromium
     librewolf
     brave
-    # inputs.zen-browser.packages.${pkgs.system}.default
 
     ############################
     # Desktop applications
     ############################
-    krita
+    # gimp
+    # krita
+    pinta
     # gparted
     onlyoffice-desktopeditors
     discord

@@ -82,14 +82,12 @@
   ############################################################
 
   nix.settings = {
-    substituters = [
-      "https://cache.nixos.org/"
+    extra-substituters = [
       "https://nix-community.cachix.org"
     ];
 
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypb6Zp5ZrF5d1mXzV2o1kZyZ4s0="
-      "nix-community.cachix.org-1:mB9Fs7Z2Z8M0R1fQ4P0Z3r3m2P6wX9cF2q1sQ3kXz1A="
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 }

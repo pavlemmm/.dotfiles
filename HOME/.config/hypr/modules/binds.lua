@@ -1,9 +1,8 @@
-local hl = require("hyprland")
 local prog = require("modules/programs")
 local mainMod = "SUPER"
 
 -- Launchers
-hl.bind(mainMod, "RETURN", "exec", prog.terminal)
+hl.bind(mainMod .. " + RETURN", "exec", prog.terminal)
 hl.bind(mainMod, "Q", "exec", prog.browser)
 
 -- Noctalia Shell IPC

@@ -1,5 +1,3 @@
-local hl = require("hyprland")
-
 -- Layout
 hl.set("general", {
   layout = "scrolling"

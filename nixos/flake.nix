@@ -2,10 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # scroll.url = "github:AsahiRocks/scroll-flake";
-
-    # zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
     # home-manager = {
     #   url = "github:nix-community/home-manager";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -29,9 +25,6 @@
           #
           #   home-manager.users.pavlem = import ./home/pavlem;
           # }
-
-          ## Enable Scroll WM
-          # inputs.scroll.nixosModules.default
         ];
       };
     };
