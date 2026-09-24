@@ -1,5 +1,7 @@
-hl.exec_once("noctalia-shell")
+hl.on("hyprland.start", function()
+  hl.exec_cmd("noctalia-shell")
 
--- hl.exec_once("systemctl --user start hyprpolkitagent")
--- hl.exec_once("hyprsunset")
--- hl.exec_once("hypridle")
+  -- hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  -- hl.exec_cmd("hyprsunset")
+  -- hl.exec_cmd("hypridle")
+end)

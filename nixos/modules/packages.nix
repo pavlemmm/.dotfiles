@@ -18,6 +18,7 @@
     neovim
     zed-editor
     # code-cursor
+    tmux
     # vscode
 
     # Dev Tools
@@ -59,6 +60,7 @@
     discord
     transmission_4-gtk
     vlc
+    viber
 
     ############################
     # CLI utilities
@@ -75,6 +77,7 @@
     bat # better cat cmd
     btop-rocm # better top, rocm=amd cuda=nvidia
     efibootmgr # efi boot tool
+    unar # unzip rar, zip, gzip, tar, 7z
     exfatprogs # mkfs.exfat tool
     wl-clipboard # wayland clipboard
     # libnotify # lib for sending notifications
@@ -102,6 +105,9 @@
     # qt6Packages.qt6ct # styling for qt6
     # mission-center # system monitor replacement for WMs
   ];
+
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
 
   ############################
   # Fonts

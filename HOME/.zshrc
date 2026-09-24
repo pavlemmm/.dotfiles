@@ -134,8 +134,8 @@ alias c='clear'
 
 # NixOS
 alias ns='sudo nixos-rebuild switch --flake /etc/nixos\#$(hostname)'
-alias nc='nvim /etc/nixos/modules/packages.nix'
-alias nf='nvim /etc/nixos/'
+alias nc='nvim /etc/nixos/'
+alias nf='cd /etc/nixos/ && nix flake update'
 
 ########################################
 # YAZI FILE MANAGER INTEGRATION

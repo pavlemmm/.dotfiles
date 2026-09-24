@@ -17,10 +17,9 @@ hl.monitor({
 
 -- Workspace mapping (1-5 on mon1, 6-10 on mon2)
 for i = 1, 5 do
-  hl.workspace(tostring(i), "monitor:" .. mon1)
+  hl.workspace_rule({ workspace = tostring(i), monitor = mon1 })
 end
 
 for i = 6, 10 do
-  local ws = i == 10 and "0" or tostring(i)
-  hl.workspace(ws, "monitor:" .. mon2)
+  hl.workspace_rule({ workspace = tostring(i), monitor = mon2 })
 end

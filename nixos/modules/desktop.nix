@@ -53,17 +53,8 @@
   # Enable the Sway Window Manager
   programs.sway.enable = true;
 
-  # Enable the Niri Window Manager
-  # programs.niri.enable = true;
-
   # Enable the Hyprland Window Manager
-  # programs.hyprland.enable = true;
-
-  # Enable the Scroll Window Manager
-  # programs.scroll = {
-  #   enable = true;
-  #   package = inputs.scroll.packages.${pkgs.stdenv.hostPlatform.system}.scroll-stable;
-  # };
+  programs.hyprland.enable = true;
 
   ############################################################
   # Portals (file pickers, screen sharing, etc.)
@@ -113,6 +104,14 @@
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
+
+  ############################################################
+  # SSH
+  ############################################################
+
+  # services.openssh.enable = true;
+  # services.openssh.settings.PasswordAuthentication = true;
+  services.tailscale.enable = true;
 
   ############################################################
   # Other services

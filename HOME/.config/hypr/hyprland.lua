@@ -6,5 +6,3 @@ require("modules/looks")
 require("modules/workspaces")
 require("modules/binds")
 require("modules/autostart")
-
--- hl.source("~/.config/hypr/noctalia/noctalia-colors.conf")
